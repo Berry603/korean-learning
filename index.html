@@ -7332,7 +7332,7 @@ function renderNumbers() {
   html += '<div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px">用于：日期、时间(分/秒)、电话号码、价格、楼层</div>';
   html += '<div style="display:flex;flex-wrap:wrap;gap:6px">';
   NUMBERS.sino.forEach(function(n) {
-    html += '<div style="background:var(--bg);padding:6px 10px;border-radius:20px;font-size:12px;cursor:pointer" onclick="speak(\'' + n.ko.replace(/'/g,"\\'") + '\')" title="朗读"><b>' + n.ko + '</b></div>';
+    html += '<div style="background:var(--bg);padding:6px 10px;border-radius:20px;font-size:12px;cursor:pointer" onclick="speak(\'' + n.ko.replace(/'/g,"\\'") + '\')" title="朗读"><b>' + n.ko + '</b> <span style="color:var(--text-light);font-size:10px;font-style:italic">' + n.roman + '</span> ' + n.cn + '</div>';
   });
   html += '</div></div>';
   
@@ -7342,7 +7342,7 @@ function renderNumbers() {
   html += '<div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px">用于：数量、年龄、小时、次数</div>';
   html += '<div style="display:flex;flex-wrap:wrap;gap:6px">';
   NUMBERS.native.forEach(function(n) {
-    html += '<div style="background:var(--bg);padding:6px 10px;border-radius:20px;font-size:12px;cursor:pointer" onclick="speak(\'' + n.ko.replace(/'/g,"\\'") + '\')" title="朗读"><b>' + n.ko + '</b></div>';
+    html += '<div style="background:var(--bg);padding:6px 10px;border-radius:20px;font-size:12px;cursor:pointer" onclick="speak(\'' + n.ko.replace(/'/g,"\\'") + '\')" title="朗读"><b>' + n.ko + '</b> <span style="color:var(--text-light);font-size:10px;font-style:italic">' + n.roman + '</span> ' + n.cn + '</div>';
   });
   html += '</div></div>';
   
