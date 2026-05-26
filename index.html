@@ -6848,9 +6848,11 @@ function startSRS() {
   srsIndex = 0; srsTodayCount = 0;
   if (srsQueue.length === 0) {
     document.getElementById('reviewContent').innerHTML = '<div class="error-empty"><div style="font-size:48px">🎉</div><div style="font-size:16px;font-weight:600;margin:8px 0">今天没有需要复习的单词</div><div style="color:var(--text-secondary)">明天再来吧！</div></div>';
+    renderReviewNav();
     return;
   }
   renderSRSCard();
+  renderReviewNav();
 }
 
 function renderSRSCard() {
@@ -6914,9 +6916,11 @@ function startErrorReview() {
   reviewMode = 'error';
   if (!appData.errorWords || Object.keys(appData.errorWords).length === 0) {
     document.getElementById('reviewContent').innerHTML = '<div class="error-empty"><div style="font-size:48px">✨</div><div style="font-size:16px;font-weight:600;margin:8px 0">没有错题记录</div><div style="color:var(--text-secondary)">做几次测验后就有啦！</div></div>';
+    renderReviewNav();
     return;
   }
   renderErrorReview();
+  renderReviewNav();
 }
 
 function renderErrorReview() {
@@ -7078,6 +7082,7 @@ function startFlashcard() {
   fcQueue = fcQueue.slice(0, 20);
   fcIndex = 0; fcKnown = 0; fcUnknown = 0;
   renderFlashcard();
+  renderReviewNav();
 }
 
 function renderFlashcard() {
@@ -7138,6 +7143,7 @@ function renderQuizSettings() {
     
     + '<button class="qs-start-btn" onclick="startCustomQuiz()">🚀 开始测验</button>'
     + '</div>';
+  renderReviewNav();
 }
 
 function setQuizLength(n) { quizSettings.length = n; renderQuizSettings(); }
@@ -7360,6 +7366,7 @@ function renderNumbers() {
   html += '</div>';
   
   page.innerHTML = html;
+  renderReviewNav();
 }
 
 // --- HANJA ---
@@ -7392,6 +7399,7 @@ function renderHanja() {
   });
   
   page.innerHTML = html;
+  renderReviewNav();
 }
 
 // --- IDIOMS ---
@@ -7417,6 +7425,7 @@ function renderIdioms() {
     html += '</div>';
   });
   page.innerHTML = html;
+  renderReviewNav();
 }
 
 var idiomTag = '全部';
@@ -7453,6 +7462,7 @@ function renderDialogues() {
   html += '</div>';
   
   page.innerHTML = html;
+  renderReviewNav();
 }
 
 // --- READINGS ---
@@ -7496,6 +7506,7 @@ function renderReadings() {
   });
   
   page.innerHTML = html;
+  renderReviewNav();
 }
 
 var readingAnswers = {};
@@ -7534,6 +7545,7 @@ function renderSlang() {
   html += '</div>';
   
   page.innerHTML = html;
+  renderReviewNav();
 }
 
 var slangCat = '全部';
@@ -7555,15 +7567,21 @@ function renderCulture() {
   });
   
   page.innerHTML = html;
+  renderReviewNav();
 }
 
 // ============================================================
 // UPDATED REVIEW RENDERER — with content tabs
 // ============================================================
-var origRenderReview = renderReview;
-renderReview = function() {
-  var page = document.getElementById('pageReview');
-  page.innerHTML = '<div class="review-header">'
+function renderReviewNav() {
+  var pageReview = document.getElementById('pageReview');
+  var nav = pageReview.querySelector('.review-nav');
+  if (!nav) {
+    nav = document.createElement('div');
+    nav.className = 'review-nav';
+    pageReview.insertBefore(nav, pageReview.firstChild);
+  }
+  nav.innerHTML = '<div class="review-header">'
     + '<div class="review-mode-btn' + (reviewMode === 'srs' ? ' active' : '') + '" onclick="startSRS()"><div class="rm-icon">🔄</div><div class="rm-label">间隔重复</div></div>'
     + '<div class="review-mode-btn' + (reviewMode === 'flashcard' ? ' active' : '') + '" onclick="startFlashcard()"><div class="rm-icon">🃏</div><div class="rm-label">闪卡复习</div></div>'
     + '<div class="review-mode-btn' + (reviewMode === 'error' ? ' active' : '') + '" onclick="startErrorReview()"><div class="rm-icon">❌</div><div class="rm-label">错题回顾</div></div>'
@@ -7580,9 +7598,16 @@ renderReview = function() {
     + '<div class="review-mode-btn' + (reviewMode === 'readings' ? ' active' : '') + '" onclick="renderReadings()"><div class="rm-icon">📖</div><div class="rm-label">分级阅读</div></div>'
     + '<div class="review-mode-btn' + (reviewMode === 'slang' ? ' active' : '') + '" onclick="renderSlang()"><div class="rm-icon">💻</div><div class="rm-label">网络用语</div></div>'
     + '<div class="review-mode-btn' + (reviewMode === 'culture' ? ' active' : '') + '" onclick="renderCulture()"><div class="rm-icon">🇰🇷</div><div class="rm-label">文化笔记</div></div>'
-    + '</div>'
+    + '</div>';
+}
+
+var origRenderReview = renderReview;
+renderReview = function() {
+  var pageReview = document.getElementById('pageReview');
+  pageReview.innerHTML = '<div class="review-nav"></div>'
     + '<div id="reviewContent"><div style="text-align:center;padding:60px 20px;color:var(--text-secondary)"><div style="font-size:48px;margin-bottom:12px">👆</div><div style="font-size:16px;font-weight:600;margin-bottom:8px">选择一个模式开始学习</div><div style="font-size:13px">点击上方按钮选择复习或学习模式</div></div></div>';
-  };
+  renderReviewNav();
+};
 
 // WORD LISTENING - TTS Korean + Chinese loop playback
 var listenState = { words: [], index: 0, loop: 3, loopNow: 0, cats: [], running: false, paused: false };
@@ -7610,6 +7635,7 @@ function startListenSetup() {
     + '</div>'
     + '<button class="listen-btn start" onclick="startListenPlay()" style="width:100%;padding:12px">\u25B6 \u5F00\u59CB\u64AD\u653E</button>'
     + '</div>';
+  renderReviewNav();
 }
 
 function toggleListenCat(el) {
