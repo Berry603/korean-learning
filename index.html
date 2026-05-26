@@ -90,7 +90,7 @@ html, body {
 .main {
   flex: 1;
   overflow-y: auto;
-  overflow-x: hidden;
+  overflow-x: clip;
   padding-bottom: calc(var(--tab-height) + 16px);
   -webkit-overflow-scrolling: touch;
 }
@@ -312,12 +312,19 @@ html, body {
 /* ============ Alphabet Page ============ */
 .category-tabs {
   display: flex;
+  flex-wrap: nowrap;
   gap: 8px;
   margin-bottom: 16px;
   overflow-x: auto;
-  padding-bottom: 4px;
+  padding-bottom: 6px;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  max-width: 100%;
 }
-.category-tabs::-webkit-scrollbar { display: none; }
+.category-tabs::-webkit-scrollbar { height: 5px; }
+.category-tabs::-webkit-scrollbar-track { background: #F1F5F9; border-radius: 3px; }
+.category-tabs::-webkit-scrollbar-thumb { background: #94A3B8; border-radius: 3px; min-width: 30px; }
+.category-tabs::-webkit-scrollbar-thumb:hover { background: #64748B; }
 .cat-tab {
   padding: 8px 16px;
   border-radius: 20px;
@@ -451,12 +458,14 @@ html, body {
 
 .words-filter {
   display: flex;
+  flex-wrap: nowrap;
   gap: 6px;
   margin-bottom: 14px;
   overflow-x: auto;
   padding-bottom: 6px;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
+  max-width: 100%;
 }
 .words-filter::-webkit-scrollbar { height: 5px; }
 .words-filter::-webkit-scrollbar-track { background: #F1F5F9; border-radius: 3px; }
@@ -1272,6 +1281,32 @@ html, body {
 .fc-btn.known { border-color: #10B981; color: #10B981; background: #F0FDF4; }
 .fc-btn:active { transform: scale(0.9); }
 .fc-progress { text-align: center; font-size: 13px; color: var(--text-secondary); margin-top: 8px; }
+
+
+.listen-setup { padding: 12px 0; }
+.listen-setup h3 { font-size: 15px; font-weight: 600; margin-bottom: 10px; }
+.listen-cats { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+.listen-cat { padding: 5px 10px; border-radius: 16px; font-size: 12px; border: 1px solid var(--border); background: var(--bg); cursor: pointer; transition: all .15s; user-select: none; }
+.listen-cat.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+.listen-select-row { display: flex; gap: 8px; margin-bottom: 14px; font-size: 12px; }
+.listen-select-row a { color: var(--primary); cursor: pointer; }
+.listen-loop-row { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+.listen-loop-row label { font-size: 14px; font-weight: 500; }
+.listen-loop-row select { padding: 6px 10px; border-radius: 8px; border: 1px solid var(--border); font-size: 14px; background: var(--bg); color: var(--text); }
+.listen-card { background: var(--card); border-radius: var(--radius); padding: 24px 20px; text-align: center; margin-bottom: 16px; min-height: 120px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; }
+.listen-korean { font-size: 32px; font-weight: 700; color: var(--primary); }
+.listen-chinese { font-size: 20px; color: var(--text-secondary); }
+.listen-roman { font-size: 14px; color: var(--text-tertiary); }
+.listen-progress { text-align: center; font-size: 13px; color: var(--text-secondary); margin-bottom: 10px; }
+.listen-progress span { font-weight: 600; color: var(--primary); }
+.listen-ctrls { display: flex; gap: 10px; justify-content: center; margin-top: 12px; flex-wrap: wrap; }
+.listen-btn { padding: 10px 18px; border-radius: 24px; border: none; font-size: 14px; font-weight: 500; cursor: pointer; transition: all .15s; }
+.listen-btn.start { background: var(--primary); color: #fff; }
+.listen-btn.pause { background: #F59E0B; color: #fff; }
+.listen-btn.resume { background: #10B981; color: #fff; }
+.listen-btn.next { background: var(--bg); color: var(--text); border: 1px solid var(--border); }
+.listen-btn.stop { background: #EF4444; color: #fff; }
+.listen-status { font-size: 14px; color: var(--primary); margin-top: 4px; text-align: center; }
 
 </style>
 </head>
@@ -6807,7 +6842,7 @@ function startSRS() {
   srsQueue = getSRSReviewWords();
   srsIndex = 0; srsTodayCount = 0;
   if (srsQueue.length === 0) {
-    document.getElementById('pageReview').innerHTML = '<div class="error-empty"><div style="font-size:48px">🎉</div><div style="font-size:16px;font-weight:600;margin:8px 0">今天没有需要复习的单词</div><div style="color:var(--text-secondary)">明天再来吧！</div></div>';
+    document.getElementById('reviewContent').innerHTML = '<div class="error-empty"><div style="font-size:48px">🎉</div><div style="font-size:16px;font-weight:600;margin:8px 0">今天没有需要复习的单词</div><div style="color:var(--text-secondary)">明天再来吧！</div></div>';
     return;
   }
   renderSRSCard();
@@ -6815,7 +6850,7 @@ function startSRS() {
 
 function renderSRSCard() {
   if (srsIndex >= srsQueue.length) {
-    document.getElementById('pageReview').innerHTML = '<div class="error-empty"><div style="font-size:48px">🎊</div><div style="font-size:16px;font-weight:600;margin:8px 0">复习完成！</div><div style="color:var(--text-secondary)">今天复习了 ' + srsTodayCount + ' 个单词</div><button class="qs-start-btn" onclick="startSRS()" style="margin-top:16px">再来一轮</button></div>';
+    document.getElementById('reviewContent').innerHTML = '<div class="error-empty"><div style="font-size:48px">🎊</div><div style="font-size:16px;font-weight:600;margin:8px 0">复习完成！</div><div style="color:var(--text-secondary)">今天复习了 ' + srsTodayCount + ' 个单词</div><button class="qs-start-btn" onclick="startSRS()" style="margin-top:16px">再来一轮</button></div>';
     appData.srsStreak = (appData.srsStreak || 0) + 1;
     saveData(appData);
     return;
@@ -6823,7 +6858,7 @@ function renderSRSCard() {
   var w = WORDS.find(function(x) { return x.id === srsQueue[srsIndex]; });
   if (!w) { srsIndex++; renderSRSCard(); return; }
   var d = getSRSData(w.id);
-  var page = document.getElementById('pageReview');
+  var page = document.getElementById('reviewContent');
   page.innerHTML = '<div style="margin-bottom:12px;text-align:center;font-size:13px;color:var(--text-secondary)">间隔重复 · SRS 复习 <span style="font-weight:600;color:var(--primary)">' + (srsIndex + 1) + '/' + srsQueue.length + '</span></div>'
     + '<div class="srs-card" id="srsCard" onclick="revealSRS()">'
     + '<div class="srs-korean">' + w.korean + '</div>'
@@ -6873,7 +6908,7 @@ function clearErrorWord(wordId) {
 function startErrorReview() {
   reviewMode = 'error';
   if (!appData.errorWords || Object.keys(appData.errorWords).length === 0) {
-    document.getElementById('pageReview').innerHTML = '<div class="error-empty"><div style="font-size:48px">✨</div><div style="font-size:16px;font-weight:600;margin:8px 0">没有错题记录</div><div style="color:var(--text-secondary)">做几次测验后就有啦！</div></div>';
+    document.getElementById('reviewContent').innerHTML = '<div class="error-empty"><div style="font-size:48px">✨</div><div style="font-size:16px;font-weight:600;margin:8px 0">没有错题记录</div><div style="color:var(--text-secondary)">做几次测验后就有啦！</div></div>';
     return;
   }
   renderErrorReview();
@@ -6884,7 +6919,7 @@ function renderErrorReview() {
     startErrorReview(); return;
   }
   var entries = Object.entries(appData.errorWords).sort(function(a,b) { return b[1] - a[1]; });
-  var page = document.getElementById('pageReview');
+  var page = document.getElementById('reviewContent');
   var html = '<div style="margin-bottom:12px;font-size:14px;font-weight:600">❌ 错题本 (' + entries.length + '词)</div>'
     + '<button class="qs-start-btn" onclick="startErrorQuiz()" style="margin-bottom:16px">🎯 开始错题测验</button>'
     + '<div class="error-list">';
@@ -6917,13 +6952,13 @@ function startErrorQuiz() {
 
 function showErrorQuizQuestion() {
   if (errorQuizState.index >= errorQuizState.total) {
-    document.getElementById('pageReview').innerHTML = '<div class="error-empty"><div style="font-size:48px">🏆</div><div style="font-size:18px;font-weight:600;margin:8px 0">错题测验完成！</div><div style="font-size:24px;font-weight:700;color:var(--primary)">' + errorQuizState.score + '/' + errorQuizState.total + '</div><button class="qs-start-btn" onclick="renderErrorReview()" style="margin-top:16px">返回</button></div>';
+    document.getElementById('reviewContent').innerHTML = '<div class="error-empty"><div style="font-size:48px">🏆</div><div style="font-size:18px;font-weight:600;margin:8px 0">错题测验完成！</div><div style="font-size:24px;font-weight:700;color:var(--primary)">' + errorQuizState.score + '/' + errorQuizState.total + '</div><button class="qs-start-btn" onclick="renderErrorReview()" style="margin-top:16px">返回</button></div>';
     return;
   }
   var w = errorQuizState.words[errorQuizState.index];
   var others = WORDS.filter(function(x) { return x.id !== w.id; }).sort(function() { return Math.random() - 0.5; }).slice(0, 3);
   var opts = [w].concat(others).sort(function() { return Math.random() - 0.5; });
-  var page = document.getElementById('pageReview');
+  var page = document.getElementById('reviewContent');
   page.innerHTML = '<div style="text-align:center;margin-bottom:8px;font-size:13px;color:var(--text-secondary)">' + (errorQuizState.index + 1) + '/' + errorQuizState.total + '</div>'
     + '<div style="text-align:center;font-size:32px;font-weight:700;margin:20px 0">' + w.korean + '</div>'
     + '<div style="text-align:center;font-size:14px;color:var(--text-light);margin-bottom:16px">[' + w.roman + ']</div>'
@@ -7042,11 +7077,11 @@ function startFlashcard() {
 
 function renderFlashcard() {
   if (fcIndex >= fcQueue.length) {
-    document.getElementById('pageReview').innerHTML = '<div class="error-empty"><div style="font-size:48px">📊</div><div style="font-size:18px;font-weight:600;margin:8px 0">闪卡复习完成！</div><div style="display:flex;gap:24px;justify-content:center;margin:16px 0"><div style="text-align:center"><div style="font-size:28px;color:#10B981">' + fcKnown + '</div><div style="font-size:12px;color:var(--text-secondary)">认识</div></div><div style="text-align:center"><div style="font-size:28px;color:#EF4444">' + fcUnknown + '</div><div style="font-size:12px;color:var(--text-secondary)">不认识</div></div></div><button class="qs-start-btn" onclick="startFlashcard()" style="margin-top:8px">再来一轮</button></div>';
+    document.getElementById('reviewContent').innerHTML = '<div class="error-empty"><div style="font-size:48px">📊</div><div style="font-size:18px;font-weight:600;margin:8px 0">闪卡复习完成！</div><div style="display:flex;gap:24px;justify-content:center;margin:16px 0"><div style="text-align:center"><div style="font-size:28px;color:#10B981">' + fcKnown + '</div><div style="font-size:12px;color:var(--text-secondary)">认识</div></div><div style="text-align:center"><div style="font-size:28px;color:#EF4444">' + fcUnknown + '</div><div style="font-size:12px;color:var(--text-secondary)">不认识</div></div></div><button class="qs-start-btn" onclick="startFlashcard()" style="margin-top:8px">再来一轮</button></div>';
     return;
   }
   var w = fcQueue[fcIndex];
-  var page = document.getElementById('pageReview');
+  var page = document.getElementById('reviewContent');
   page.innerHTML = '<div style="text-align:center;font-size:13px;color:var(--text-secondary);margin-bottom:8px">闪卡 ' + (fcIndex + 1) + '/' + fcQueue.length + '</div>'
     + '<div class="flashcard" id="fcCard" onclick="flipFlashcard()">'
     + '<div class="fc-korean">' + w.korean + '</div>'
@@ -7084,7 +7119,7 @@ var quizSettings = { length: 10, type: 'meaning', categories: [] };
 
 function renderQuizSettings() {
   reviewMode = 'settings';
-  var page = document.getElementById('pageReview');
+  var page = document.getElementById('reviewContent');
   page.innerHTML = '<div class="quiz-settings">'
     + '<div style="font-size:16px;font-weight:600;margin-bottom:8px">⚙️ 测验设置</div>'
     
@@ -7134,7 +7169,7 @@ function showCustomMeaningQuestion() {
   var w = customQuizState.pool[customQuizState.index];
   var others = WORDS.filter(function(x) { return x.id !== w.id; }).sort(function() { return Math.random() - 0.5; }).slice(0, 3);
   var opts = [w].concat(others).sort(function() { return Math.random() - 0.5; });
-  var page = document.getElementById('pageReview');
+  var page = document.getElementById('reviewContent');
   page.innerHTML = '<div style="text-align:center;margin-bottom:8px;font-size:13px;color:var(--text-secondary)">' + (customQuizState.index + 1) + '/' + customQuizState.total + ' · 看韩选中</div>'
     + '<div style="text-align:center;font-size:32px;font-weight:700;margin:20px 0">' + w.korean + '</div>'
     + '<div style="text-align:center;font-size:14px;color:var(--text-light);margin-bottom:16px">[' + w.roman + ']</div>'
@@ -7163,7 +7198,7 @@ function showCustomListeningQuestion() {
   var w = customQuizState.pool[customQuizState.index];
   var others = WORDS.filter(function(x) { return x.id !== w.id; }).sort(function() { return Math.random() - 0.5; }).slice(0, 3);
   var opts = [w].concat(others).sort(function() { return Math.random() - 0.5; });
-  var page = document.getElementById('pageReview');
+  var page = document.getElementById('reviewContent');
   page.innerHTML = '<div style="text-align:center;margin-bottom:8px;font-size:13px;color:var(--text-secondary)">' + (customQuizState.index + 1) + '/' + customQuizState.total + ' · 听力选择</div>'
     + '<div style="text-align:center;margin:28px 0"><button onclick="speak(\'' + w.korean.replace(/'/g,"\\'") + '\')" style="width:72px;height:72px;border-radius:50%;background:var(--primary);color:#fff;border:none;font-size:30px;cursor:pointer">🔊</button></div>'
     + '<div style="display:flex;flex-direction:column;gap:8px">'
@@ -7183,7 +7218,7 @@ function startCustomSpellingQuiz(pool) {
 function showCustomSpellingQuestion() {
   if (customQuizState.index >= customQuizState.total) { showCustomQuizResult(); return; }
   var w = customQuizState.pool[customQuizState.index];
-  var page = document.getElementById('pageReview');
+  var page = document.getElementById('reviewContent');
   page.innerHTML = '<div style="text-align:center;margin-bottom:8px;font-size:13px;color:var(--text-secondary)">' + (customQuizState.index + 1) + '/' + customQuizState.total + ' · 拼写练习</div>'
     + '<div style="text-align:center;font-size:22px;font-weight:600;margin:20px 0">' + w.chinese + '</div>'
     + '<div style="text-align:center;font-size:13px;color:var(--text-light);margin-bottom:12px">请写出对应的韩语</div>'
@@ -7221,7 +7256,7 @@ function showCustomSentenceQuestion() {
   var s = customQuizState.pool[customQuizState.index];
   var others = SENTENCES.filter(function(x) { return x.id !== s.id; }).sort(function() { return Math.random() - 0.5; }).slice(0, 3);
   var opts = [s].concat(others).sort(function() { return Math.random() - 0.5; });
-  var page = document.getElementById('pageReview');
+  var page = document.getElementById('reviewContent');
   page.innerHTML = '<div style="text-align:center;margin-bottom:8px;font-size:13px;color:var(--text-secondary)">' + (customQuizState.index + 1) + '/' + customQuizState.total + ' · 句子翻译</div>'
     + '<div style="text-align:center;font-size:20px;font-weight:600;margin:20px 0;line-height:1.6">' + s.ko + '</div>'
     + '<div style="display:flex;flex-direction:column;gap:8px">'
@@ -7242,7 +7277,7 @@ function checkCustomSentenceAnswer(correctId, chosenId, btn) {
 function showCustomQuizResult() {
   var pct = Math.round(customQuizState.score / customQuizState.total * 100);
   var emoji = pct >= 90 ? '🏆' : pct >= 70 ? '😊' : pct >= 50 ? '💪' : '📚';
-  document.getElementById('pageReview').innerHTML = '<div class="error-empty"><div style="font-size:48px">' + emoji + '</div>'
+  document.getElementById('reviewContent').innerHTML = '<div class="error-empty"><div style="font-size:48px">' + emoji + '</div>'
     + '<div style="font-size:18px;font-weight:600;margin:8px 0">测验完成！</div>'
     + '<div style="font-size:32px;font-weight:700;color:var(--primary)">' + customQuizState.score + '/' + customQuizState.total + '</div>'
     + '<div style="font-size:14px;color:var(--text-secondary);margin:4px 0">正确率 ' + pct + '%</div>'
@@ -7255,7 +7290,7 @@ function showCustomQuizResult() {
 var reviewMode = 'srs';
 
 function renderReview() {
-  var page = document.getElementById('pageReview');
+  var page = document.getElementById('reviewContent');
   page.innerHTML = '<div class="review-header">'
     + '<div class="review-mode-btn' + (reviewMode === 'srs' ? ' active' : '') + '" onclick="startSRS()"><div class="rm-icon">🔄</div><div class="rm-label">间隔重复</div></div>'
     + '<div class="review-mode-btn' + (reviewMode === 'flashcard' ? ' active' : '') + '" onclick="startFlashcard()"><div class="rm-icon">🃏</div><div class="rm-label">闪卡复习</div></div>'
@@ -7283,7 +7318,7 @@ function renderReview() {
 // --- NUMBERS ---
 function renderNumbers() {
   reviewMode = 'numbers';
-  var page = document.getElementById('pageReview');
+  var page = document.getElementById('reviewContent');
   var html = '<div style="font-size:16px;font-weight:600;margin-bottom:12px">🔢 韩语数词系统</div>';
   
   // Sino-Korean
@@ -7325,7 +7360,7 @@ function renderNumbers() {
 // --- HANJA ---
 function renderHanja() {
   reviewMode = 'hanja';
-  var page = document.getElementById('pageReview');
+  var page = document.getElementById('reviewContent');
   var html = '<div style="font-size:16px;font-weight:600;margin-bottom:12px">📝 汉字词参考</div>';
   html += '<div style="font-size:12px;color:var(--text-secondary);margin-bottom:12px">韩语60%+词汇源自汉字，认识汉字词源可以大幅加速词汇记忆</div>';
   
@@ -7356,7 +7391,7 @@ function renderHanja() {
 // --- IDIOMS ---
 function renderIdioms() {
   reviewMode = 'idioms';
-  var page = document.getElementById('pageReview');
+  var page = document.getElementById('reviewContent');
   var html = '<div style="font-size:16px;font-weight:600;margin-bottom:8px">💬 韩语俗语谚语</div>';
   html += '<div class="words-filter" style="margin-bottom:12px">';
   var tags = ['全部','日常','人际','励志','礼仪'];
@@ -7384,7 +7419,7 @@ var dialogueScene = 0;
 
 function renderDialogues() {
   reviewMode = 'dialogues';
-  var page = document.getElementById('pageReview');
+  var page = document.getElementById('reviewContent');
   var html = '<div style="font-size:16px;font-weight:600;margin-bottom:12px">🎭 场景对话</div>';
   
   // Scene selector
@@ -7417,7 +7452,7 @@ var readingIdx = 0;
 
 function renderReadings() {
   reviewMode = 'readings';
-  var page = document.getElementById('pageReview');
+  var page = document.getElementById('reviewContent');
   var r = READINGS[readingIdx];
   var html = '<div style="font-size:16px;font-weight:600;margin-bottom:12px">📖 分级阅读</div>';
   
@@ -7467,7 +7502,7 @@ function checkReadingAnswer(qi, oi) {
 // --- SLANG ---
 function renderSlang() {
   reviewMode = 'slang';
-  var page = document.getElementById('pageReview');
+  var page = document.getElementById('reviewContent');
   var html = '<div style="font-size:16px;font-weight:600;margin-bottom:12px">💻 网络用语 & 新造词</div>';
   
   var cats = ['全部','聊天','缩写','感叹','口语','新造词','外来语','文化'];
@@ -7496,7 +7531,7 @@ var slangCat = '全部';
 // --- CULTURE ---
 function renderCulture() {
   reviewMode = 'culture';
-  var page = document.getElementById('pageReview');
+  var page = document.getElementById('reviewContent');
   var html = '<div style="font-size:16px;font-weight:600;margin-bottom:12px">🇰🇷 韩国文化笔记</div>';
   
   CULTURE.forEach(function(c) {
@@ -7523,6 +7558,7 @@ renderReview = function() {
     + '<div class="review-mode-btn' + (reviewMode === 'flashcard' ? ' active' : '') + '" onclick="startFlashcard()"><div class="rm-icon">🃏</div><div class="rm-label">闪卡复习</div></div>'
     + '<div class="review-mode-btn' + (reviewMode === 'error' ? ' active' : '') + '" onclick="startErrorReview()"><div class="rm-icon">❌</div><div class="rm-label">错题回顾</div></div>'
     + '<div class="review-mode-btn' + (reviewMode === 'settings' ? ' active' : '') + '" onclick="renderQuizSettings()"><div class="rm-icon">⚙️</div><div class="rm-label">测验设置</div></div>'
+    + '<div class="review-mode-btn' + (reviewMode === 'listen' ? ' active' : '') + '" onclick="startListenSetup()"><div class="rm-icon">🎧</div><div class="rm-label">听单词</div></div>'
     + '</div>'
     + '<div class="review-header" style="margin-top:0">'
     + '<div class="review-mode-btn' + (reviewMode === 'numbers' ? ' active' : '') + '" onclick="renderNumbers()"><div class="rm-icon">🔢</div><div class="rm-label">数词系统</div></div>'
@@ -7535,20 +7571,206 @@ renderReview = function() {
     + '<div class="review-mode-btn' + (reviewMode === 'slang' ? ' active' : '') + '" onclick="renderSlang()"><div class="rm-icon">💻</div><div class="rm-label">网络用语</div></div>'
     + '<div class="review-mode-btn' + (reviewMode === 'culture' ? ' active' : '') + '" onclick="renderCulture()"><div class="rm-icon">🇰🇷</div><div class="rm-label">文化笔记</div></div>'
     + '</div>'
-    + '<div id="reviewContent"></div>';
-  
-  if (reviewMode === 'srs') startSRS();
-  else if (reviewMode === 'flashcard') startFlashcard();
-  else if (reviewMode === 'error') startErrorReview();
-  else if (reviewMode === 'settings') renderQuizSettings();
-  else if (reviewMode === 'numbers') renderNumbers();
-  else if (reviewMode === 'hanja') renderHanja();
-  else if (reviewMode === 'idioms') renderIdioms();
-  else if (reviewMode === 'dialogues') renderDialogues();
-  else if (reviewMode === 'readings') renderReadings();
-  else if (reviewMode === 'slang') renderSlang();
-  else if (reviewMode === 'culture') renderCulture();
-};
+    + '<div id="reviewContent"><div style="text-align:center;padding:60px 20px;color:var(--text-secondary)"><div style="font-size:48px;margin-bottom:12px">👆</div><div style="font-size:16px;font-weight:600;margin-bottom:8px">选择一个模式开始学习</div><div style="font-size:13px">点击上方按钮选择复习或学习模式</div></div></div>';
+  };
+
+// WORD LISTENING - TTS Korean + Chinese loop playback
+var listenState = { words: [], index: 0, loop: 3, loopNow: 0, cats: [], running: false, paused: false };
+
+function startListenSetup() {
+  reviewMode = 'listen';
+  var page = document.getElementById('reviewContent');
+  listenState.cats = CATEGORIES.map(function(c) { return c.name; });
+  var catsHTML = CATEGORIES.map(function(c) {
+    return '<span class="listen-cat active" data-cat="' + c.name.replace(/"/g, '&quot;') + '" onclick="toggleListenCat(this)">' + c.name + '</span>';
+  }).join('');
+  page.innerHTML = '<div class="listen-setup">'
+    + '<h3>\uD83C\uDFA7 \u9009\u62E9\u5206\u7C7B & \u5FAA\u73AF\u904D\u6570</h3>'
+    + '<div class="listen-select-row"><a onclick="listenSelectAll()">\u5168\u9009</a> &middot; <a onclick="listenSelectNone()">\u5168\u4E0D\u9009</a></div>'
+    + '<div class="listen-cats" id="listenCats">' + catsHTML + '</div>'
+    + '<div class="listen-loop-row">'
+    + '<label>\u5FAA\u73AF</label>'
+    + '<select id="listenLoop" onchange="listenState.loop=parseInt(this.value)">'
+    + '<option value="1">1 \u904D</option>'
+    + '<option value="2">2 \u904D</option>'
+    + '<option value="3" selected>3 \u904D</option>'
+    + '<option value="5">5 \u904D</option>'
+    + '<option value="10">10 \u904D</option>'
+    + '</select>'
+    + '</div>'
+    + '<button class="listen-btn start" onclick="startListenPlay()" style="width:100%;padding:12px">\u25B6 \u5F00\u59CB\u64AD\u653E</button>'
+    + '</div>';
+}
+
+function toggleListenCat(el) {
+  el.classList.toggle('active');
+  var cat = el.getAttribute('data-cat');
+  var idx = listenState.cats.indexOf(cat);
+  if (idx === -1) listenState.cats.push(cat);
+  else listenState.cats.splice(idx, 1);
+}
+
+function listenSelectAll() {
+  var els = document.querySelectorAll('#listenCats .listen-cat');
+  for (var i = 0; i < els.length; i++) els[i].classList.add('active');
+  listenState.cats = CATEGORIES.map(function(c) { return c.name; });
+}
+
+function listenSelectNone() {
+  var els = document.querySelectorAll('#listenCats .listen-cat');
+  for (var i = 0; i < els.length; i++) els[i].classList.remove('active');
+  listenState.cats = [];
+}
+
+function startListenPlay() {
+  if (listenState.cats.length === 0) { alert('\u8BF7\u81F3\u5C11\u9009\u62E9\u4E00\u4E2A\u5206\u7C7B\uFF01'); return; }
+  var pool = [];
+  listenState.cats.forEach(function(cat) {
+    WORDS.forEach(function(w) { if (w.category === cat) pool.push(w); });
+  });
+  if (pool.length === 0) { alert('\u6240\u9009\u5206\u7C7B\u6CA1\u6709\u5355\u8BCD\uFF01'); return; }
+  for (var i = pool.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var tmp = pool[i]; pool[i] = pool[j]; pool[j] = tmp;
+  }
+  listenState.words = pool;
+  listenState.index = 0;
+  listenState.loopNow = 0;
+  listenState.loop = parseInt(document.getElementById('listenLoop').value) || 3;
+  listenState.running = true;
+  listenState.paused = false;
+  renderListenCard();
+  speakWordAndChinese();
+}
+
+function renderListenCard() {
+  var page = document.getElementById('reviewContent');
+  var w = listenState.words[listenState.index];
+  var totalWords = listenState.words.length;
+  var currentGlobal = listenState.loopNow * totalWords + listenState.index + 1;
+  var totalGlobal = listenState.loop * totalWords;
+  var ctrls;
+  if (!listenState.paused) {
+    ctrls = '<button class="listen-btn pause" onclick="pauseListening()">\u23F8 \u6682\u505C</button>'
+      + '<button class="listen-btn stop" onclick="stopListening()">\u23F9 \u505C\u6B62</button>';
+  } else {
+    ctrls = '<button class="listen-btn resume" onclick="resumeListening()">\u25B6 \u7EE7\u7EED</button>'
+      + '<button class="listen-btn next" onclick="skipListenWord()">\u23ED \u8DF3\u8FC7</button>'
+      + '<button class="listen-btn stop" onclick="stopListening()">\u23F9 \u505C\u6B62</button>';
+  }
+  page.innerHTML = '<div class="listen-progress">'
+    + '\u7B2C <span>' + (listenState.loopNow + 1) + '</span>/' + listenState.loop + ' \u904D &middot; \u8BCD <span>' + (listenState.index + 1) + '</span>/' + totalWords
+    + ' &middot; \u603B\u8FDB\u5EA6 <span>' + currentGlobal + '</span>/' + totalGlobal
+    + '</div>'
+    + '<div class="listen-card">'
+    + '<div class="listen-korean">' + escapeHtml(w.korean) + '</div>'
+    + '<div class="listen-roman">[' + escapeHtml(w.roman) + ']</div>'
+    + '<div class="listen-chinese">' + escapeHtml(w.chinese) + '</div>'
+    + (w.example ? '<div style="font-size:12px;color:var(--text-tertiary);margin-top:4px">' + escapeHtml(w.example) + '</div>' : '')
+    + '</div>'
+    + '<div class="listen-ctrls">' + ctrls + '</div>'
+    + '<div class="listen-status" id="listenStatus">' + (listenState.paused ? '\u23F8 \u5DF2\u6682\u505C' : '\u{1F50A} \u6B63\u5728\u6717\u8BFB...') + '</div>';
+}
+
+function speakWordAndChinese() {
+  if (!listenState.running || listenState.paused) return;
+  var w = listenState.words[listenState.index];
+  var statusEl = document.getElementById('listenStatus');
+  if (statusEl) statusEl.textContent = '\u{1F1F0}\u{1F1F7} \u97E9\u8BED\u6717\u8BFB\u4E2D...';
+  speakWithCallback(w.korean, 'ko-KR', function() {
+    if (!listenState.running || listenState.paused) return;
+    if (statusEl) statusEl.textContent = '\u{1F1E8}\u{1F1F3} \u4E2D\u6587\u7FFB\u8BD1...';
+    speakWithCallback(w.chinese, 'zh-CN', function() {
+      if (!listenState.running || listenState.paused) return;
+      if (statusEl) statusEl.textContent = '';
+      listenAdvance();
+    });
+  });
+}
+
+function speakWithCallback(text, lang, callback) {
+  if (!('speechSynthesis' in window)) {
+    setTimeout(callback, 1500);
+    return;
+  }
+  speechSynthesis.cancel();
+  var u = new SpeechSynthesisUtterance(text);
+  u.lang = lang;
+  u.rate = 0.85;
+  u.pitch = 1;
+  u.volume = 1;
+  var voices = speechSynthesis.getVoices();
+  var v;
+  if (lang === 'ko-KR') v = voices.find(function(x) { return x.lang && x.lang.startsWith('ko'); });
+  else v = voices.find(function(x) { return x.lang && x.lang.startsWith('zh'); });
+  if (v) u.voice = v;
+  var done = false;
+  u.onend = function() { if (!done) { done = true; if (callback) callback(); } };
+  u.onerror = function() { if (!done) { done = true; if (callback) setTimeout(callback, 800); } };
+  var estimated = Math.max(text.length * 80, 2000);
+  var safety = setTimeout(function() { if (!done) { done = true; if (callback) callback(); } }, estimated);
+  u.addEventListener('end', function() { clearTimeout(safety); });
+  u.addEventListener('error', function() { clearTimeout(safety); });
+  speechSynthesis.speak(u);
+}
+
+function listenAdvance() {
+  listenState.index++;
+  if (listenState.index >= listenState.words.length) {
+    listenState.index = 0;
+    listenState.loopNow++;
+    if (listenState.loopNow >= listenState.loop) { listenFinish(); return; }
+  }
+  renderListenCard();
+  speakWordAndChinese();
+}
+
+function pauseListening() {
+  listenState.paused = true;
+  if ('speechSynthesis' in window) speechSynthesis.cancel();
+  renderListenCard();
+  var s = document.getElementById('listenStatus');
+  if (s) s.textContent = '\u23F8 \u5DF2\u6682\u505C';
+}
+
+function resumeListening() {
+  listenState.paused = false;
+  renderListenCard();
+  speakWordAndChinese();
+}
+
+function skipListenWord() {
+  if ('speechSynthesis' in window) speechSynthesis.cancel();
+  setTimeout(function() { listenAdvance(); }, 100);
+}
+
+function stopListening() {
+  listenState.running = false;
+  if ('speechSynthesis' in window) speechSynthesis.cancel();
+  var page = document.getElementById('reviewContent');
+  page.innerHTML = '<div class="error-empty">'
+    + '<div style="font-size:48px">\u23F9</div>'
+    + '<div style="font-size:16px;font-weight:600;margin:8px 0">\u64AD\u653E\u5DF2\u505C\u6B62</div>'
+    + '<div style="color:var(--text-secondary);font-size:14px">\u5DF2\u5B8C\u6210 ' + listenState.loopNow + '/' + listenState.loop + ' \u904D</div>'
+    + '<button class="qs-start-btn" onclick="startListenSetup()" style="margin-top:12px">\u91CD\u65B0\u8BBE\u7F6E</button>'
+    + '<button class="qs-start-btn" onclick="startListenPlay()" style="margin-top:8px;margin-left:8px;background:var(--bg);color:var(--text);border:1px solid var(--border)">\u7EE7\u7EED\u64AD\u653E</button>'
+    + '</div>';
+}
+
+function listenFinish() {
+  listenState.running = false;
+  if ('speechSynthesis' in window) speechSynthesis.cancel();
+  var page = document.getElementById('reviewContent');
+  page.innerHTML = '<div class="error-empty">'
+    + '<div style="font-size:48px">\uD83C\uDF89</div>'
+    + '<div style="font-size:18px;font-weight:600;margin:8px 0">\u542C\u5B8C\u4E86\uFF01</div>'
+    + '<div style="font-size:24px;font-weight:700;color:var(--primary);margin:8px 0">' + listenState.words.length + ' \u8BCD &times; ' + listenState.loop + ' \u904D</div>'
+    + '<div style="color:var(--text-secondary);font-size:14px">\u5171 ' + (listenState.words.length * listenState.loop) + ' \u6B21\u6717\u8BFB</div>'
+    + '<button class="qs-start-btn" onclick="startListenSetup()" style="margin-top:16px">\u91CD\u65B0\u8BBE\u7F6E</button>'
+    + '<button class="qs-start-btn" onclick="startListenPlay()" style="margin-top:8px;margin-left:8px;background:var(--bg);color:var(--text);border:1px solid var(--border)">\u518D\u6765\u4E00\u8F6E</button>'
+    + '</div>';
+}
+
 
 init();
 </script>
