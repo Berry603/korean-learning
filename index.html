@@ -7559,9 +7559,28 @@ function renderReadings() {
   html += '<div style="font-weight:600;font-size:15px">' + r.title + '</div>';
   html += '<span style="font-size:11px;background:var(--primary);color:#fff;padding:2px 8px;border-radius:10px">' + r.level + '</span>';
   html += '</div>';
-  html += '<div style="font-size:14px;line-height:2;margin-bottom:8px;cursor:pointer" onclick="speak(\'' + r.text.replace(/'/g,"\\'").replace(/\n/g,' ') + '\')" title="点击朗读全文">' + r.text.replace(/\n/g,'<br>') + '</div>';
-  html += '<div style="font-size:12px;color:var(--text-light);font-style:italic;line-height:1.8;margin-bottom:12px;padding:10px;background:var(--bg);border-radius:8px;border-left:3px solid var(--primary)">' + r.roman + '</div>';
-  html += '<div style="font-size:13px;color:var(--text-secondary);line-height:1.8;padding-top:12px;border-top:1px dashed var(--border)">' + r.translation.replace(/\n/g,'<br>') + '</div>';
+  // Sentence-by-sentence with roman + translation
+  var kSentences = r.text.split('.').filter(function(s){ return s.trim(); });
+  var rSentences = r.roman.split('.').filter(function(s){ return s.trim(); });
+  var cSentences = r.translation.split('。').filter(function(s){ return s.trim(); });
+  // Also try splitting translation by . for single-period translations
+  if (cSentences.length <= 1) { cSentences = r.translation.split('.').filter(function(s){ return s.trim(); }); }
+  html += '<div onclick="speak(\'' + r.text.replace(/'/g,"\\'") + '\')" title="点击朗读全文" style="cursor:pointer;margin-bottom:12px">';
+  var maxLen = Math.max(kSentences.length, rSentences.length, cSentences.length);
+  for (var si = 0; si < maxLen; si++) {
+    html += '<div style="margin-bottom:10px">';
+    if (kSentences[si]) {
+      html += '<div style="font-size:14px;line-height:1.8;font-weight:500" onclick="event.stopPropagation();speak(\'' + kSentences[si].replace(/'/g,"\\'") + '.\')">' + kSentences[si] + '.</div>';
+    }
+    if (rSentences[si]) {
+      html += '<div style="font-size:11px;color:var(--text-light);font-style:italic;line-height:1.6;padding-left:6px;border-left:2px solid var(--border)">' + rSentences[si] + '.</div>';
+    }
+    if (cSentences[si]) {
+      html += '<div style="font-size:12px;color:var(--text-secondary);line-height:1.6;padding-left:6px;border-left:2px solid var(--border)">' + cSentences[si] + '.</div>';
+    }
+    html += '</div>';
+  }
+  html += '</div>';
   html += '</div>';
   
   // Questions
