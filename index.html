@@ -7332,7 +7332,7 @@ function renderNumbers() {
   html += '<div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px">用于：日期、时间(分/秒)、电话号码、价格、楼层</div>';
   html += '<div style="display:flex;flex-wrap:wrap;gap:6px">';
   NUMBERS.sino.forEach(function(n) {
-    html += '<div style="background:var(--bg);padding:6px 10px;border-radius:20px;font-size:12px"><b>' + n.ko + '</b> <span style="color:var(--text-light);font-size:10px;font-style:italic">' + n.roman + '</span> ' + n.cn + '</div>';
+    html += '<div style="background:var(--bg);padding:6px 10px;border-radius:20px;font-size:12px;cursor:pointer" onclick="speak(\'' + n.ko.replace(/'/g,"\\'") + '\')" title="朗读"><b>' + n.ko + '</b></div>';
   });
   html += '</div></div>';
   
@@ -7342,7 +7342,7 @@ function renderNumbers() {
   html += '<div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px">用于：数量、年龄、小时、次数</div>';
   html += '<div style="display:flex;flex-wrap:wrap;gap:6px">';
   NUMBERS.native.forEach(function(n) {
-    html += '<div style="background:var(--bg);padding:6px 10px;border-radius:20px;font-size:12px"><b>' + n.ko + '</b> <span style="color:var(--text-light);font-size:10px;font-style:italic">' + n.roman + '</span> ' + n.cn + '</div>';
+    html += '<div style="background:var(--bg);padding:6px 10px;border-radius:20px;font-size:12px;cursor:pointer" onclick="speak(\'' + n.ko.replace(/'/g,"\\'") + '\')" title="朗读"><b>' + n.ko + '</b></div>';
   });
   html += '</div></div>';
   
@@ -7381,8 +7381,8 @@ function renderHanja() {
     html += '<div style="font-weight:600;margin-bottom:8px">🔤 ' + fam + '</div>';
     html += '<div style="display:flex;flex-wrap:wrap;gap:8px">';
     families[fam].forEach(function(h) {
-      html += '<div style="text-align:center;font-size:12px">';
-      html += '<div style="font-weight:600">' + h.hangul + '</div>';
+      html += '<div style="text-align:center;font-size:12px;cursor:pointer" onclick="speak(\'' + h.hangul.replace(/'/g,"\\'") + '\')" title="朗读">';
+      html += '<div style="font-weight:600">' + h.hangul + ' 🔊</div>';
       html += '<div style="color:var(--text-light);font-size:10px;font-style:italic">' + h.roman + '</div>';
       html += '<div style="color:var(--text-light);font-size:10px">' + h.hanja + '</div>';
       html += '<div style="color:var(--text-secondary);font-size:10px">' + h.cn + '</div>';
@@ -7409,7 +7409,7 @@ function renderIdioms() {
   var filtered = idiomTag === '全部' ? IDIOMS : IDIOMS.filter(function(i) { return i.tags === idiomTag; });
   filtered.forEach(function(i) {
     html += '<div style="background:var(--card);border-radius:var(--radius-sm);padding:14px;margin-bottom:10px">';
-    html += '<div style="font-size:16px;font-weight:600;margin-bottom:2px">' + i.ko + '</div>';
+    html += '<div style="font-size:16px;font-weight:600;margin-bottom:2px;cursor:pointer" onclick="speak(\'' + i.ko.replace(/'/g,"\\'") + '\')" title="朗读">' + i.ko + ' 🔊</div>';
     html += '<div style="font-size:12px;color:var(--text-light);font-style:italic;margin-bottom:6px">' + i.roman + '</div>';
     html += '<div style="font-size:13px;color:var(--text-secondary);margin-bottom:4px">' + i.cn + '</div>';
     html += '<div style="font-size:12px;color:var(--primary);margin-bottom:4px">💡 ' + i.meaning + '</div>';
@@ -7525,7 +7525,7 @@ function renderSlang() {
   html += '<div style="display:flex;flex-wrap:wrap;gap:8px">';
   filtered.forEach(function(s) {
     html += '<div style="background:var(--card);border-radius:var(--radius-sm);padding:12px;width:calc(50% - 4px)">';
-    html += '<div style="font-size:16px;font-weight:600">' + s.ko + '</div>';
+    html += '<div style="font-size:16px;font-weight:600;cursor:pointer" onclick="speak(\'' + s.ko.replace(/'/g,"\\'") + '\')" title="朗读">' + s.ko + ' 🔊</div>';
     html += '<div style="font-size:11px;color:var(--text-light);font-style:italic">' + s.roman + '</div>';
     html += '<div style="font-size:13px;color:var(--text-secondary)">' + s.cn + '</div>';
     html += '<div style="font-size:11px;color:var(--text-light);margin-top:4px">' + s.note + '</div>';
