@@ -3710,23 +3710,23 @@ const SENTENCES = [
 // ============================================================
 const NUMBERS = {
   sino: [
-    {num:0,ko:'영',cn:'零'},{num:1,ko:'일',cn:'一'},{num:2,ko:'이',cn:'二'},
-    {num:3,ko:'삼',cn:'三'},{num:4,ko:'사',cn:'四'},{num:5,ko:'오',cn:'五'},
-    {num:6,ko:'육',cn:'六'},{num:7,ko:'칠',cn:'七'},{num:8,ko:'팔',cn:'八'},
-    {num:9,ko:'구',cn:'九'},{num:10,ko:'십',cn:'十'},{num:20,ko:'이십',cn:'二十'},
-    {num:30,ko:'삼십',cn:'三十'},{num:40,ko:'사십',cn:'四十'},{num:50,ko:'오십',cn:'五十'},
-    {num:60,ko:'육십',cn:'六十'},{num:70,ko:'칠십',cn:'七十'},{num:80,ko:'팔십',cn:'八十'},
-    {num:90,ko:'구십',cn:'九十'},{num:100,ko:'백',cn:'百'},{num:1000,ko:'천',cn:'千'},
-    {num:10000,ko:'만',cn:'万'},{num:100000000,ko:'억',cn:'亿'}
+    {num:0,ko:'영',cn:'零',roman:'yeong'},{num:1,ko:'일',cn:'一',roman:'il'},{num:2,ko:'이',cn:'二',roman:'i'},
+    {num:3,ko:'삼',cn:'三',roman:'sam'},{num:4,ko:'사',cn:'四',roman:'sa'},{num:5,ko:'오',cn:'五',roman:'o'},
+    {num:6,ko:'육',cn:'六',roman:'yuk'},{num:7,ko:'칠',cn:'七',roman:'chil'},{num:8,ko:'팔',cn:'八',roman:'pal'},
+    {num:9,ko:'구',cn:'九',roman:'gu'},{num:10,ko:'십',cn:'十',roman:'sip'},{num:20,ko:'이십',cn:'二十',roman:'isip'},
+    {num:30,ko:'삼십',cn:'三十',roman:'samsip'},{num:40,ko:'사십',cn:'四十',roman:'sasip'},{num:50,ko:'오십',cn:'五十',roman:'osip'},
+    {num:60,ko:'육십',cn:'六十',roman:'yuksip'},{num:70,ko:'칠십',cn:'七十',roman:'chilsip'},{num:80,ko:'팔십',cn:'八十',roman:'palsip'},
+    {num:90,ko:'구십',cn:'九十',roman:'gusip'},{num:100,ko:'백',cn:'百',roman:'baek'},{num:1000,ko:'천',cn:'千',roman:'cheon'},
+    {num:10000,ko:'만',cn:'万',roman:'man'},{num:100000000,ko:'억',cn:'亿',roman:'eok'}
   ],
   native: [
-    {num:1,ko:'하나',cn:'一'},{num:2,ko:'둘',cn:'二'},{num:3,ko:'셋',cn:'三'},
-    {num:4,ko:'넷',cn:'四'},{num:5,ko:'다섯',cn:'五'},{num:6,ko:'여섯',cn:'六'},
-    {num:7,ko:'일곱',cn:'七'},{num:8,ko:'여덟',cn:'八'},{num:9,ko:'아홉',cn:'九'},
-    {num:10,ko:'열',cn:'十'},{num:20,ko:'스물',cn:'二十'},{num:30,ko:'서른',cn:'三十'},
-    {num:40,ko:'마흔',cn:'四十'},{num:50,ko:'쉰',cn:'五十'},{num:60,ko:'예순',cn:'六十'},
-    {num:70,ko:'일흔',cn:'七十'},{num:80,ko:'여든',cn:'八十'},{num:90,ko:'아흔',cn:'九十'},
-    {num:100,ko:'백',cn:'百'}
+    {num:1,ko:'하나',cn:'一',roman:'hana'},{num:2,ko:'둘',cn:'二',roman:'dul'},{num:3,ko:'셋',cn:'三',roman:'set'},
+    {num:4,ko:'넷',cn:'四',roman:'net'},{num:5,ko:'다섯',cn:'五',roman:'daseot'},{num:6,ko:'여섯',cn:'六',roman:'yeoseot'},
+    {num:7,ko:'일곱',cn:'七',roman:'ilgop'},{num:8,ko:'여덟',cn:'八',roman:'yeodeol'},{num:9,ko:'아홉',cn:'九',roman:'ahop'},
+    {num:10,ko:'열',cn:'十',roman:'yeol'},{num:20,ko:'스물',cn:'二十',roman:'seumul'},{num:30,ko:'서른',cn:'三十',roman:'seoreun'},
+    {num:40,ko:'마흔',cn:'四十',roman:'maheun'},{num:50,ko:'쉰',cn:'五十',roman:'swin'},{num:60,ko:'예순',cn:'六十',roman:'yesun'},
+    {num:70,ko:'일흔',cn:'七十',roman:'ilheun'},{num:80,ko:'여든',cn:'八十',roman:'yeodeun'},{num:90,ko:'아흔',cn:'九十',roman:'aheun'},
+    {num:100,ko:'백',cn:'百',roman:'baek'}
   ],
   counters: [
     {counter:'명',usage:'人数',example:'학생 세 명 (三名学生)',note:'用Native数词'},
@@ -3755,91 +3755,91 @@ const NUMBERS = {
 // HANJA WORDS — 汉字词参考
 // ============================================================
 const HANJA = [
-  {hanja:'学校',hangul:'학교',cn:'学校',family:'学'},
-  {hanja:'学生',hangul:'학생',cn:'学生',family:'学'},
-  {hanja:'学习',hangul:'학습',cn:'学习',family:'学'},
-  {hanja:'学期',hangul:'학기',cn:'学期',family:'学'},
-  {hanja:'大学',hangul:'대학교',cn:'大学',family:'学'},
-  {hanja:'家庭',hangul:'가정',cn:'家庭',family:'家'},
-  {hanja:'家族',hangul:'가족',cn:'家族',family:'家'},
-  {hanja:'父母',hangul:'부모',cn:'父母',family:'父'},
-  {hanja:'父亲',hangul:'부친',cn:'父亲',family:'父'},
-  {hanja:'母亲',hangul:'모친',cn:'母亲',family:'母'},
-  {hanja:'每日',hangul:'매일',cn:'每天',family:'每'},
-  {hanja:'每年',hangul:'매년',cn:'每年',family:'每'},
-  {hanja:'每月',hangul:'매월',cn:'每月',family:'每'},
-  {hanja:'时间',hangul:'시간',cn:'时间',family:'时'},
-  {hanja:'时代',hangul:'시대',cn:'时代',family:'时'},
-  {hanja:'天气',hangul:'날씨',cn:'天气',family:'天'},
-  {hanja:'今日',hangul:'금일',cn:'今天',family:'今'},
-  {hanja:'昨日',hangul:'작일',cn:'昨天',family:'昨'},
-  {hanja:'明日',hangul:'명일',cn:'明天',family:'明'},
-  {hanja:'中心',hangul:'중심',cn:'中心',family:'中'},
-  {hanja:'中国',hangul:'중국',cn:'中国',family:'中'},
-  {hanja:'韩国',hangul:'한국',cn:'韩国',family:'国'},
-  {hanja:'外国',hangul:'외국',cn:'外国',family:'外'},
-  {hanja:'音乐',hangul:'음악',cn:'音乐',family:'音'},
-  {hanja:'发音',hangul:'발음',cn:'发音',family:'音'},
-  {hanja:'运动',hangul:'운동',cn:'运动',family:'运'},
-  {hanja:'电话',hangul:'전화',cn:'电话',family:'电'},
-  {hanja:'电影',hangul:'영화',cn:'电影',family:'电'},
-  {hanja:'旅行',hangul:'여행',cn:'旅行',family:'行'},
-  {hanja:'银行',hangul:'은행',cn:'银行',family:'银'},
-  {hanja:'饮食',hangul:'음식',cn:'饮食',family:'食'},
-  {hanja:'市场',hangul:'시장',cn:'市场',family:'市'},
-  {hanja:'人口',hangul:'인구',cn:'人口',family:'人'},
-  {hanja:'人生',hangul:'인생',cn:'人生',family:'人'},
-  {hanja:'山水',hangul:'산수',cn:'山水',family:'水'},
-  {hanja:'安全',hangul:'안전',cn:'安全',family:'安'},
-  {hanja:'心情',hangul:'심정',cn:'心情',family:'心'},
-  {hanja:'关心',hangul:'관심',cn:'关心',family:'心'},
-  {hanja:'记忆',hangul:'기억',cn:'记忆',family:'记'},
-  {hanja:'记者',hangul:'기자',cn:'记者',family:'记'},
-  {hanja:'准备',hangul:'준비',cn:'准备',family:'准'},
-  {hanja:'必要',hangul:'필요',cn:'必要',family:'必'},
-  {hanja:'使用',hangul:'사용',cn:'使用',family:'用'},
-  {hanja:'利用',hangul:'이용',cn:'利用',family:'用'}
+  {hanja:'学校',hangul:'학교',cn:'学校',roman:'hakgyo',family:'学'},
+  {hanja:'学生',hangul:'학생',cn:'学生',roman:'haksaeng',family:'学'},
+  {hanja:'学习',hangul:'학습',cn:'学习',roman:'hakseup',family:'学'},
+  {hanja:'学期',hangul:'학기',cn:'学期',roman:'hakgi',family:'学'},
+  {hanja:'大学',hangul:'대학교',cn:'大学',roman:'daehakgyo',family:'学'},
+  {hanja:'家庭',hangul:'가정',cn:'家庭',roman:'gajeong',family:'家'},
+  {hanja:'家族',hangul:'가족',cn:'家族',roman:'gajok',family:'家'},
+  {hanja:'父母',hangul:'부모',cn:'父母',roman:'bumo',family:'父'},
+  {hanja:'父亲',hangul:'부친',cn:'父亲',roman:'buchin',family:'父'},
+  {hanja:'母亲',hangul:'모친',cn:'母亲',roman:'mochin',family:'母'},
+  {hanja:'每日',hangul:'매일',cn:'每天',roman:'maeil',family:'每'},
+  {hanja:'每年',hangul:'매년',cn:'每年',roman:'maenyeon',family:'每'},
+  {hanja:'每月',hangul:'매월',cn:'每月',roman:'maewol',family:'每'},
+  {hanja:'时间',hangul:'시간',cn:'时间',roman:'sigan',family:'时'},
+  {hanja:'时代',hangul:'시대',cn:'时代',roman:'sidae',family:'时'},
+  {hanja:'天气',hangul:'날씨',cn:'天气',roman:'nalssi',family:'天'},
+  {hanja:'今日',hangul:'금일',cn:'今天',roman:'geumil',family:'今'},
+  {hanja:'昨日',hangul:'작일',cn:'昨天',roman:'jagil',family:'昨'},
+  {hanja:'明日',hangul:'명일',cn:'明天',roman:'myeongil',family:'明'},
+  {hanja:'中心',hangul:'중심',cn:'中心',roman:'jungsim',family:'中'},
+  {hanja:'中国',hangul:'중국',cn:'中国',roman:'jungguk',family:'中'},
+  {hanja:'韩国',hangul:'한국',cn:'韩国',roman:'hanguk',family:'国'},
+  {hanja:'外国',hangul:'외국',cn:'外国',roman:'oeguk',family:'外'},
+  {hanja:'音乐',hangul:'음악',cn:'音乐',roman:'eumak',family:'音'},
+  {hanja:'发音',hangul:'발음',cn:'发音',roman:'bareum',family:'音'},
+  {hanja:'运动',hangul:'운동',cn:'运动',roman:'undong',family:'运'},
+  {hanja:'电话',hangul:'전화',cn:'电话',roman:'jeonhwa',family:'电'},
+  {hanja:'电影',hangul:'영화',cn:'电影',roman:'yeonghwa',family:'电'},
+  {hanja:'旅行',hangul:'여행',cn:'旅行',roman:'yeohaeng',family:'行'},
+  {hanja:'银行',hangul:'은행',cn:'银行',roman:'eunhaeng',family:'银'},
+  {hanja:'饮食',hangul:'음식',cn:'饮食',roman:'eumsik',family:'食'},
+  {hanja:'市场',hangul:'시장',cn:'市场',roman:'sijang',family:'市'},
+  {hanja:'人口',hangul:'인구',cn:'人口',roman:'ingu',family:'人'},
+  {hanja:'人生',hangul:'인생',cn:'人生',roman:'insaeng',family:'人'},
+  {hanja:'山水',hangul:'산수',cn:'山水',roman:'sansu',family:'水'},
+  {hanja:'安全',hangul:'안전',cn:'安全',roman:'anjeon',family:'安'},
+  {hanja:'心情',hangul:'심정',cn:'心情',roman:'simjeong',family:'心'},
+  {hanja:'关心',hangul:'관심',cn:'关心',roman:'gwansim',family:'心'},
+  {hanja:'记忆',hangul:'기억',cn:'记忆',roman:'gieok',family:'记'},
+  {hanja:'记者',hangul:'기자',cn:'记者',roman:'gija',family:'记'},
+  {hanja:'准备',hangul:'준비',cn:'准备',roman:'junbi',family:'准'},
+  {hanja:'必要',hangul:'필요',cn:'必要',roman:'piryo',family:'必'},
+  {hanja:'使用',hangul:'사용',cn:'使用',roman:'sayong',family:'用'},
+  {hanja:'利用',hangul:'이용',cn:'利用',roman:'iyong',family:'用'}
 ];
 
 // ============================================================
 // KOREAN IDIOMS & PROVERBS — 俗语/惯用语
 // ============================================================
 const IDIOMS = [
-  {ko:'가는 날이 장날',cn:'去的那天正好是赶集日',meaning:'巧合/偏偏赶上了',example:'비가 올 줄 몰랐는데 가는 날이 장날이네.',tags:'日常'},
-  {ko:'가는 말이 고와야 오는 말이 곱다',cn:'好言相待者得好言以报',meaning:'你怎么待人，人就怎么待你',example:'항상 친절하게 말하세요. 가는 말이 고와야 오는 말이 곱습니다.',tags:'人际'},
-  {ko:'구슬이 서 말이라도 꿰어야 보배',cn:'珠子再多，得串起来才是宝贝',meaning:'再好的东西也要付诸实践',example:'아이디어가 많아도 실행하지 않으면 소용없어요. 구슬이 서 말이라도 꿰어야 보배예요.',tags:'励志'},
-  {ko:'그림의 떡',cn:'画中之饼',meaning:'看得见吃不着',example:'그 차는 너무 비싸서 그림의 떡이에요.',tags:'日常'},
-  {ko:'김칫국부터 마시지 마라',cn:'别先喝泡菜汤',meaning:'别高兴得太早/别想当然',example:'합격 발표도 안 났는데 벌써 축하 파티 계획 하지 마. 김칫국부터 마시지 마.',tags:'日常'},
-  {ko:'꿩 대신 닭',cn:'野鸡不够用鸡替',meaning:'退而求其次',example:'원하는 책이 없어서 꿩 대신 닭으로 이 책을 샀어요.',tags:'日常'},
-  {ko:'남의 떡이 더 커 보인다',cn:'别人的饼更大',meaning:'别人家的东西总看起来更好',example:'친구 직장이 더 좋아 보이지만 남의 떡이 더 커 보이는 거예요.',tags:'人际'},
-  {ko:'누워서 떡 먹기',cn:'躺着吃饼',meaning:'轻而易举',example:'이 문제는 저한테 누워서 떡 먹기예요.',tags:'日常'},
-  {ko:'눈이 높다',cn:'眼光高',meaning:'标准高/挑剔',example:'그 친구는 눈이 너무 높아서 이상형을 못 찾고 있어요.',tags:'人际'},
-  {ko:'달걀로 바위 치기',cn:'鸡蛋碰石头',meaning:'以卵击石',example:'혼자서 큰 회사랑 경쟁하는 건 달걀로 바위 치기예요.',tags:'励志'},
-  {ko:'등잔 밑이 어둡다',cn:'灯下黑',meaning:'最熟悉的地方反而最容易被忽略',example:'안경을 찾았는데 바로 내 코 위에 있었어요. 등잔 밑이 어둡다고...',tags:'日常'},
-  {ko:'뜻이 있는 곳에 길이 있다',cn:'有志者事竟成',meaning:'有决心就有办法',example:'열심히 공부하면 꼭 합격할 거예요. 뜻이 있는 곳에 길이 있어요.',tags:'励志'},
-  {ko:'말 한마디로 천 냥 빚을 갚는다',cn:'一句话还清千两债',meaning:'话说得好能解决大问题',example:'사장님의 한 마디에 화가 풀렸어요. 말 한마디로 천 냥 빚을 갚았네요.',tags:'人际'},
-  {ko:'믿는 도끼에 발등 찍힌다',cn:'被信任的斧头砍了脚',meaning:'被信任的人背叛',example:'제일 친한 친구한테 속았어요. 믿는 도끼에 발등 찍혔어요.',tags:'人际'},
-  {ko:'밑 빠진 독에 물 붓기',cn:'往破底缸里灌水',meaning:'徒劳无功',example:'매일 야근해도 일이 줄지 않아요. 밑 빠진 독에 물 붓는 것 같아요.',tags:'日常'},
-  {ko:'배보다 배꼽이 더 크다',cn:'肚脐比肚子大',meaning:'本末倒置/次要的比主要的大',example:'선물 포장 비용이 선물보다 더 비싸요. 배보다 배꼽이 더 크네요.',tags:'日常'},
-  {ko:'백지장도 맞들면 낫다',cn:'白纸也要一起抬才好',meaning:'众人拾柴火焰高',example:'혼자 하지 말고 같이 해요. 백지장도 맞들면 낫잖아요.',tags:'励志'},
-  {ko:'비 온 뒤에 땅이 굳어진다',cn:'雨后地面更坚实',meaning:'经历过困难后变得更坚强',example:'힘든 시간이 지나면 더 강해질 거예요. 비 온 뒤에 땅이 굳어져요.',tags:'励志'},
-  {ko:'소 잃고 외양간 고친다',cn:'丢了牛才修牛棚',meaning:'亡羊补牢',example:'시험 망치고 나서야 공부해요? 소 잃고 외양간 고치는 격이에요.',tags:'日常'},
-  {ko:'쇠뿔도 단김에 빼라',cn:'牛角要趁热拔',meaning:'趁热打铁/一鼓作气',example:'지금 바로 시작하세요. 쇠뿔도 단김에 빼라고 했어요.',tags:'励志'},
-  {ko:'아는 길도 물어 가라',cn:'认识的路也要问了再走',meaning:'小心驶得万年船',example:'확실한 것 같아도 한 번 더 확인하세요. 아는 길도 물어 가라고 하잖아요.',tags:'日常'},
-  {ko:'우물 안 개구리',cn:'井底之蛙',meaning:'见识短浅',example:'해외 여행을 다녀오니까 제가 우물 안 개구리였던 것 같아요.',tags:'日常'},
-  {ko:'작은 고추가 더 맵다',cn:'小辣椒更辣',meaning:'小个子更厉害',example:'우리 막내가 제일 운동을 잘해요. 작은 고추가 더 맵네요.',tags:'日常'},
-  {ko:'제 눈에 안경',cn:'自己眼中的眼镜',meaning:'情人眼里出西施',example:'남자친구가 잘생겼다고요? 제 눈에 안경이네요~',tags:'人际'},
-  {ko:'찬물도 위아래가 있다',cn:'凉水也有上下之分',meaning:'凡事都有规矩/长幼有序',example:'어른부터 먼저 드세요. 찬물도 위아래가 있잖아요.',tags:'礼仪'},
-  {ko:'콩 심은 데 콩 나고 팥 심은 데 팥 난다',cn:'种豆得豆种瓜得瓜',meaning:'因果报应',example:'열심히 공부했으니 좋은 결과가 있을 거예요. 콩 심은 데 콩 나고 팥 심은 데 팥 나요.',tags:'励志'},
-  {ko:'하늘의 별 따기',cn:'摘天上的星星',meaning:'难如登天',example:'서울에서 집 사는 건 하늘의 별 따기예요.',tags:'日常'},
-  {ko:'호랑이도 제 말 하면 온다',cn:'说老虎老虎就到',meaning:'说曹操曹操到',example:'아! 방금 네 이야기하고 있었는데 호랑이도 제 말 하면 온다더니.',tags:'日常'},
-  {ko:'가는 말에도 채찍을 가해라',cn:'快马也加鞭',meaning:'自满不得/精益求精',example:'1등 했다고 자만하지 마. 가는 말에도 채찍을 가해야 해.',tags:'励志'},
-  {ko:'돌다리도 두들겨 보고 건너라',cn:'石桥也要敲了再过',meaning:'再三确认',example:'계약서를 다시 한 번 확인하세요. 돌다리도 두들겨 보고 건너야 해요.',tags:'日常'},
-  {ko:'세 살 버릇 여든까지 간다',cn:'三岁习惯到八十',meaning:'习惯难改',example:'발음 교정이 힘들어요. 세 살 버릇 여든까지 간다고...',tags:'日常'},
-  {ko:'천 리 길도 한 걸음부터',cn:'千里之行始于足下',meaning:'万事开头难但总要开始',example:'한국어 공부도 천 리 길도 한 걸음부터예요. 오늘부터 시작하세요!',tags:'励志'},
-  {ko:'티끌 모아 태산',cn:'积尘成山',meaning:'积少成多',example:'매일 조금씩 저축해요. 티끌 모아 태산이에요.',tags:'励志'},
-  {ko:'개구리 올챙이 적 생각 못 한다',cn:'青蛙忘了蝌蚪时',meaning:'忘了初心/忘本',example:'사장님이 되더니 옛날 힘들었던 때를 잊으셨어요. 개구리 올챙이 적 생각 못 하시네요.',tags:'日常'},
-  {ko:'원숭이도 나무에서 떨어진다',cn:'猴子也会从树上掉下来',meaning:'熟手也会失手',example:'실수할 수도 있어요. 원숭이도 나무에서 떨어질 때가 있잖아요.',tags:'日常'}
+  {ko:'가는 날이 장날',cn:'去的那天正好是赶集日',roman:'ganeun nari jangnal',meaning:'巧合/偏偏赶上了',example:'비가 올 줄 몰랐는데 가는 날이 장날이네.',tags:'日常'},
+  {ko:'가는 말이 고와야 오는 말이 곱다',cn:'好言相待者得好言以报',roman:'ganeun mari gowaya oneun mari gopda',meaning:'你怎么待人，人就怎么待你',example:'항상 친절하게 말하세요. 가는 말이 고와야 오는 말이 곱습니다.',tags:'人际'},
+  {ko:'구슬이 서 말이라도 꿰어야 보배',cn:'珠子再多，得串起来才是宝贝',roman:'guseuri seo marirado kkwoeya bobae',meaning:'再好的东西也要付诸实践',example:'아이디어가 많아도 실행하지 않으면 소용없어요. 구슬이 서 말이라도 꿰어야 보배예요.',tags:'励志'},
+  {ko:'그림의 떡',cn:'画中之饼',roman:'geurimui tteok',meaning:'看得见吃不着',example:'그 차는 너무 비싸서 그림의 떡이에요.',tags:'日常'},
+  {ko:'김칫국부터 마시지 마라',cn:'别先喝泡菜汤',roman:'gimchitgukbuteo masiji mara',meaning:'别高兴得太早/别想当然',example:'합격 발표도 안 났는데 벌써 축하 파티 계획 하지 마. 김칫국부터 마시지 마.',tags:'日常'},
+  {ko:'꿩 대신 닭',cn:'野鸡不够用鸡替',roman:'kkwong daesin dak',meaning:'退而求其次',example:'원하는 책이 없어서 꿩 대신 닭으로 이 책을 샀어요.',tags:'日常'},
+  {ko:'남의 떡이 더 커 보인다',cn:'别人的饼更大',roman:'namui tteogi deo keo boinda',meaning:'别人家的东西总看起来更好',example:'친구 직장이 더 좋아 보이지만 남의 떡이 더 커 보이는 거예요.',tags:'人际'},
+  {ko:'누워서 떡 먹기',cn:'躺着吃饼',roman:'nuwoseo tteok meokgi',meaning:'轻而易举',example:'이 문제는 저한테 누워서 떡 먹기예요.',tags:'日常'},
+  {ko:'눈이 높다',cn:'眼光高',roman:'nuni nopda',meaning:'标准高/挑剔',example:'그 친구는 눈이 너무 높아서 이상형을 못 찾고 있어요.',tags:'人际'},
+  {ko:'달걀로 바위 치기',cn:'鸡蛋碰石头',roman:'dalgyallo bawi chigi',meaning:'以卵击石',example:'혼자서 큰 회사랑 경쟁하는 건 달걀로 바위 치기예요.',tags:'励志'},
+  {ko:'등잔 밑이 어둡다',cn:'灯下黑',roman:'deungjan miti eodupda',meaning:'最熟悉的地方反而最容易被忽略',example:'안경을 찾았는데 바로 내 코 위에 있었어요. 등잔 밑이 어둡다고...',tags:'日常'},
+  {ko:'뜻이 있는 곳에 길이 있다',cn:'有志者事竟成',roman:'tteusi inneun gose giri itda',meaning:'有决心就有办法',example:'열심히 공부하면 꼭 합격할 거예요. 뜻이 있는 곳에 길이 있어요.',tags:'励志'},
+  {ko:'말 한마디로 천 냥 빚을 갚는다',cn:'一句话还清千两债',roman:'mal hanmadiro cheon nyang bijeul gamneunda',meaning:'话说得好能解决大问题',example:'사장님의 한 마디에 화가 풀렸어요. 말 한마디로 천 냥 빚을 갚았네요.',tags:'人际'},
+  {ko:'믿는 도끼에 발등 찍힌다',cn:'被信任的斧头砍了脚',roman:'minneun dokkie baldeung jjikinda',meaning:'被信任的人背叛',example:'제일 친한 친구한테 속았어요. 믿는 도끼에 발등 찍혔어요.',tags:'人际'},
+  {ko:'밑 빠진 독에 물 붓기',cn:'往破底缸里灌水',roman:'mit ppajin doge mul butgi',meaning:'徒劳无功',example:'매일 야근해도 일이 줄지 않아요. 밑 빠진 독에 물 붓는 것 같아요.',tags:'日常'},
+  {ko:'배보다 배꼽이 더 크다',cn:'肚脐比肚子大',roman:'baeboda baekkobi deo keuda',meaning:'本末倒置/次要的比主要的大',example:'선물 포장 비용이 선물보다 더 비싸요. 배보다 배꼽이 더 크네요.',tags:'日常'},
+  {ko:'백지장도 맞들면 낫다',cn:'白纸也要一起抬才好',roman:'baekjijangdo matdeulmyeon natda',meaning:'众人拾柴火焰高',example:'혼자 하지 말고 같이 해요. 백지장도 맞들면 낫잖아요.',tags:'励志'},
+  {ko:'비 온 뒤에 땅이 굳어진다',cn:'雨后地面更坚实',roman:'bi on dwie ttangi gudeojinda',meaning:'经历过困难后变得更坚强',example:'힘든 시간이 지나면 더 강해질 거예요. 비 온 뒤에 땅이 굳어져요.',tags:'励志'},
+  {ko:'소 잃고 외양간 고친다',cn:'丢了牛才修牛棚',roman:'so ilko oeyanggan gochinda',meaning:'亡羊补牢',example:'시험 망치고 나서야 공부해요? 소 잃고 외양간 고치는 격이에요.',tags:'日常'},
+  {ko:'쇠뿔도 단김에 빼라',cn:'牛角要趁热拔',roman:'soeppuldo dangime ppaera',meaning:'趁热打铁/一鼓作气',example:'지금 바로 시작하세요. 쇠뿔도 단김에 빼라고 했어요.',tags:'励志'},
+  {ko:'아는 길도 물어 가라',cn:'认识的路也要问了再走',roman:'aneun gildo mureo gara',meaning:'小心驶得万年船',example:'확실한 것 같아도 한 번 더 확인하세요. 아는 길도 물어 가라고 하잖아요.',tags:'日常'},
+  {ko:'우물 안 개구리',cn:'井底之蛙',roman:'umul an gaeguri',meaning:'见识短浅',example:'해외 여행을 다녀오니까 제가 우물 안 개구리였던 것 같아요.',tags:'日常'},
+  {ko:'작은 고추가 더 맵다',cn:'小辣椒更辣',roman:'jageun gochuga deo maepda',meaning:'小个子更厉害',example:'우리 막내가 제일 운동을 잘해요. 작은 고추가 더 맵네요.',tags:'日常'},
+  {ko:'제 눈에 안경',cn:'自己眼中的眼镜',roman:'je nune angyeong',meaning:'情人眼里出西施',example:'남자친구가 잘생겼다고요? 제 눈에 안경이네요~',tags:'人际'},
+  {ko:'찬물도 위아래가 있다',cn:'凉水也有上下之分',roman:'chanmuldo wiaraega itda',meaning:'凡事都有规矩/长幼有序',example:'어른부터 먼저 드세요. 찬물도 위아래가 있잖아요.',tags:'礼仪'},
+  {ko:'콩 심은 데 콩 나고 팥 심은 데 팥 난다',cn:'种豆得豆种瓜得瓜',roman:'kong simeun de kong nago pat simeun de pat nanda',meaning:'因果报应',example:'열심히 공부했으니 좋은 결과가 있을 거예요. 콩 심은 데 콩 나고 팥 심은 데 팥 나요.',tags:'励志'},
+  {ko:'하늘의 별 따기',cn:'摘天上的星星',roman:'haneurui byeol ttagi',meaning:'难如登天',example:'서울에서 집 사는 건 하늘의 별 따기예요.',tags:'日常'},
+  {ko:'호랑이도 제 말 하면 온다',cn:'说老虎老虎就到',roman:'horangido je mal hamyeon onda',meaning:'说曹操曹操到',example:'아! 방금 네 이야기하고 있었는데 호랑이도 제 말 하면 온다더니.',tags:'日常'},
+  {ko:'가는 말에도 채찍을 가해라',cn:'快马也加鞭',roman:'ganeun maredo chaejjigeul gahaera',meaning:'自满不得/精益求精',example:'1등 했다고 자만하지 마. 가는 말에도 채찍을 가해야 해.',tags:'励志'},
+  {ko:'돌다리도 두들겨 보고 건너라',cn:'石桥也要敲了再过',roman:'doldarido dudeulgyeo bogo geonneora',meaning:'再三确认',example:'계약서를 다시 한 번 확인하세요. 돌다리도 두들겨 보고 건너야 해요.',tags:'日常'},
+  {ko:'세 살 버릇 여든까지 간다',cn:'三岁习惯到八十',roman:'se sal beoreut yeodeunkkaji ganda',meaning:'习惯难改',example:'발음 교정이 힘들어요. 세 살 버릇 여든까지 간다고...',tags:'日常'},
+  {ko:'천 리 길도 한 걸음부터',cn:'千里之行始于足下',roman:'cheon ri gildo han georeumbuteo',meaning:'万事开头难但总要开始',example:'한국어 공부도 천 리 길도 한 걸음부터예요. 오늘부터 시작하세요!',tags:'励志'},
+  {ko:'티끌 모아 태산',cn:'积尘成山',roman:'tikkeul moa taesan',meaning:'积少成多',example:'매일 조금씩 저축해요. 티끌 모아 태산이에요.',tags:'励志'},
+  {ko:'개구리 올챙이 적 생각 못 한다',cn:'青蛙忘了蝌蚪时',roman:'gaeguri olchaengi jeok saenggak mot handa',meaning:'忘了初心/忘本',example:'사장님이 되더니 옛날 힘들었던 때를 잊으셨어요. 개구리 올챙이 적 생각 못 하시네요.',tags:'日常'},
+  {ko:'원숭이도 나무에서 떨어진다',cn:'猴子也会从树上掉下来',roman:'wonsungido namueseo tteoreojinda',meaning:'熟手也会失手',example:'실수할 수도 있어요. 원숭이도 나무에서 떨어질 때가 있잖아요.',tags:'日常'}
 ];
 
 // ============================================================
@@ -3849,104 +3849,104 @@ const DIALOGUES = [
   {
     id:1,scene:'식당에서 (在餐厅)',icon:'🍽️',
     turns:[
-      {speaker:'직원',ko:'어서 오세요. 몇 분이세요?',cn:'欢迎光临，几位？'},
-      {speaker:'손님',ko:'두 명이에요.',cn:'两个人。'},
-      {speaker:'직원',ko:'이쪽으로 오세요. 메뉴 여기 있습니다.',cn:'这边请，这是菜单。'},
-      {speaker:'손님',ko:'여기 뭐가 제일 맛있어요?',cn:'这里什么最好吃？'},
-      {speaker:'직원',ko:'불고기랑 김치찌개가 인기가 많아요.',cn:'烤肉和泡菜汤很受欢迎。'},
-      {speaker:'손님',ko:'그럼 불고기 1인분이랑 김치찌개 하나 주세요.',cn:'那来一份烤肉和一份泡菜汤。'},
-      {speaker:'직원',ko:'네, 알겠습니다. 잠시만 기다려 주세요.',cn:'好的，请稍等。'}
+      {speaker:'직원',ko:'어서 오세요. 몇 분이세요?',cn:'欢迎光临，几位？',roman:'eoseo oseyo. myeot buniseyo?'},
+      {speaker:'손님',ko:'두 명이에요.',cn:'两个人。',roman:'du myeongieyo.'},
+      {speaker:'직원',ko:'이쪽으로 오세요. 메뉴 여기 있습니다.',cn:'这边请，这是菜单。',roman:'ijjogeuro oseyo. menyu yeogi itseumnida.'},
+      {speaker:'손님',ko:'여기 뭐가 제일 맛있어요?',cn:'这里什么最好吃？',roman:'yeogi mwoga jeil masisseoyo?'},
+      {speaker:'직원',ko:'불고기랑 김치찌개가 인기가 많아요.',cn:'烤肉和泡菜汤很受欢迎。',roman:'bulgogirang gimchijjigaega ingiga manayo.'},
+      {speaker:'손님',ko:'그럼 불고기 1인분이랑 김치찌개 하나 주세요.',cn:'那来一份烤肉和一份泡菜汤。',roman:'geureom bulgogi ilinbunirang gimchijjigae hana juseyo.'},
+      {speaker:'직원',ko:'네, 알겠습니다. 잠시만 기다려 주세요.',cn:'好的，请稍等。',roman:'ne, algesseumnida. jamsiman gidaryeo juseyo.'}
     ]
   },
   {
     id:2,scene:'병원에서 (在医院)',icon:'🏥',
     turns:[
-      {speaker:'의사',ko:'어디가 불편하세요?',cn:'哪里不舒服？'},
-      {speaker:'환자',ko:'머리가 아프고 열도 나요.',cn:'头疼还发烧。'},
-      {speaker:'의사',ko:'언제부터 아팠어요?',cn:'什么时候开始疼的？'},
-      {speaker:'환자',ko:'어제 저녁부터요.',cn:'从昨晚开始。'},
-      {speaker:'의사',ko:'입을 벌려 보세요. 목이 많이 부었네요.',cn:'张嘴看看。嗓子肿得很厉害。'},
-      {speaker:'의사',ko:'감기예요. 약을 처방해 드릴게요. 약은 식후 30분에 드세요.',cn:'是感冒。开点药，饭后30分钟吃。'},
-      {speaker:'환자',ko:'네, 감사합니다. 며칠 후에 다시 와야 해요?',cn:'好的谢谢。几天后需要再来吗？'},
-      {speaker:'의사',ko:'3일 후에 다시 오세요.',cn:'三天后再来。'}
+      {speaker:'의사',ko:'어디가 불편하세요?',cn:'哪里不舒服？',roman:'eodiga bulpyeonhaseyo?'},
+      {speaker:'환자',ko:'머리가 아프고 열도 나요.',cn:'头疼还发烧。',roman:'meoriga apeugo yeoldo nayo.'},
+      {speaker:'의사',ko:'언제부터 아팠어요?',cn:'什么时候开始疼的？',roman:'eonjebuteo apasseoyo?'},
+      {speaker:'환자',ko:'어제 저녁부터요.',cn:'从昨晚开始。',roman:'eoje jeonyeokbuteoyo.'},
+      {speaker:'의사',ko:'입을 벌려 보세요. 목이 많이 부었네요.',cn:'张嘴看看。嗓子肿得很厉害。',roman:'ibeul beollyeo boseyo. mogi mani bueonneyo.'},
+      {speaker:'의사',ko:'감기예요. 약을 처방해 드릴게요. 약은 식후 30분에 드세요.',cn:'是感冒。开点药，饭后30分钟吃。',roman:'gamgiyeyo. yageul cheobanghae deurilgeyo. yageun sikhu samsipbune deuseyo.'},
+      {speaker:'환자',ko:'네, 감사합니다. 며칠 후에 다시 와야 해요?',cn:'好的谢谢。几天后需要再来吗？',roman:'ne, gamsahamnida. myeochil hue dasi waya haeyo?'},
+      {speaker:'의사',ko:'3일 후에 다시 오세요.',cn:'三天后再来。',roman:'samil hue dasi oseyo.'}
     ]
   },
   {
     id:3,scene:'면접 (面试)',icon:'💼',
     turns:[
-      {speaker:'면접관',ko:'자기소개를 해 주세요.',cn:'请做一下自我介绍。'},
-      {speaker:'지원자',ko:'안녕하세요. 저는 김민수라고 합니다. 한국어를 전공했고, 현재 한국 회사에서 일하고 싶습니다.',cn:'你好，我叫金民洙。我主修韩语，现在想在韩国公司工作。'},
-      {speaker:'면접관',ko:'왜 우리 회사에 지원했어요?',cn:'为什么申请我们公司？'},
-      {speaker:'지원자',ko:'이 회사는 중국과 한국을 연결하는 무역 회사로 알고 있습니다. 제 언어 능력을 활용할 수 있을 것 같아서 지원했습니다.',cn:'贵公司是连接中国和韩国的贸易公司。我觉得能发挥我的语言能力所以申请了。'},
-      {speaker:'면접관',ko:'한국어는 얼마나 공부했어요?',cn:'学了多久韩语？'},
-      {speaker:'지원자',ko:'2년 동안 공부했고, 토픽 5급을 취득했습니다.',cn:'学了两年，取得了TOPIK 5级。'},
-      {speaker:'면접관',ko:'좋습니다. 결과는 일주일 후에 연락 드리겠습니다.',cn:'很好，结果一周后通知您。'}
+      {speaker:'면접관',ko:'자기소개를 해 주세요.',cn:'请做一下自我介绍。',roman:'jagisogaereul hae juseyo.'},
+      {speaker:'지원자',ko:'안녕하세요. 저는 김민수라고 합니다. 한국어를 전공했고, 현재 한국 회사에서 일하고 싶습니다.',cn:'你好，我叫金民洙。我主修韩语，现在想在韩国公司工作。',roman:'annyeonghaseyo. jeoneun gimminsurago hamnida. hangugeoreul jeongonghaetgo, hyeonjae hanguk hoesaeseo ilhago sipseumnida.'},
+      {speaker:'면접관',ko:'왜 우리 회사에 지원했어요?',cn:'为什么申请我们公司？',roman:'wae uri hoesae jiwonhaesseoyo?'},
+      {speaker:'지원자',ko:'이 회사는 중국과 한국을 연결하는 무역 회사로 알고 있습니다. 제 언어 능력을 활용할 수 있을 것 같아서 지원했습니다.',cn:'贵公司是连接中国和韩国的贸易公司。我觉得能发挥我的语言能力所以申请了。',roman:'i hoesaneun junggukgwa hangugeul yeongyeolhaneun muyeok hoesaro algo itseumnida. je eoneo neungnyeogeul hwaryonghal su isseul geot gataseo jiwonhaetseumnida.'},
+      {speaker:'면접관',ko:'한국어는 얼마나 공부했어요?',cn:'学了多久韩语？',roman:'hangugeoneun eolmana gongbuhaesseoyo?'},
+      {speaker:'지원자',ko:'2년 동안 공부했고, 토픽 5급을 취득했습니다.',cn:'学了两年，取得了TOPIK 5级。',roman:'inyeon dongan gongbuhaetgo, topik ogeubeul chwideukaetseumnida.'},
+      {speaker:'면접관',ko:'좋습니다. 결과는 일주일 후에 연락 드리겠습니다.',cn:'很好，结果一周后通知您。',roman:'joseumnida. gyeolgwaneun iljuil hue yeollak deurigesseumnida.'}
     ]
   },
   {
     id:4,scene:'쇼핑 (购物)',icon:'🛍️',
     turns:[
-      {speaker:'손님',ko:'이 옷 얼마예요?',cn:'这件衣服多少钱？'},
-      {speaker:'점원',ko:'오만 원입니다.',cn:'五万韩元。'},
-      {speaker:'손님',ko:'좀 비싼데요. 할인 안 돼요?',cn:'有点贵，不能打折吗？'},
-      {speaker:'점원',ko:'지금 세일 기간이라서 20% 할인돼요. 사만 원이에요.',cn:'现在打折季，打八折，四万韩元。'},
-      {speaker:'손님',ko:'입어 봐도 돼요?',cn:'可以试穿吗？'},
-      {speaker:'점원',ko:'네, 탈의실은 저쪽에 있어요.',cn:'可以，试衣间在那边。'},
-      {speaker:'손님',ko:'잘 맞네요. 이걸로 주세요.',cn:'挺合身的，就这件吧。'},
-      {speaker:'점원',ko:'카드로 계산하시겠어요?',cn:'刷卡吗？'},
-      {speaker:'손님',ko:'네, 카드로 할게요.',cn:'对，刷卡。'}
+      {speaker:'손님',ko:'이 옷 얼마예요?',cn:'这件衣服多少钱？',roman:'i ot eolmayeyo?'},
+      {speaker:'점원',ko:'오만 원입니다.',cn:'五万韩元。',roman:'oman wonimnida.'},
+      {speaker:'손님',ko:'좀 비싼데요. 할인 안 돼요?',cn:'有点贵，不能打折吗？',roman:'jom bissandeyo. harin an dwaeyo?'},
+      {speaker:'점원',ko:'지금 세일 기간이라서 20% 할인돼요. 사만 원이에요.',cn:'现在打折季，打八折，四万韩元。',roman:'jigeum seil giganiraseo isip peosenteu harindwaeyo. saman wonieyo.'},
+      {speaker:'손님',ko:'입어 봐도 돼요?',cn:'可以试穿吗？',roman:'ibeo bwado dwaeyo?'},
+      {speaker:'점원',ko:'네, 탈의실은 저쪽에 있어요.',cn:'可以，试衣间在那边。',roman:'ne, taruisireun jeojjoge isseoyo.'},
+      {speaker:'손님',ko:'잘 맞네요. 이걸로 주세요.',cn:'挺合身的，就这件吧。',roman:'jal manneyo. igeollo juseyo.'},
+      {speaker:'점원',ko:'카드로 계산하시겠어요?',cn:'刷卡吗？',roman:'kadeuro gyesanhasigesseoyo?'},
+      {speaker:'손님',ko:'네, 카드로 할게요.',cn:'对，刷卡。',roman:'ne, kadeuro halgeyo.'}
     ]
   },
   {
     id:5,scene:'택시 타기 (打车)',icon:'🚕',
     turns:[
-      {speaker:'손님',ko:'서울역까지 가 주세요.',cn:'请去首尔站。'},
-      {speaker:'기사',ko:'네, 알겠습니다.',cn:'好的。'},
-      {speaker:'손님',ko:'얼마나 걸려요?',cn:'需要多久？'},
-      {speaker:'기사',ko:'30분쯤 걸릴 것 같아요. 지금 퇴근 시간이라서 길이 좀 막혀요.',cn:'大概30分钟。现在是下班时间有点堵。'},
-      {speaker:'손님',ko:'그럼 여기서 내려 주세요. 지하철을 타는 게 더 빠를 것 같아요.',cn:'那请让我在这下车吧。坐地铁可能更快。'},
-      {speaker:'기사',ko:'네, 요금은 팔천 원입니다.',cn:'好的，费用八千韩元。'},
-      {speaker:'손님',ko:'여기 만 원이에요. 거스름돈은 팁이에요.',cn:'这是一万，零钱当小费。'},
-      {speaker:'기사',ko:'감사합니다! 조심히 가세요.',cn:'谢谢！请慢走。'}
+      {speaker:'손님',ko:'서울역까지 가 주세요.',cn:'请去首尔站。',roman:'seoullyeokkkaji ga juseyo.'},
+      {speaker:'기사',ko:'네, 알겠습니다.',cn:'好的。',roman:'ne, algesseumnida.'},
+      {speaker:'손님',ko:'얼마나 걸려요?',cn:'需要多久？',roman:'eolmana geollyeoyo?'},
+      {speaker:'기사',ko:'30분쯤 걸릴 것 같아요. 지금 퇴근 시간이라서 길이 좀 막혀요.',cn:'大概30分钟。现在是下班时间有点堵。',roman:'samsipbun jjeum geollil geot gatayo. jigeum toegeun siganiraseo giri jom makyeoyo.'},
+      {speaker:'손님',ko:'그럼 여기서 내려 주세요. 지하철을 타는 게 더 빠를 것 같아요.',cn:'那请让我在这下车吧。坐地铁可能更快。',roman:'geureom yeogiseo naeryeo juseyo. jihacheoreul taneun ge deo ppareul geot gatayo.'},
+      {speaker:'기사',ko:'네, 요금은 팔천 원입니다.',cn:'好的，费用八千韩元。',roman:'ne, yogeumeun palcheon wonimnida.'},
+      {speaker:'손님',ko:'여기 만 원이에요. 거스름돈은 팁이에요.',cn:'这是一万，零钱当小费。',roman:'yeogi man wonieyo. geoseureumdoneun tibieyo.'},
+      {speaker:'기사',ko:'감사합니다! 조심히 가세요.',cn:'谢谢！请慢走。',roman:'gamsahamnida! josimhi gaseyo.'}
     ]
   },
   {
     id:6,scene:'약속 잡기 (约定见面)',icon:'📅',
     turns:[
-      {speaker:'A',ko:'이번 주말에 시간 있어요?',cn:'这周末有空吗？'},
-      {speaker:'B',ko:'토요일 오후에는 괜찮아요. 왜요?',cn:'周六下午可以，怎么了？'},
-      {speaker:'A',ko:'같이 영화 보러 갈래요?',cn:'要不要一起去看电影？'},
-      {speaker:'B',ko:'좋아요! 무슨 영화 볼 거예요?',cn:'好啊！看什么电影？'},
-      {speaker:'A',ko:'요즘 유행하는 한국 영화 있어요. 제목은 "서울의 봄"이에요.',cn:'最近有部流行的韩国电影，叫《首尔之春》。'},
-      {speaker:'B',ko:'아, 그 영화 재미있다고 들었어요. 몇 시에 만날까요?',cn:'啊，听说那部电影很好看。几点见？'},
-      {speaker:'A',ko:'2시에 강남역 2번 출구에서 만나요.',cn:'下午两点在江南站2号出口见。'},
-      {speaker:'B',ko:'네, 그럼 토요일에 봐요!',cn:'好的，那周六见！'}
+      {speaker:'A',ko:'이번 주말에 시간 있어요?',cn:'这周末有空吗？',roman:'ibeon jumare sigan isseoyo?'},
+      {speaker:'B',ko:'토요일 오후에는 괜찮아요. 왜요?',cn:'周六下午可以，怎么了？',roman:'toyoil ohueoneun gwaenchanayo. waeyo?'},
+      {speaker:'A',ko:'같이 영화 보러 갈래요?',cn:'要不要一起去看电影？',roman:'gachi yeonghwa boreo gallaeyo?'},
+      {speaker:'B',ko:'좋아요! 무슨 영화 볼 거예요?',cn:'好啊！看什么电影？',roman:'joayo! museun yeonghwa bol geoyeyo?'},
+      {speaker:'A',ko:'요즘 유행하는 한국 영화 있어요. 제목은 "서울의 봄"이에요.',cn:'最近有部流行的韩国电影，叫《首尔之春》。',roman:'yojeum yuhaenghaneun hanguk yeonghwa isseoyo. jemogeun "seourui bom"ieyo.'},
+      {speaker:'B',ko:'아, 그 영화 재미있다고 들었어요. 몇 시에 만날까요?',cn:'啊，听说那部电影很好看。几点见？',roman:'a, geu yeonghwa jaemiitdago deureosseoyo. myeot sie mannalkkayo?'},
+      {speaker:'A',ko:'2시에 강남역 2번 출구에서 만나요.',cn:'下午两点在江南站2号出口见。',roman:'dusi e gangnamyeok ibeon chulgu eseo mannayo.'},
+      {speaker:'B',ko:'네, 그럼 토요일에 봐요!',cn:'好的，那周六见！',roman:'ne, geureom toyoire bwayo!'}
     ]
   },
   {
     id:7,scene:'카페에서 (在咖啡馆)',icon:'☕',
     turns:[
-      {speaker:'직원',ko:'주문하시겠어요?',cn:'请问要点单吗？'},
-      {speaker:'손님',ko:'아이스 아메리카노 한 잔하고 바닐라 라떼 한 잔 주세요.',cn:'一杯冰美式和一杯香草拿铁。'},
-      {speaker:'직원',ko:'사이즈는 어떻게 해 드릴까요?',cn:'要什么杯型？'},
-      {speaker:'손님',ko:'둘 다 톨 사이즈로 주세요.',cn:'都要中杯。'},
-      {speaker:'직원',ko:'매장에서 드실 거예요?',cn:'堂食吗？'},
-      {speaker:'손님',ko:'네, 여기서 마실게요.',cn:'对，在这喝。'},
-      {speaker:'직원',ko:'총 만이천 원입니다. 포인트 적립하시겠어요?',cn:'一共一万二，要积分吗？'},
-      {speaker:'손님',ko:'네, 전화번호는 010-1234-5678이에요.',cn:'要，电话是010-1234-5678。'}
+      {speaker:'직원',ko:'주문하시겠어요?',cn:'请问要点单吗？',roman:'jumunhasigesseoyo?'},
+      {speaker:'손님',ko:'아이스 아메리카노 한 잔하고 바닐라 라떼 한 잔 주세요.',cn:'一杯冰美式和一杯香草拿铁。',roman:'aiseu amerikano han janhago banilla ratte han jan juseyo.'},
+      {speaker:'직원',ko:'사이즈는 어떻게 해 드릴까요?',cn:'要什么杯型？',roman:'saijeuneun eotteoke hae deurilkkayo?'},
+      {speaker:'손님',ko:'둘 다 톨 사이즈로 주세요.',cn:'都要中杯。',roman:'dul da tol saijeuro juseyo.'},
+      {speaker:'직원',ko:'매장에서 드실 거예요?',cn:'堂食吗？',roman:'maejangeseo deusil geoyeyo?'},
+      {speaker:'손님',ko:'네, 여기서 마실게요.',cn:'对，在这喝。',roman:'ne, yeogiseo masilgeyo.'},
+      {speaker:'직원',ko:'총 만이천 원입니다. 포인트 적립하시겠어요?',cn:'一共一万二，要积分吗？',roman:'chong manicheon wonimnida. pointeu jeongniphasigesseoyo?'},
+      {speaker:'손님',ko:'네, 전화번호는 010-1234-5678이에요.',cn:'要，电话是010-1234-5678。',roman:'ne, jeonhwabeonhoneun gongilgong-e ili samsa-e oyukchilpareyo.'}
     ]
   },
   {
     id:8,scene:'길 묻기 (问路)',icon:'🗺️',
     turns:[
-      {speaker:'A',ko:'실례합니다. 경복궁에 어떻게 가요?',cn:'打扰一下，景福宫怎么走？'},
-      {speaker:'B',ko:'이 길로 쭉 가다가 두 번째 신호등에서 오른쪽으로 가세요.',cn:'这条路一直走，第二个红绿灯右转。'},
-      {speaker:'A',ko:'걸어서 얼마나 걸려요?',cn:'走路要多久？'},
-      {speaker:'B',ko:'한 15분쯤 걸려요. 좀 멀어요.',cn:'大概15分钟，有点远。'},
-      {speaker:'A',ko:'버스로도 갈 수 있어요?',cn:'坐公交也能去吗？'},
-      {speaker:'B',ko:'네, 저기 정류장에서 109번 버스를 타면 돼요. 두 정거장이에요.',cn:'可以，在那边车站坐109路就行，两站。'},
-      {speaker:'A',ko:'정말 감사합니다!',cn:'太感谢了！'},
-      {speaker:'B',ko:'아니에요. 좋은 여행 되세요!',cn:'不客气，祝您旅途愉快！'}
+      {speaker:'A',ko:'실례합니다. 경복궁에 어떻게 가요?',cn:'打扰一下，景福宫怎么走？',roman:'sillyehamnida. gyeongbokgunge eotteoke gayo?'},
+      {speaker:'B',ko:'이 길로 쭉 가다가 두 번째 신호등에서 오른쪽으로 가세요.',cn:'这条路一直走，第二个红绿灯右转。',roman:'i gillo jjuk gadaga du beonjjae sinhodeungeseo oreunjjogeuro gaseyo.'},
+      {speaker:'A',ko:'걸어서 얼마나 걸려요?',cn:'走路要多久？',roman:'georeoseo eolmana geollyeoyo?'},
+      {speaker:'B',ko:'한 15분쯤 걸려요. 좀 멀어요.',cn:'大概15分钟，有点远。',roman:'han sibobun jjeum geollyeoyo. jom meoreoyo.'},
+      {speaker:'A',ko:'버스로도 갈 수 있어요?',cn:'坐公交也能去吗？',roman:'beoseurodo gal su isseoyo?'},
+      {speaker:'B',ko:'네, 저기 정류장에서 109번 버스를 타면 돼요. 두 정거장이에요.',cn:'可以，在那边车站坐109路就行，两站。',roman:'ne, jeogi jeongnyujangeseo baekgubeon beoseureul tamyeon dwaeyo. du jeonggeojangieyo.'},
+      {speaker:'A',ko:'정말 감사합니다!',cn:'太感谢了！',roman:'jeongmal gamsahamnida!'},
+      {speaker:'B',ko:'아니에요. 좋은 여행 되세요!',cn:'不客气，祝您旅途愉快！',roman:'anieyo. joeun yeohaeng doeseyo!'}
     ]
   }
 ];
@@ -3958,6 +3958,7 @@ const READINGS = [
   {
     id:1,level:'초급',title:'나의 하루',title_cn:'我的一天',
     text:'저는 매일 아침 7시에 일어납니다. 세수를 하고 아침을 먹습니다. 보통 빵과 우유를 먹습니다. 8시에 집에서 나와서 학교에 갑니다. 지하철로 30분 걸립니다. 학교에서 한국어를 공부합니다. 점심은 학교 식당에서 먹습니다. 오후에는 친구와 함께 카페에 갑니다. 저녁 6시에 집에 돌아옵니다. 저녁을 먹고 숙제를 합니다. 밤 11시에 잡니다.',
+    roman:'jeoneun maeil achim ilgopsie ireonamnida. sesureul hago achimeul meokseumnida. botong ppanggwa uyureul meokseumnida. yeodeolsie jibeseo nawaseo hakgyoe gamnida. jihacheollo samsipbun geollimnida. hakgyoeseo hangugeoreul gongbuhamnida. jeomsimeun hakgyo sikdangeseo meokseumnida. ohueneun chinguwa hamkke kapee gamnida. jeonyeok yeoseotsie jibe doraomnida. jeonyeogeul meokgo sukjereul hamnida. bam yeolhansie jamnida.',
     translation:'我每天早上7点起床。洗脸后吃早饭。一般吃面包和牛奶。8点出门去学校。坐地铁需要30分钟。在学校学韩语。午饭在学校食堂吃。下午和朋友一起去咖啡馆。晚上6点回家。吃晚饭后做作业。晚上11点睡觉。',
     questions:[
       {q:'몇 시에 일어나요?',opts:['6시','7시','8시','9시'],ans:1},
@@ -3968,6 +3969,7 @@ const READINGS = [
   {
     id:2,level:'초급',title:'주말 계획',title_cn:'周末计划',
     text:'이번 주말에는 날씨가 좋을 거예요. 그래서 친구와 함께 한강에 갈 거예요. 한강에서 자전거를 빌려서 탈 거예요. 점심에는 한강 근처 맛집에서 치킨을 먹을 거예요. 오후에는 여의도 공원에서 산책할 거예요. 저녁에는 영화를 볼 거예요. 아주 신나는 주말이 될 것 같아요.',
+    roman:'ibeon jumareneun nalssiga joeul geoyeyo. geuraeseo chinguwa hamkke hangang-e gal geoyeyo. hangangeseo jajeongeoreul billyeoseo tal geoyeyo. jeomsimeneun hangang geuncheo matjibeseo chikineul meogeul geoyeyo. ohueneun yeouido gongwoneseo sanchaekal geoyeyo. jeonyeogeneun yeonghwareul bol geoyeyo. aju sinnaneun jumari doel geot gatayo.',
     translation:'这个周末天气会很好。所以我要和朋友一起去汉江。在汉江租自行车骑。午饭在汉江附近的美食店吃炸鸡。下午在汝矣岛公园散步。晚上看电影。会是一个很愉快的周末。',
     questions:[
       {q:'주말에 어디에 갈 거예요?',opts:['산','바다','한강','공원'],ans:2},
@@ -3978,6 +3980,7 @@ const READINGS = [
   {
     id:3,level:'중급',title:'한국 생활 적응기',title_cn:'韩国生活适应记',
     text:'한국에 온 지 벌써 6개월이 되었습니다. 처음에는 모든 것이 낯설었습니다. 한국어도 서툴렀고, 음식도 입에 맞지 않았습니다. 하지만 지금은 많이 적응했습니다. 특히 한국의 배달 문화가 정말 편리하다고 느꼈습니다. 밤늦게도 음식을 시킬 수 있어서 좋습니다. 한국 친구들도 많이 사귀었습니다. 친구들이 한국 문화를 가르쳐 주고, 제가 중국 문화도 소개해 줍니다. 앞으로 한국에서 더 많은 경험을 쌓고 싶습니다.',
+    roman:'hanguge on ji beolsseo yukgaewori doeeotseumnida. cheoeumeneun modeun geosi natseoreotseumnida. hangugeodo seotulleotgo, eumsikdo ibe matji anatseumnida. hajiman jigeumeun mani jeogeunghaetseumnida. teuki hangugui baedal munhwaga jeongmal pyeollihada neukkyeotseumnida. bamneutgedo eumsigeul sikil su isseoseo joseumnida. hanguk chingudeuldo mani sagwieotseumnida. chingudeuri hanguk munhwareul gareuchyeo jugo, jega jungguk munhwado sogaehae jumnida. apeuro hangugeseo deo maneun gyeongheomeul ssako sipseumnida.',
     translation:'来韩国已经6个月了。一开始一切都陌生。韩语也不好，食物也不合口。但现在适应了很多。特别是韩国的外卖文化感觉真的很方便。深夜也能点餐很好。也交了很多韩国朋友。朋友们教我韩国文化，我也给他们介绍中国文化。以后想在韩国积累更多经验。',
     questions:[
       {q:'한국에 온 지 얼마나 되었어요?',opts:['3개월','6개월','1년','2년'],ans:1},
@@ -3988,6 +3991,7 @@ const READINGS = [
   {
     id:4,level:'중급',title:'설날 이야기',title_cn:'春节故事',
     text:'한국의 설날은 중국의 설날과 비슷하지만 다른 점도 많습니다. 한국에서도 가족들이 모두 모여서 음식을 먹고 이야기를 나눕니다. 대표적인 설날 음식은 떡국입니다. 떡국을 먹어야 나이를 한 살 더 먹는다고 합니다. 아침에는 차례를 지냅니다. 그리고 아이들은 어른들께 세배를 하고 덕담을 듣습니다. 세배를 하면 세뱃돈도 받을 수 있습니다. 저도 이번 설날에 한국 친구 집에 초대받아서 떡국을 먹고 세배도 했습니다. 정말 뜻깊은 경험이었습니다.',
+    roman:'hangugui seollareun junggugui seollalgwa biseutajiman dareun jeomdo manseumnida. hangugeseodo gajokdeuri modu moyeoseo eumsigeul meokgo iyagireul nanumnida. daepyoin seollal eumsigeun tteokgugimnida. tteokgugeul meogeoya naireul han sal deo meongneundago hamnida. achime-neun charyereul jinaemnida. geurigo aideureun eoreundeulkke sebae-reul hago deokdameul deutseumnida. sebaereul hamyeon sebaetdondo badeul su itseumnida. jeodo ibeon seollare hanguk chingu jibe chodaebadasseo tteokgugeul meokgo sebaedo haetseumnida. jeongmal tteutgipeun gyeongheomieotseumnida.',
     translation:'韩国春节和中国春节相似但也有很多不同。在韩国也是一家人聚在一起吃饭聊天。代表性的春节食物是年糕汤。据说吃了年糕汤才算长一岁。早上进行茶礼（祭祀）。然后孩子们给长辈拜年听祝福。拜年还能收到压岁钱。这次春节我也被韩国朋友邀请到家里吃了年糕汤还拜了年。真的是很有意义的经历。',
     questions:[
       {q:'한국의 설날 대표 음식은 무엇이에요?',opts:['불고기','김치','떡국','비빔밥'],ans:2},
@@ -3998,6 +4002,7 @@ const READINGS = [
   {
     id:5,level:'중급',title:'한국어 공부 방법',title_cn:'韩语学习方法',
     text:'저는 2년 동안 한국어를 공부했습니다. 처음에는 한글부터 배웠습니다. 한글은 생각보다 쉬웠습니다. 그 후에 문법과 단어를 공부했습니다. 제가 추천하는 공부 방법은 매일 조금씩 꾸준히 하는 것입니다. 저는 매일 아침 30분 동안 한국어 단어를 외우고, 저녁에는 한국 드라마를 보면서 듣기 연습을 합니다. 그리고 주말에는 한국인 친구와 언어 교환을 합니다. 제 친구는 중국어를 배우고 싶어하고, 저는 한국어를 배우고 싶어하기 때문에 서로 도움이 됩니다. 가장 중요한 것은 포기하지 않는 것입니다.',
+    roman:'jeoneun inyeon dongan hangugeoreul gongbuhaetseumnida. cheoeumeneun hangeulbuteo baewotseumnida. hangeureun saenggakboda swiwotseumnida. geu hue munbeopgwa daneoreul gongbuhaetseumnida. jega chucheonhaneun gongbu bangbeobeun maeil jogeumssik kkujunhi haneun geosimnida. jeoneun maeil achim samsipbun dongan hangugeo daneoreul oeugo, jeonyeogeneun hanguk deuramareul bomyeonseo deutgi yeonseubeul hamnida. geurigo jumareneun hangugin chinguwa eoneo gyohwaneul hamnida. je chinguneun junggugeoreul baeugo sipeohago, jeoneun hangugeoreul baeugo sipeohagi ttaemune seoro doumi doemnida. gajang jungyohan geoseun pogihaji anneun geosimnida.',
     translation:'我学了两年韩语。一开始从韩文字母学起。韩文比想象中容易。之后学了语法和单词。我推荐的学习方法是每天坚持学一点。我每天早上背30分钟韩语单词，晚上看韩剧练听力。周末和韩国朋友语言交换。朋友想学中文，我想学韩语，所以互相有帮助。最重要的是不要放弃。',
     questions:[
       {q:'처음에 무엇부터 배웠어요?',opts:['문법','단어','한글','회화'],ans:2},
@@ -4011,36 +4016,36 @@ const READINGS = [
 // KOREAN SLANG & INTERNET — 网络用语/新造词
 // ============================================================
 const SLANG = [
-  {ko:'ㅋㅋㅋ',cn:'哈哈哈',note:'韩语笑声，类似kkk',category:'聊天'},
-  {ko:'ㅠㅠ',cn:'呜呜/哭哭',note:'表达伤心或感动',category:'聊天'},
-  {ko:'ㄱㅅ',cn:'谢谢',note:'감사합니다 的首字母缩写',category:'缩写'},
-  {ko:'ㅇㅇ',cn:'嗯嗯/是的',note:'응응 的缩写，表示同意',category:'缩写'},
-  {ko:'ㄴㄴ',cn:'不不',note:'노노的缩写，表示拒绝',category:'缩写'},
-  {ko:'ㅈㅅ',cn:'对不起',note:'죄송합니다 的缩写',category:'缩写'},
-  {ko:'ㄱㄷ',cn:'等着',note:'기다려 的缩写',category:'缩写'},
-  {ko:'ㅊㅋ',cn:'恭喜',note:'축하해 的缩写',category:'缩写'},
-  {ko:'ㅇㅋ',cn:'OK/好的',note:'오케이 的缩写',category:'缩写'},
-  {ko:'헐',cn:'天啊/我晕',note:'表示惊讶/无语',category:'感叹'},
-  {ko:'대박',cn:'太棒了/太厉害了',note:'原意"大爆发"，用于赞叹',category:'感叹'},
-  {ko:'헉',cn:'哇/天哪',note:'表示极度惊讶',category:'感叹'},
-  {ko:'짱',cn:'超棒/最棒',note:'表示真的很厉害、很优秀',category:'感叹'},
-  {ko:'완전',cn:'完全/非常',note:'用作强调副词 = 매우',category:'口语'},
-  {ko:'개',cn:'非常/超~',note:'前缀，개맛있다=超好吃',category:'口语'},
-  {ko:'존맛탱',cn:'超级好吃',note:'존나(非常)+맛있다+탱(加强)',category:'新造词'},
-  {ko:'꿀잼',cn:'超有趣',note:'꿀(蜂蜜)+재미=超有趣',category:'新造词'},
-  {ko:'노잼',cn:'超无聊',note:'노(No)+재미=超无聊',category:'新造词'},
-  {ko:'인싸',cn:'社交达人',note:'insider(圈内人)的韩式发音',category:'新造词'},
-  {ko:'아싸',cn:'局外人/社恐',note:'outsider的韩式发音，反义词',category:'新造词'},
-  {ko:'핵인싸',cn:'超级社交达人',note:'핵(核)+인싸，超级级别',category:'新造词'},
-  {ko:'TMI',cn:'信息量过大/不用说那么多',note:'Too Much Information',category:'外来语'},
-  {ko:'스킨십',cn:'肢体接触',note:'韩式英语 skinship',category:'外来语'},
-  {ko:'애교',cn:'撒娇',note:'韩国文化中非常常见的行为',category:'文化'},
-  {ko:'멘붕',cn:'精神崩溃',note:'멘탈(精神)+붕괴(崩溃)的缩略',category:'新造词'},
-  {ko:'현타',cn:'现实打击/清醒',note:'현실(现实)+자각타임(醒悟时间)',category:'新造词'},
-  {ko:'인생샷',cn:'人生照片',note:'인생(人生)+샷(shot) = 拍得最好的照片',category:'新造词'},
-  {ko:'먹방',cn:'吃播',note:'먹는(吃的)+방송(放送)',category:'新造词'},
-  {ko:'혼밥',cn:'一个人吃饭',note:'혼자(独自)+밥(饭)',category:'新造词'},
-  {ko:'혼술',cn:'一个人喝酒',note:'혼자(独自)+술(酒)',category:'新造词'}
+  {ko:'ㅋㅋㅋ',cn:'哈哈哈',roman:'keukeukeu',note:'韩语笑声，类似kkk',category:'聊天'},
+  {ko:'ㅠㅠ',cn:'呜呜/哭哭',roman:'yuyu',note:'表达伤心或感动',category:'聊天'},
+  {ko:'ㄱㅅ',cn:'谢谢',roman:'gamsa',note:'감사합니다 的首字母缩写',category:'缩写'},
+  {ko:'ㅇㅇ',cn:'嗯嗯/是的',roman:'eungeung',note:'응응 的缩写，表示同意',category:'缩写'},
+  {ko:'ㄴㄴ',cn:'不不',roman:'nono',note:'노노的缩写，表示拒绝',category:'缩写'},
+  {ko:'ㅈㅅ',cn:'对不起',roman:'joesong',note:'죄송합니다 的缩写',category:'缩写'},
+  {ko:'ㄱㄷ',cn:'等着',roman:'gidaryeo',note:'기다려 的缩写',category:'缩写'},
+  {ko:'ㅊㅋ',cn:'恭喜',roman:'chukha',note:'축하해 的缩写',category:'缩写'},
+  {ko:'ㅇㅋ',cn:'OK/好的',roman:'okei',note:'오케이 的缩写',category:'缩写'},
+  {ko:'헐',cn:'天啊/我晕',roman:'heol',note:'表示惊讶/无语',category:'感叹'},
+  {ko:'대박',cn:'太棒了/太厉害了',roman:'daebak',note:'原意"大爆发"，用于赞叹',category:'感叹'},
+  {ko:'헉',cn:'哇/天哪',roman:'heok',note:'表示极度惊讶',category:'感叹'},
+  {ko:'짱',cn:'超棒/最棒',roman:'jjang',note:'表示真的很厉害、很优秀',category:'感叹'},
+  {ko:'완전',cn:'完全/非常',roman:'wanjeon',note:'用作强调副词 = 매우',category:'口语'},
+  {ko:'개',cn:'非常/超~',roman:'gae',note:'前缀，개맛있다=超好吃',category:'口语'},
+  {ko:'존맛탱',cn:'超级好吃',roman:'jonmattaeng',note:'존나(非常)+맛있다+탱(加强)',category:'新造词'},
+  {ko:'꿀잼',cn:'超有趣',roman:'kkuljaem',note:'꿀(蜂蜜)+재미=超有趣',category:'新造词'},
+  {ko:'노잼',cn:'超无聊',roman:'nojaem',note:'노(No)+재미=超无聊',category:'新造词'},
+  {ko:'인싸',cn:'社交达人',roman:'inssa',note:'insider(圈内人)的韩式发音',category:'新造词'},
+  {ko:'아싸',cn:'局外人/社恐',roman:'assa',note:'outsider的韩式发音，反义词',category:'新造词'},
+  {ko:'핵인싸',cn:'超级社交达人',roman:'haeginssa',note:'핵(核)+인싸，超级级别',category:'新造词'},
+  {ko:'TMI',cn:'信息量过大/不用说那么多',roman:'tmi',note:'Too Much Information',category:'外来语'},
+  {ko:'스킨십',cn:'肢体接触',roman:'seukinsip',note:'韩式英语 skinship',category:'外来语'},
+  {ko:'애교',cn:'撒娇',roman:'aegyo',note:'韩国文化中非常常见的行为',category:'文化'},
+  {ko:'멘붕',cn:'精神崩溃',roman:'menbung',note:'멘탈(精神)+붕괴(崩溃)的缩略',category:'新造词'},
+  {ko:'현타',cn:'现实打击/清醒',roman:'hyeonta',note:'현실(现实)+자각타임(醒悟时间)',category:'新造词'},
+  {ko:'인생샷',cn:'人生照片',roman:'insaengsyat',note:'인생(人生)+샷(shot) = 拍得最好的照片',category:'新造词'},
+  {ko:'먹방',cn:'吃播',roman:'meokbang',note:'먹는(吃的)+방송(放送)',category:'新造词'},
+  {ko:'혼밥',cn:'一个人吃饭',roman:'honbap',note:'혼자(独自)+밥(饭)',category:'新造词'},
+  {ko:'혼술',cn:'一个人喝酒',roman:'honsul',note:'혼자(独自)+술(酒)',category:'新造词'}
 ];
 
 // ============================================================
@@ -7327,7 +7332,7 @@ function renderNumbers() {
   html += '<div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px">用于：日期、时间(分/秒)、电话号码、价格、楼层</div>';
   html += '<div style="display:flex;flex-wrap:wrap;gap:6px">';
   NUMBERS.sino.forEach(function(n) {
-    html += '<div style="background:var(--bg);padding:6px 10px;border-radius:20px;font-size:12px"><b>' + n.ko + '</b> ' + n.cn + '</div>';
+    html += '<div style="background:var(--bg);padding:6px 10px;border-radius:20px;font-size:12px"><b>' + n.ko + '</b> <span style="color:var(--text-light);font-size:10px;font-style:italic">' + n.roman + '</span> ' + n.cn + '</div>';
   });
   html += '</div></div>';
   
@@ -7337,7 +7342,7 @@ function renderNumbers() {
   html += '<div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px">用于：数量、年龄、小时、次数</div>';
   html += '<div style="display:flex;flex-wrap:wrap;gap:6px">';
   NUMBERS.native.forEach(function(n) {
-    html += '<div style="background:var(--bg);padding:6px 10px;border-radius:20px;font-size:12px"><b>' + n.ko + '</b> ' + n.cn + '</div>';
+    html += '<div style="background:var(--bg);padding:6px 10px;border-radius:20px;font-size:12px"><b>' + n.ko + '</b> <span style="color:var(--text-light);font-size:10px;font-style:italic">' + n.roman + '</span> ' + n.cn + '</div>';
   });
   html += '</div></div>';
   
@@ -7378,6 +7383,7 @@ function renderHanja() {
     families[fam].forEach(function(h) {
       html += '<div style="text-align:center;font-size:12px">';
       html += '<div style="font-weight:600">' + h.hangul + '</div>';
+      html += '<div style="color:var(--text-light);font-size:10px;font-style:italic">' + h.roman + '</div>';
       html += '<div style="color:var(--text-light);font-size:10px">' + h.hanja + '</div>';
       html += '<div style="color:var(--text-secondary);font-size:10px">' + h.cn + '</div>';
       html += '</div>';
@@ -7403,7 +7409,8 @@ function renderIdioms() {
   var filtered = idiomTag === '全部' ? IDIOMS : IDIOMS.filter(function(i) { return i.tags === idiomTag; });
   filtered.forEach(function(i) {
     html += '<div style="background:var(--card);border-radius:var(--radius-sm);padding:14px;margin-bottom:10px">';
-    html += '<div style="font-size:16px;font-weight:600;margin-bottom:4px">' + i.ko + '</div>';
+    html += '<div style="font-size:16px;font-weight:600;margin-bottom:2px">' + i.ko + '</div>';
+    html += '<div style="font-size:12px;color:var(--text-light);font-style:italic;margin-bottom:6px">' + i.roman + '</div>';
     html += '<div style="font-size:13px;color:var(--text-secondary);margin-bottom:4px">' + i.cn + '</div>';
     html += '<div style="font-size:12px;color:var(--primary);margin-bottom:4px">💡 ' + i.meaning + '</div>';
     html += '<div style="font-size:11px;color:var(--text-light)">📖 ' + i.example + '</div>';
@@ -7434,11 +7441,12 @@ function renderDialogues() {
   html += '<div style="font-size:18px;font-weight:700;margin-bottom:12px;text-align:center">' + d.icon + ' ' + d.scene + '</div>';
   d.turns.forEach(function(t) {
     html += '<div style="padding:10px 0;border-bottom:1px solid var(--border)">';
-    html += '<div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">';
+    html += '<div style="display:flex;align-items:center;gap:8px;margin-bottom:2px">';
     html += '<span style="font-weight:700;font-size:13px;color:var(--primary)">' + t.speaker + '</span>';
     html += '<span style="font-size:14px">' + t.ko + '</span>';
     html += '<span onclick="speak(\'' + t.ko.replace(/'/g,"\\'") + '\')" style="cursor:pointer;font-size:14px" title="朗读">🔊</span>';
     html += '</div>';
+    html += '<div style="font-size:11px;color:var(--text-light);font-style:italic;padding-left:24px;margin-bottom:2px">' + t.roman + '</div>';
     html += '<div style="font-size:12px;color:var(--text-secondary);padding-left:24px">' + t.cn + '</div>';
     html += '</div>';
   });
@@ -7469,7 +7477,8 @@ function renderReadings() {
   html += '<div style="font-weight:600;font-size:15px">' + r.title + '</div>';
   html += '<span style="font-size:11px;background:var(--primary);color:#fff;padding:2px 8px;border-radius:10px">' + r.level + '</span>';
   html += '</div>';
-  html += '<div style="font-size:14px;line-height:2;margin-bottom:12px;cursor:pointer" onclick="speak(\'' + r.text.replace(/'/g,"\\'").replace(/\n/g,' ') + '\')" title="点击朗读全文">' + r.text.replace(/\n/g,'<br>') + '</div>';
+  html += '<div style="font-size:14px;line-height:2;margin-bottom:8px;cursor:pointer" onclick="speak(\'' + r.text.replace(/'/g,"\\'").replace(/\n/g,' ') + '\')" title="点击朗读全文">' + r.text.replace(/\n/g,'<br>') + '</div>';
+  html += '<div style="font-size:12px;color:var(--text-light);font-style:italic;line-height:1.8;margin-bottom:12px;padding:10px;background:var(--bg);border-radius:8px;border-left:3px solid var(--primary)">' + r.roman + '</div>';
   html += '<div style="font-size:13px;color:var(--text-secondary);line-height:1.8;padding-top:12px;border-top:1px dashed var(--border)">' + r.translation.replace(/\n/g,'<br>') + '</div>';
   html += '</div>';
   
@@ -7517,6 +7526,7 @@ function renderSlang() {
   filtered.forEach(function(s) {
     html += '<div style="background:var(--card);border-radius:var(--radius-sm);padding:12px;width:calc(50% - 4px)">';
     html += '<div style="font-size:16px;font-weight:600">' + s.ko + '</div>';
+    html += '<div style="font-size:11px;color:var(--text-light);font-style:italic">' + s.roman + '</div>';
     html += '<div style="font-size:13px;color:var(--text-secondary)">' + s.cn + '</div>';
     html += '<div style="font-size:11px;color:var(--text-light);margin-top:4px">' + s.note + '</div>';
     html += '</div>';
