@@ -7355,18 +7355,18 @@ function checkErrorAnswer(correctId, chosenId, btn) {
 // CONJUGATION TABLE — 动词变位总表
 // ============================================================
 const CONJUGATION_VERBS = [
-  {stem:'가',meaning:'去',type:'regular',present:'가요',past:'갔어요',future:'갈 거예요',formal:'갑니다',formal_past:'갔습니다'},
-  {stem:'먹',meaning:'吃',type:'regular',present:'먹어요',past:'먹었어요',future:'먹을 거예요',formal:'먹습니다',formal_past:'먹었습니다'},
-  {stem:'보다',meaning:'看',type:'regular',present:'봐요',past:'봤어요',future:'볼 거예요',formal:'봅니다',formal_past:'봤습니다'},
-  {stem:'하다',meaning:'做',type:'hada',present:'해요',past:'했어요',future:'할 거예요',formal:'합니다',formal_past:'했습니다'},
-  {stem:'듣다',meaning:'听',type:'irregular',present:'들어요',past:'들었어요',future:'들을 거예요',formal:'듣습니다',formal_past:'들었습니다'},
-  {stem:'춥다',meaning:'冷',type:'irregular',present:'추워요',past:'추웠어요',future:'추울 거예요',formal:'춥습니다',formal_past:'추웠습니다'},
-  {stem:'쓰다',meaning:'写/用',type:'regular',present:'써요',past:'썼어요',future:'쓸 거예요',formal:'씁니다',formal_past:'썼습니다'},
-  {stem:'좋다',meaning:'好',type:'regular',present:'좋아요',past:'좋았어요',future:'좋을 거예요',formal:'좋습니다',formal_past:'좋았습니다'},
-  {stem:'살다',meaning:'住/活',type:'irregular',present:'살아요',past:'살았어요',future:'살 거예요',formal:'삽니다',formal_past:'살았습니다'},
-  {stem:'쉽다',meaning:'容易',type:'irregular',present:'쉬워요',past:'쉬웠어요',future:'쉬울 거예요',formal:'쉽습니다',formal_past:'쉬웠습니다'},
-  {stem:'걷다',meaning:'走',type:'irregular',present:'걸어요',past:'걸었어요',future:'걸을 거예요',formal:'걷습니다',formal_past:'걸었습니다'},
-  {stem:'돕다',meaning:'帮助',type:'irregular',present:'도와요',past:'도왔어요',future:'도울 거예요',formal:'돕습니다',formal_past:'도왔습니다'}
+  {stem:'가',meaning:'去',type:'regular',present:'가요',present_r:'ga-yo',past:'갔어요',past_r:'gasseo-yo',future:'갈 거예요',future_r:'gal geo-ye-yo',formal:'갑니다',formal_r:'gam-ni-da',formal_past:'갔습니다',formal_past_r:'gasseum-ni-da'},
+  {stem:'먹',meaning:'吃',type:'regular',present:'먹어요',present_r:'meogeo-yo',past:'먹었어요',past_r:'meogeosseo-yo',future:'먹을 거예요',future_r:'meogeul geo-ye-yo',formal:'먹습니다',formal_r:'meok-seum-ni-da',formal_past:'먹었습니다',formal_past_r:'meogeosseum-ni-da'},
+  {stem:'보다',meaning:'看',type:'regular',present:'봐요',present_r:'bwa-yo',past:'봤어요',past_r:'bwasseo-yo',future:'볼 거예요',future_r:'bol geo-ye-yo',formal:'봅니다',formal_r:'bom-ni-da',formal_past:'봤습니다',formal_past_r:'bwasseum-ni-da'},
+  {stem:'하다',meaning:'做',type:'hada',present:'해요',present_r:'hae-yo',past:'했어요',past_r:'haesseo-yo',future:'할 거예요',future_r:'hal geo-ye-yo',formal:'합니다',formal_r:'ham-ni-da',formal_past:'했습니다',formal_past_r:'haesseum-ni-da'},
+  {stem:'듣다',meaning:'听',type:'irregular',present:'들어요',present_r:'deureo-yo',past:'들었어요',past_r:'deureosseo-yo',future:'들을 거예요',future_r:'deureul geo-ye-yo',formal:'듣습니다',formal_r:'deut-seum-ni-da',formal_past:'들었습니다',formal_past_r:'deureosseum-ni-da'},
+  {stem:'춥다',meaning:'冷',type:'irregular',present:'추워요',present_r:'chuwo-yo',past:'추웠어요',past_r:'chuwosseo-yo',future:'추울 거예요',future_r:'chuul geo-ye-yo',formal:'춥습니다',formal_r:'chup-seum-ni-da',formal_past:'추웠습니다',formal_past_r:'chuwosseum-ni-da'},
+  {stem:'쓰다',meaning:'写/用',type:'regular',present:'써요',present_r:'sseo-yo',past:'썼어요',past_r:'sseosseo-yo',future:'쓸 거예요',future_r:'sseul geo-ye-yo',formal:'씁니다',formal_r:'sseum-ni-da',formal_past:'썼습니다',formal_past_r:'sseosseum-ni-da'},
+  {stem:'좋다',meaning:'好',type:'regular',present:'좋아요',present_r:'joa-yo',past:'좋았어요',past_r:'joasseo-yo',future:'좋을 거예요',future_r:'joeul geo-ye-yo',formal:'좋습니다',formal_r:'jo-seum-ni-da',formal_past:'좋았습니다',formal_past_r:'joasseum-ni-da'},
+  {stem:'살다',meaning:'住/活',type:'irregular',present:'살아요',present_r:'sara-yo',past:'살았어요',past_r:'sarasseo-yo',future:'살 거예요',future_r:'sal geo-ye-yo',formal:'삽니다',formal_r:'sam-ni-da',formal_past:'살았습니다',formal_past_r:'sarasseum-ni-da'},
+  {stem:'쉽다',meaning:'容易',type:'irregular',present:'쉬워요',present_r:'swiwo-yo',past:'쉬웠어요',past_r:'swiwosseo-yo',future:'쉬울 거예요',future_r:'swiul geo-ye-yo',formal:'쉽습니다',formal_r:'swip-seum-ni-da',formal_past:'쉬웠습니다',formal_past_r:'swiwosseum-ni-da'},
+  {stem:'걷다',meaning:'走',type:'irregular',present:'걸어요',present_r:'georeo-yo',past:'걸었어요',past_r:'georeosseo-yo',future:'걸을 거예요',future_r:'georeul geo-ye-yo',formal:'걷습니다',formal_r:'geot-seum-ni-da',formal_past:'걸었습니다',formal_past_r:'georeosseum-ni-da'},
+  {stem:'돕다',meaning:'帮助',type:'irregular',present:'도와요',present_r:'dowa-yo',past:'도왔어요',past_r:'dowasseo-yo',future:'도울 거예요',future_r:'doul geo-ye-yo',formal:'돕습니다',formal_r:'dop-seum-ni-da',formal_past:'도왔습니다',formal_past_r:'dowasseum-ni-da'}
 ];
 
 
@@ -7380,11 +7380,12 @@ function renderConjTable() {
   var v = CONJUGATION_VERBS[vid];
   if (!v) return;
   var table = document.getElementById('conjTable');
+  function cell(k, r) { return '<div style="font-size:13px">' + k + '</div><div style="font-size:11px;color:var(--text-light);margin-top:2px">[' + r + ']</div>'; }
   table.innerHTML = '<table class="conj-table">'
     + '<tr><th></th><th>해요체 (常用敬语)</th><th>합쇼체 (正式敬语)</th></tr>'
-    + '<tr><td>现在</td><td>' + v.present + '</td><td>' + v.formal + '</td></tr>'
-    + '<tr><td>过去</td><td>' + v.past + '</td><td>' + v.formal_past + '</td></tr>'
-    + '<tr><td>将来</td><td>' + v.future + '</td><td>—</td></tr>'
+    + '<tr><td>现在</td><td>' + cell(v.present, v.present_r) + '</td><td>' + cell(v.formal, v.formal_r) + '</td></tr>'
+    + '<tr><td>过去</td><td>' + cell(v.past, v.past_r) + '</td><td>' + cell(v.formal_past, v.formal_past_r) + '</td></tr>'
+    + '<tr><td>将来</td><td>' + cell(v.future, v.future_r) + '</td><td>—</td></tr>'
     + '</table>'
     + '<div style="margin-top:8px;font-size:12px;color:var(--text-secondary);text-align:center">词干: ' + v.stem + ' · ' + v.meaning + ' · ' + (v.type==='regular'?'规则动词':v.type==='hada'?'하다动词':'不规则动词') + '</div>';
 }
@@ -7395,11 +7396,12 @@ function renderConjugation_legacy() {
   var v = CONJUGATION_VERBS[vid];
   if (!v) return;
   var table = document.getElementById('conjTable');
+  function cell2(k, r) { return '<div style="font-size:13px">' + k + '</div><div style="font-size:11px;color:var(--text-light);margin-top:2px">[' + r + ']</div>'; }
   table.innerHTML = '<table class="conj-table">'
     + '<tr><th></th><th>해요체<br>(常用敬语)</th><th>합쇼체<br>(正式敬语)</th></tr>'
-    + '<tr><td>现在</td><td>' + v.present + '</td><td>' + v.formal + '</td></tr>'
-    + '<tr><td>过去</td><td>' + v.past + '</td><td>' + v.formal_past + '</td></tr>'
-    + '<tr><td>将来</td><td>' + v.future + '</td><td>—</td></tr>'
+    + '<tr><td>现在</td><td>' + cell2(v.present, v.present_r) + '</td><td>' + cell2(v.formal, v.formal_r) + '</td></tr>'
+    + '<tr><td>过去</td><td>' + cell2(v.past, v.past_r) + '</td><td>' + cell2(v.formal_past, v.formal_past_r) + '</td></tr>'
+    + '<tr><td>将来</td><td>' + cell2(v.future, v.future_r) + '</td><td>—</td></tr>'
     + '</table>'
     + '<div style="margin-top:8px;font-size:12px;color:var(--text-secondary);text-align:center">词干: ' + v.stem + ' · 类型: ' + (v.type==='regular'?'规则':v.type==='hada'?'하다动词':'不规则') + '</div>';
 }
