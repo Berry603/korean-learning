@@ -7380,7 +7380,14 @@ function renderConjTable() {
   var v = CONJUGATION_VERBS[vid];
   if (!v) return;
   var table = document.getElementById('conjTable');
-  function cell(k, r) { return '<div style="font-size:13px">' + k + '</div><div style="font-size:11px;color:var(--text-light);margin-top:2px">[' + r + ']</div>'; }
+  function esc(s) { return s.replace(/'/g, "\\'"); }
+  function cell(k, r) {
+    return '<div style="display:flex;align-items:center;justify-content:center;gap:4px;flex-wrap:wrap">'
+      + '<span style="font-size:13px">' + k + '</span>'
+      + '<span class="str-speak" style="font-size:11px;padding:1px 4px;margin:0" onclick="event.stopPropagation();speak(\'' + esc(k) + '\')" title="听发音">🔊</span>'
+      + '<div style="font-size:11px;color:var(--text-light);width:100%">[' + r + ']</div>'
+      + '</div>';
+  }
   table.innerHTML = '<table class="conj-table">'
     + '<tr><th></th><th>해요체 (常用敬语)</th><th>합쇼체 (正式敬语)</th></tr>'
     + '<tr><td>现在</td><td>' + cell(v.present, v.present_r) + '</td><td>' + cell(v.formal, v.formal_r) + '</td></tr>'
@@ -7396,7 +7403,14 @@ function renderConjugation_legacy() {
   var v = CONJUGATION_VERBS[vid];
   if (!v) return;
   var table = document.getElementById('conjTable');
-  function cell2(k, r) { return '<div style="font-size:13px">' + k + '</div><div style="font-size:11px;color:var(--text-light);margin-top:2px">[' + r + ']</div>'; }
+  function esc(s) { return s.replace(/'/g, "\\'"); }
+  function cell2(k, r) {
+    return '<div style="display:flex;align-items:center;justify-content:center;gap:4px;flex-wrap:wrap">'
+      + '<span style="font-size:13px">' + k + '</span>'
+      + '<span class="str-speak" style="font-size:11px;padding:1px 4px;margin:0" onclick="event.stopPropagation();speak(\'' + esc(k) + '\')" title="听发音">🔊</span>'
+      + '<div style="font-size:11px;color:var(--text-light);width:100%">[' + r + ']</div>'
+      + '</div>';
+  }
   table.innerHTML = '<table class="conj-table">'
     + '<tr><th></th><th>해요체<br>(常用敬语)</th><th>합쇼체<br>(正式敬语)</th></tr>'
     + '<tr><td>现在</td><td>' + cell2(v.present, v.present_r) + '</td><td>' + cell2(v.formal, v.formal_r) + '</td></tr>'
