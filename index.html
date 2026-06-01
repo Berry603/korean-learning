@@ -3519,7 +3519,33 @@ const GRAMMAR = [
   {id:46,category:'音变规则',pattern:'鼻音化（비음화）',meaning:'非鼻音变鼻音',usage:'ㄱㄷㅂ遇ㄴㅁ时分别变为ㅇㄴㅁ。例：학년 → [항년], 있습니다 → [읻씀니다]→[읻씀니다]。',examples:[{korean:'학년 [항년]',chinese:'【词语】学年（ㄱ+ㄴ→ㅇ+ㄴ）'},{korean:'국물 [궁물]',chinese:'【词语】汤（ㄱ+ㅁ→ㅇ+ㅁ）'},{korean:'앞문 [암문]',chinese:'【词语】前门（ㅂ+ㅁ→ㅁ）'},{korean:'저는 3학년이에요 [저는 삼항녀니에요]',chinese:'【句子】我是三年级'},{korean:'국물이 정말 시원해요 [궁무리 정말 시원해요]',chinese:'【句子】汤真的很爽口'},{korean:'앞문으로 들어와 주세요 [암무느로 드러와 주세요]',chinese:'【句子】请从前门进来'}],note:'ㄱ→ㅇ, ㄷ→ㄴ, ㅂ→ㅁ（遇ㄴㅁ时）'},
   {id:47,category:'音变规则',pattern:'流音化（유음화）',meaning:'ㄴ变ㄹ',usage:'ㄴ和ㄹ相邻时，ㄴ→ㄹ（或ㄹ→ㄴ）。例：신라 → [실라], 설날 → [설랄]。',examples:[{korean:'신라 [실라]',chinese:'【词语】新罗（ㄴ+ㄹ→ㄹ+ㄹ）'},{korean:'설날 [설랄]',chinese:'【词语】春节（ㄹ+ㄴ→ㄹ+ㄹ）'},{korean:'연락 [열락]',chinese:'【词语】联络'},{korean:'설날에 가족이 다 모여요 [설라레 가조기 다 모여요]',chinese:'【句子】春节全家团聚'},{korean:'나중에 꼭 연락할게요 [나중에 꼭 열라칼게요]',chinese:'【句子】稍后一定联系你'},{korean:'한류가 전 세계에서 큰 인기예요 [할류가 전 세계에서 큰 인기예요]',chinese:'【句子】韩流在全世界都很火'}],note:'ㄴ+ㄹ → ㄹ+ㄹ, ㄹ+ㄴ → ㄹ+ㄹ'},
   {id:48,category:'音变规则',pattern:'颚音化（구개음화）',meaning:'ㄷㅌ遇이变ㅈㅊ',usage:'收音ㄷㅌ遇后缀이时变为ㅈㅊ。例：굳이 → [구지], 같이 → [가치], 해돋이 → [해도지]。',examples:[{korean:'굳이 [구지]',chinese:'【词语】非要（ㄷ+ㅣ→ㅈ）'},{korean:'같이 [가치]',chinese:'【词语】一起（ㅌ+ㅣ→ㅊ）'},{korean:'해돋이 [해도지]',chinese:'【词语】日出'},{korean:'굳이 그렇게까지 할 필요 없어요 [구지 그렇게까지 할 필요 없어요]',chinese:'【句子】没必要非要做到那种程度'},{korean:'친구랑 같이 영화 볼래요 [친구랑 가치 영화 볼래요]',chinese:'【句子】要不要和朋友一起看电影'},{korean:'주말에 해돋이 보러 가요 [주말에 해도지 보러 가요]',chinese:'【句子】周末去看日出吧'}],note:'ㄷ→ㅈ, ㅌ→ㅊ（仅当后接이等元音时）'},
-  {id:49,category:'音变规则',pattern:'收音脱落与添加',meaning:'部分收音脱落或添加ㄴ',usage:'常见脱落：ㅅ收音（짓다→지어요）、ㅎ收音（좋아요→[조아요]）。ㄴ添加：合成词中插入ㄴ，如 꽃잎→[꽃닙]→[꼰닙]。',examples:[{korean:'짓다 → 지어요',chinese:'【词语】建造（ㅅ脱落）'},{korean:'낫다 → 나아요',chinese:'【词语】痊愈（ㅅ脱落）'},{korean:'꽃잎 [꼰닙]',chinese:'【词语】花瓣（ㄴ插入）'},{korean:'오늘 날씨가 정말 좋아요 [오늘 날씨가 정말 조아요]',chinese:'【句子】今天天气真的很好'},{korean:'감기가 이제 다 나았어요 [감기가 이제 다 나아써요]',chinese:'【句子】感冒现在全好了'},{korean:'집을 예쁘게 지었어요 [지블 예쁘게 지어써요]',chinese:'【句子】房子盖得很漂亮'}],note:'ㅅ不规则动词、ㅎ不规则动词需特殊记忆'}
+  {id:49,category:'音变规则',pattern:'收音脱落与添加',meaning:'部分收音脱落或添加ㄴ',usage:'常见脱落：ㅅ收音（짓다→지어요）、ㅎ收音（좋아요→[조아요]）。ㄴ添加：合成词中插入ㄴ，如 꽃잎→[꽃닙]→[꼰닙]。',examples:[{korean:'짓다 → 지어요',chinese:'【词语】建造（ㅅ脱落）'},{korean:'낫다 → 나아요',chinese:'【词语】痊愈（ㅅ脱落）'},{korean:'꽃잎 [꼰닙]',chinese:'【词语】花瓣（ㄴ插入）'},{korean:'오늘 날씨가 정말 좋아요 [오늘 날씨가 정말 조아요]',chinese:'【句子】今天天气真的很好'},{korean:'감기가 이제 다 나았어요 [감기가 이제 다 나아써요]',chinese:'【句子】感冒现在全好了'},{korean:'집을 예쁘게 지었어요 [지블 예쁘게 지어써요]',chinese:'【句子】房子盖得很漂亮'}],note:'ㅅ不规则动词、ㅎ不规则动词需特殊记忆'},
+
+  // ========== 间接引用 (4) ==========
+  {id:50,category:'间接引用',pattern:'Verb + (ㄴ/는)다고 하다',meaning:'据说……/说……（陈述引用）',usage:'引用陈述句。动词+ㄴ/는다고，形容词+다고，名词+(이)라고。口语中常缩略为 -대요。',examples:[{korean:'비가 온다고 했어요.',chinese:'说会下雨。'},{korean:'날씨가 좋다고 해요.',chinese:'据说天气好。'},{korean:'친구가 맛있다고 했어요.',chinese:'朋友说好吃。'}],dialogue:[{speaker:'A',korean:'민수 씨가 뭐라고 했어요?',chinese:'民秀说什么了？'},{speaker:'B',korean:'내일 회의가 있다고 했어요.',chinese:'说明天有会。'}],quiz:{type:'fill',question:'비___ ___ 했어요. (说会下雨)',answer:'비가 온다고',hint:'오다→온다+고 하다'}},
+  {id:51,category:'间接引用',pattern:'Verb + (으)라고 하다',meaning:'让/叫……（命令引用）',usage:'转述命令或要求。有收音+으라고，无收音+라고。口语缩略 -래요。',examples:[{korean:'엄마가 빨리 오라고 했어요.',chinese:'妈妈说快点来。'},{korean:'선생님이 숙제를 하라고 했어요.',chinese:'老师说要做作业。'},{korean:'친구가 전화하라고 했어요.',chinese:'朋友让打电话。'}],dialogue:[{speaker:'A',korean:'사장님이 뭐라고 하셨어요?',chinese:'社长说什么了？'},{speaker:'B',korean:'서류를 제출하라고 하셨어요.',chinese:'让提交文件。'}],quiz:{type:'fill',question:'빨리 ___ 했어요. (说快点来)',answer:'빨리 오라고',hint:'오다→오+라고'}},
+  {id:52,category:'间接引用',pattern:'Verb + (느)냐고 하다',meaning:'问……（疑问引用）',usage:'转述疑问句。动词+느냐고，形容词+(으)냐고。口语缩略 -냬요。',examples:[{korean:'친구가 어디에 가냐고 물어봤어요.',chinese:'朋友问去哪儿。'},{korean:'맛있냐고 물어봤어요.',chinese:'问好吃吗。'},{korean:'왜 안 왔냐고 했어요.',chinese:'问为什么没来。'}],dialogue:[{speaker:'A',korean:'뭐라고 물어봤어요?',chinese:'问了什么？'},{speaker:'B',korean:'시간이 있냐고 물어봤어요.',chinese:'问有没有时间。'}],quiz:{type:'fill',question:'어디___ 물어봤어요. (问去哪儿)',answer:'어디에 가냐고',hint:'가다→가+냐고'}},
+  {id:53,category:'间接引用',pattern:'Verb + 자고 하다',meaning:'提议……/一起……吧（共动引用）',usage:'转述提议或共动句"一起做……吧"。口语缩略 -재요。',examples:[{korean:'친구가 같이 가자고 했어요.',chinese:'朋友说一起去吧。'},{korean:'점심 먹자고 했어요.',chinese:'说一起吃午饭吧。'},{korean:'영화 보자고 했어요.',chinese:'说去看电影吧。'}],dialogue:[{speaker:'A',korean:'왜 전화했어요?',chinese:'为什么打电话？'},{speaker:'B',korean:'커피 마시자고 했어요.',chinese:'说一起喝咖啡吧。'}],quiz:{type:'fill',question:'같이 ___ 했어요. (说一起去吧)',answer:'같이 가자고',hint:'가다→가+자고'}},
+
+  // ========== 使动与被动 (3) ==========
+  {id:54,category:'使动与被动',pattern:'Verb + 이/히/리/기/우/구/추',meaning:'使动"让/使……做"',usage:'使动后缀：먹이다(喂)、앉히다(让坐)、울리다(弄哭)、웃기다(逗笑)、깨우다(叫醒)。部分形容词可加게 하다。',examples:[{korean:'아기에게 밥을 먹였어요.',chinese:'喂宝宝吃饭了。'},{korean:'동생을 울렸어요.',chinese:'把弟弟弄哭了。'},{korean:'아이들을 앉혀 주세요.',chinese:'请让孩子们坐下。'}],dialogue:[{speaker:'A',korean:'애기한테 뭘 먹였어요?',chinese:'给宝宝喂什么了？'},{speaker:'B',korean:'죽을 먹였어요.',chinese:'喂了粥。'}],quiz:{type:'choice',question:'"喂宝宝吃饭"用哪个？',answer:'밥을 먹였어요',hint:'먹다→먹이다（使动）',options:['밥을 먹었어요','밥을 먹였어요','밥을 먹이었어요','밥이 먹었어요']}},
+  {id:55,category:'使动与被动',pattern:'Verb + 이/히/리/기',meaning:'被动"被……"',usage:'被动后缀：보이다(被看见)、잡히다(被抓)、열리다(被打开)、안기다(被抱)。하다动词用되다替代。',examples:[{korean:'범인이 경찰에게 잡혔어요.',chinese:'罪犯被警察抓住了。'},{korean:'문이 열렸어요.',chinese:'门被打开了。'},{korean:'산이 멀리서도 보여요.',chinese:'山从远处也能看见。'}],dialogue:[{speaker:'A',korean:'도둑 잡았어요?',chinese:'抓到小偷了吗？'},{speaker:'B',korean:'네, 어젯밤에 잡혔어요.',chinese:'嗯，昨晚被抓了。'}],quiz:{type:'fill',question:'문___ ___ (门被打开了)',answer:'문이 열렸어요',hint:'열리다 = 열다（开）的被动'}},
+  {id:56,category:'使动与被动',pattern:'Adj + 아/어지다',meaning:'变得……',usage:'形容词+아/어지다表示状态的自然变化"变得……起来"。예뻐지다(变漂亮)、추워지다(变冷)。',examples:[{korean:'날씨가 따뜻해졌어요.',chinese:'天气变暖和了。'},{korean:'한국어가 점점 쉬워져요.',chinese:'韩语渐渐变简单了。'},{korean:'얼굴이 예뻐졌어요!',chinese:'变漂亮了！'}],dialogue:[{speaker:'A',korean:'요즘 날씨 어때요?',chinese:'最近天气怎么样？'},{speaker:'B',korean:'많이 추워졌어요.',chinese:'变冷了很多。'}],quiz:{type:'fill',question:'날씨___ ___ (天气变暖了)',answer:'날씨가 따뜻해졌어요',hint:'따뜻해지다→따뜻해졌어요'}},
+
+  // ========== 定语词尾 (2) ==========
+  {id:57,category:'定语词尾',pattern:'Verb + 는 / Adj + (으)ㄴ / Verb + (으)ㄹ',meaning:'……的……（定语修饰）',usage:'动词现在定语+는(가는 길)、形容词定语+ㄴ/은(좋은 사람)、过去定语+ㄴ/은(읽은 책)、将来定语+ㄹ/을(먹을 음식)。',examples:[{korean:'지금 먹는 음식이 뭐예요?',chinese:'现在在吃的东西是什么？'},{korean:'어제 읽은 책이 재미있었어요.',chinese:'昨天读的书很有趣。'},{korean:'주말에 만날 친구는 대학교 친구예요.',chinese:'周末要见的朋友是大学朋友。'}],dialogue:[{speaker:'A',korean:'어제 본 영화 어땠어요?',chinese:'昨天看的电影怎么样？'},{speaker:'B',korean:'정말 재미있었어요!',chinese:'真的很有趣！'}],quiz:{type:'choice',question:'"正在吃的东西"用哪个？',answer:'먹는 음식',hint:'动词现在定语 + 는',options:['먹는 음식','먹은 음식','먹을 음식','먹던 음식']}},
+  {id:58,category:'定语词尾',pattern:'Verb + 던',meaning:'过去持续/回忆"曾经……的"',usage:'던 表示过去持续或回忆中的动作/状态。区别于ㄴ/은（过去完成），던强调过程。',examples:[{korean:'자주 가던 카페가 문을 닫았어요.',chinese:'以前常去的咖啡店关门了。'},{korean:'이건 제가 읽던 책이에요.',chinese:'这是我（之前）在看的书。'},{korean:'어릴 때 살던 동네에 갔어요.',chinese:'去了小时候住的小区。'}],dialogue:[{speaker:'A',korean:'이 노래 아세요?',chinese:'知道这首歌吗？'},{speaker:'B',korean:'네, 예전에 자주 듣던 노래예요.',chinese:'知道，以前常听的歌。'}],quiz:{type:'fill',question:'자주 ___ 카페 (以前常去的咖啡店)',answer:'자주 가던',hint:'던 = 过去反复/持续'}},
+
+  // ========== 中高级句型 (9) ==========
+  {id:59,category:'中高级句型',pattern:'Verb + 기 때문에',meaning:'因为……所以……（正式书面）',usage:'기 때문에 是아/어서的书面形式，更正式客观。名词+때문에。',examples:[{korean:'비가 오기 때문에 행사가 취소됐어요.',chinese:'因为下雨所以活动取消了。'},{korean:'열심히 공부했기 때문에 합격했어요.',chinese:'因为努力学习所以合格了。'},{korean:'교통사고 때문에 늦었어요.',chinese:'因为交通事故迟到了。'}],dialogue:[{speaker:'A',korean:'왜 행사가 취소됐어요?',chinese:'为什么活动取消了？'},{speaker:'B',korean:'태풍 때문에 취소됐어요.',chinese:'因为台风取消了。'}],quiz:{type:'fill',question:'비___ ___ 행사가 취소됐어요.',answer:'비가 오기 때문에',hint:'기 때문에 = 因为（正式）'}},
+  {id:60,category:'中高级句型',pattern:'Verb + 더라고요 / 던데요',meaning:'我记得……/我亲身体验过……',usage:'더라/던 表示说话人回忆自己的亲身体验或过去觉察到的事。더라고요 = 我亲自发现/体验过。',examples:[{korean:'그 식당 음식이 맛있더라고요.',chinese:'那家餐厅我吃过，挺好吃的。'},{korean:'어제 많이 춥더라고요.',chinese:'我记得昨天特别冷。'},{korean:'민수 씨가 한국어를 잘하던데요.',chinese:'我发现民秀韩语说得挺好的。'}],dialogue:[{speaker:'A',korean:'그 영화 봤어요?',chinese:'那部电影看了吗？'},{speaker:'B',korean:'네, 생각보다 재미있더라고요.',chinese:'看了，比想象中有趣。'}],quiz:{type:'fill',question:'맛___ (我吃过觉得好吃)',answer:'맛있더라고요',hint:'더라고요 = 亲身体验回忆'}},
+  {id:61,category:'中高级句型',pattern:'Verb + 다가',meaning:'……着……着……/中途转换',usage:'다가 表示一个动作进行中转为另一动作。前后主语一致。过去时用았/었다가。',examples:[{korean:'공부하다가 잠들었어요.',chinese:'学着学着睡着了。'},{korean:'집에 가다가 친구를 만났어요.',chinese:'回家路上遇到了朋友。'},{korean:'밥을 먹다가 전화를 받았어요.',chinese:'吃饭吃到一半接了电话。'}],dialogue:[{speaker:'A',korean:'왜 전화를 안 받았어요?',chinese:'怎么不接电话？'},{speaker:'B',korean:'샤워하다가 못 받았어요.',chinese:'在洗澡没能接。'}],quiz:{type:'fill',question:'공부___ 잠들었어요. (学着学着睡着了)',answer:'공부하다가',hint:'다가 = 中途转换'}},
+  {id:62,category:'中高级句型',pattern:'Verb + 거든요',meaning:'因为……啊（解释说明）',usage:'거든요 用于对前文进行解释说明，语气柔和。是니까的委婉版。',examples:[{korean:'오늘 일찍 가야 해요. 약속이 있거든요.',chinese:'今天得早走，因为有约会。'},{korean:'그 식당에 안 가요. 너무 비싸거든요.',chinese:'不去那家餐厅，太贵了。'},{korean:'한국어를 배워요. 한국 회사에 취직하고 싶거든요.',chinese:'学韩语，因为想在韩企就业。'}],dialogue:[{speaker:'A',korean:'왜 매일 운동해요?',chinese:'为什么每天运动？'},{speaker:'B',korean:'건강이 제일 중요하거든요.',chinese:'因为健康最重要嘛。'}],quiz:{type:'fill',question:'일찍 가야 해요. 약속___ ___ (得早走，因为有约)',answer:'약속이 있거든요',hint:'거든요 = 解释原因'}},
+  {id:63,category:'中高级句型',pattern:'Verb + 잖아요',meaning:'不是……吗？（反问确认）',usage:'잖아요 表示"你不是也知道吗"的反问确认语气。类似中文"不是……嘛"。',examples:[{korean:'내일 시험이잖아요. 공부해야죠.',chinese:'明天不是考试嘛，得学习啊。'},{korean:'이미 늦었잖아요.',chinese:'不是已经晚了吗。'},{korean:'제가 말했잖아요!',chinese:'我不是说了嘛！'}],dialogue:[{speaker:'A',korean:'왜 숙제 안 했어요?',chinese:'为什么没做作业？'},{speaker:'B',korean:'어제 아팠잖아요.',chinese:'昨天不是病了吗。'}],quiz:{type:'fill',question:'내일 시험___ 공부해야죠.',answer:'내일 시험이잖아요',hint:'잖아요 = 不是……嘛'}},
+  {id:64,category:'中高级句型',pattern:'Verb + 네요',meaning:'……啊/……呢（感叹/新发现）',usage:'네요 表示说话人新发现某事时的感叹。类似中文"原来……啊！"。',examples:[{korean:'와, 눈이 많이 왔네요!',chinese:'哇，下了好多雪啊！'},{korean:'생각보다 맛있네요.',chinese:'比想象中好吃呢。'},{korean:'벌써 10시네요. 빨리 가야겠어요.',chinese:'已经10点了啊，得快走了。'}],dialogue:[{speaker:'A',korean:'이거 먹어 보세요.',chinese:'尝尝这个。'},{speaker:'B',korean:'와, 진짜 맛있네요!',chinese:'哇，真好吃啊！'}],quiz:{type:'fill',question:'와, 눈이 많이 ___ (哇，下了好多雪啊)',answer:'왔네요',hint:'오다+네요→왔네요'}},
+  {id:65,category:'中高级句型',pattern:'Noun + 대로 / Verb + (으)ㄴ/는 대로',meaning:'按照……/一……就……',usage:'대로 表"按照"。名词+대로(약속대로)。动词+는 대로 = "一……就……"(도착하는 대로)。',examples:[{korean:'약속대로 2시에 만나요.',chinese:'按约定2点见面。'},{korean:'도착하는 대로 전화할게요.',chinese:'一到就打电话。'},{korean:'선생님이 말씀하신 대로 하세요.',chinese:'按老师说的做。'}],dialogue:[{speaker:'A',korean:'언제 출발할까요?',chinese:'什么时候出发？'},{speaker:'B',korean:'준비되는 대로 바로 출발해요.',chinese:'准备好了就马上出发。'}],quiz:{type:'fill',question:'약속___ 2시에 만나요. (按约定2点见)',answer:'약속대로',hint:'대로 = 按照'}},
+  {id:66,category:'中高级句型',pattern:'Verb + 자마자',meaning:'一……就……',usage:'자마자 表示前一动作完成后立即发生后一动作。比는 대로更强调"紧接着"。',examples:[{korean:'집에 도착하자마자 잠들었어요.',chinese:'一到家就睡着了。'},{korean:'전화를 받자마자 울었어요.',chinese:'一接电话就哭了。'},{korean:'수업이 끝나자마자 집에 갔어요.',chinese:'一下课就回家了。'}],dialogue:[{speaker:'A',korean:'어제 퇴근하고 뭐 했어요?',chinese:'昨天下班后做什么了？'},{speaker:'B',korean:'퇴근하자마자 집에 갔어요.',chinese:'一下班就回家了。'}],quiz:{type:'fill',question:'도착___ 잠들었어요. (一到就睡着了)',answer:'도착하자마자',hint:'자마자 = 一……就'}},
+  {id:67,category:'中高级句型',pattern:'Verb + 는 편이다',meaning:'比较/算是……的',usage:'는 편이다 用于委婉表达倾向或平均值"算是……"。形容词+(으)ㄴ 편이다。',examples:[{korean:'저는 일찍 일어나는 편이에요.',chinese:'我算是起床早的。'},{korean:'한국어가 어려운 편이에요.',chinese:'韩语算是难的。'},{korean:'이 지역은 물가가 비싼 편이에요.',chinese:'这地方物价算贵的。'}],dialogue:[{speaker:'A',korean:'술 자주 마셔요?',chinese:'经常喝酒吗？'},{speaker:'B',korean:'아니요, 잘 안 마시는 편이에요.',chinese:'不，算是不怎么喝的。'}],quiz:{type:'fill',question:'일찍 ___ 편이에요. (算早起的那种)',answer:'일찍 일어나는',hint:'는 편이다 = 算是'}}
 ];
 
 const SENTENCES = [
@@ -3947,6 +3973,136 @@ const DIALOGUES = [
       {speaker:'B',ko:'네, 저기 정류장에서 109번 버스를 타면 돼요. 두 정거장이에요.',cn:'可以，在那边车站坐109路就行，两站。',roman:'ne, jeogi jeongnyujangeseo baekgubeon beoseureul tamyeon dwaeyo. du jeonggeojangieyo.'},
       {speaker:'A',ko:'정말 감사합니다!',cn:'太感谢了！',roman:'jeongmal gamsahamnida!'},
       {speaker:'B',ko:'아니에요. 좋은 여행 되세요!',cn:'不客气，祝您旅途愉快！',roman:'anieyo. joeun yeohaeng doeseyo!'}
+    ]
+  },
+  {
+    id:9,scene:'은행에서 (银行开户)',icon:'🏦',
+    turns:[
+      {speaker:'직원',ko:'안녕하세요. 무엇을 도와드릴까요?',cn:'您好，需要办理什么业务？',roman:'annyeonghaseyo. mueoseul dowadeurilkkayo?'},
+      {speaker:'손님',ko:'통장을 만들고 싶어요.',cn:'我想开个存折账户。',roman:'tongjangeul mandeulgo sipeoyo.'},
+      {speaker:'직원',ko:'신분증을 보여주세요.',cn:'请出示身份证。',roman:'sinbunjeungeul boyeojuseyo.'},
+      {speaker:'손님',ko:'여기 외국인 등록증이에요.',cn:'这是外国人登录证。',roman:'yeogi oegugin deungnokjeungieyo.'},
+      {speaker:'직원',ko:'네, 여기 신청서를 작성해 주세요. 비밀번호 4자리도 입력하세요.',cn:'好的，请填写申请表，再输4位密码。',roman:'ne, yeogi sincheongseoreul jakseonghae juseyo. bimilbeonho sajarido imnyeokaseyo.'},
+      {speaker:'손님',ko:'체크카드도 같이 만들 수 있어요?',cn:'可以同时办一张借记卡吗？',roman:'chekeukadeudo gachi mandeul su isseoyo?'},
+      {speaker:'직원',ko:'물론이죠. 카드는 일주일 후에 찾으러 오세요.',cn:'当然，卡一周后来取。',roman:'mullonijyo. kadeuneun iljuil hue chajeureo oseyo.'},
+      {speaker:'손님',ko:'감사합니다. 인터넷 뱅킹도 신청할게요.',cn:'谢谢，网银也申请一下。',roman:'gamsahamnida. inteonet baengkingdo sincheonghalgeyo.'}
+    ]
+  },
+  {
+    id:10,scene:'부동산에서 (租房签约)',icon:'🏠',
+    turns:[
+      {speaker:'손님',ko:'원룸 매물 좀 보여주세요.',cn:'请给我看下一室的房源。',roman:'wollum maemul jom boyeojuseyo.'},
+      {speaker:'중개인',ko:'예산이 어떻게 되세요?',cn:'预算多少？',roman:'yesani eotteoke doeseyo?'},
+      {speaker:'손님',ko:'보증금 500만 원에 월세 50만 원 이하로 찾고 있어요.',cn:'保证金500万韩元以内，月租50万以下。',roman:'bojeunggeum obaengman wone wolsae osimman won iharo chakko isseoyo.'},
+      {speaker:'중개인',ko:'이 매물 어때요? 지하철역 도보 5분이고 관리비도 저렴해요.',cn:'这个房子怎么样？地铁步行5分钟，管理费也便宜。',roman:'i maemul eottaeyo? jihacheollyeok dobo obunigo gwallibido jeoryeomhaeyo.'},
+      {speaker:'손님',ko:'방이 생각보다 넓네요. 채광도 좋고요. 계약할 때 뭐가 필요해요?',cn:'房间比想象中大，采光也好。签约需要什么？',roman:'bangi saenggakboda neolneyo. chaegwangdo jokoyo. gyeyakal ttae mwoga piryohaeyo?'},
+      {speaker:'중개인',ko:'신분증이랑 계약금 10%만 준비하시면 돼요.',cn:'准备身份证和10%签约金就行。',roman:'sinbunjeungirang gyeyakgeum sip peosenteuman junbihasimyeon dwaeyo.'},
+      {speaker:'손님',ko:'계약 기간은 보통 얼마나 돼요?',cn:'合同期限一般是多久？',roman:'gyeyak giganeun botong eolmana dwaeyo?'},
+      {speaker:'중개인',ko:'보통 1년 계약이에요. 연장도 가능하고요.',cn:'一般是1年，也可以续约。',roman:'botong illyeon gyeyagieyo. yeonjangdo ganeunghagoyo.'}
+    ]
+  },
+  {
+    id:11,scene:'공항에서 (机场值机)',icon:'✈️',
+    turns:[
+      {speaker:'직원',ko:'여권과 티켓을 보여주세요.',cn:'请出示护照和机票。',roman:'yeogwongwa tikeseul boyeojuseyo.'},
+      {speaker:'승객',ko:'여기 있어요. 창가 쪽 자리로 주세요.',cn:'这里。请给我靠窗的座位。',roman:'yeogi isseoyo. changga jjok jariro juseyo.'},
+      {speaker:'직원',ko:'네, 부치실 짐이 있으세요?',cn:'好的，有行李要托运吗？',roman:'ne, buchisil jimi isseuseyo?'},
+      {speaker:'승객',ko:'이 캐리어 하나만 부칠게요. 무게 제한이 어떻게 돼요?',cn:'就托运这个行李箱。重量限额是多少？',roman:'i kaerieo hanaman buchilgeyo. muge jehani eotteoke dwaeyo?'},
+      {speaker:'직원',ko:'23kg까지 무료예요. 가방이 20kg이니까 괜찮아요.',cn:'23kg以内免费。您的包20kg所以没问题。',roman:'isipsam killogeuraemkkaji muryoyeyo. gabangi isip killogeuraeminikka gwaenchanayo.'},
+      {speaker:'승객',ko:'탑승 게이트는 몇 번이에요?',cn:'登机口是几号？',roman:'tapseung geiteuneun myeot beonieyo?'},
+      {speaker:'직원',ko:'17번 게이트예요. 2시 30분부터 탑승 시작이에요.',cn:'17号登机口。2点30分开始登机。',roman:'sipchilbeon geiteuyeyo. dusi samsipbunbuteo tapseung sijagieyo.'},
+      {speaker:'승객',ko:'감사합니다. 즐거운 여행 되세요!',cn:'谢谢，祝您旅途愉快！（自言自语）',roman:'gamsahamnida. jeulgeoun yeohaeng doeseyo!'}
+    ]
+  },
+  {
+    id:12,scene:'배달 주문 (外卖点餐)',icon:'🛵',
+    turns:[
+      {speaker:'직원',ko:'네, 맛있는 치킨입니다. 주문 도와드릴까요?',cn:'您好，美味炸鸡店，要点单吗？',roman:'ne, masinneun chikinimnida. jumun dowadeurilkkayo?'},
+      {speaker:'손님',ko:'후라이드 치킨 한 마리랑 양념치킨 반 마리 주세요.',cn:'要一只原味炸鸡和半只调味炸鸡。',roman:'huraideu chikin han marirang yangnyeomchikin ban mari juseyo.'},
+      {speaker:'직원',ko:'콜라랑 치킨무도 필요하세요?',cn:'需要可乐和腌萝卜吗？',roman:'kollarang chikinmudo piryohaseyo?'},
+      {speaker:'손님',ko:'콜라 1.5리터 하나 주세요. 배달비는 얼마예요?',cn:'来一瓶1.5升可乐。配送费多少？',roman:'kolla illijeomoryeo hana juseyo. baedalpineun eolmayeyo?'},
+      {speaker:'직원',ko:'배달비는 3,000원이고, 주소 말씀해 주세요.',cn:'配送费3000韩元，请说地址。',roman:'baedalpineun samcheon wonigo, juso mal-sseumhae juseyo.'},
+      {speaker:'손님',ko:'서울시 마포구 연남동 123-45번지 2층이에요. 얼마나 걸려요?',cn:'首尔市麻浦区延南洞123-45号2楼。要多久？',roman:'seoulsi mapogu yeonnamdong baekisipsam-sasibo beonji icheungieyo. eolmana geollyeoyo?'},
+      {speaker:'직원',ko:'약 40분 정도 걸려요. 총 22,000원입니다. 카드로 결제해 주세요.',cn:'大概40分钟，一共22000韩元。请刷卡支付。',roman:'yak sasipbun jeongdo geollyeoyo. chong imanicheon wonimnida. kadeuro gyeoljehae juseyo.'},
+      {speaker:'손님',ko:'네, 결제했어요. 빨리 와 주세요!',cn:'支付好了。请快点送来！',roman:'ne, gyeoljehaesseoyo. ppalli wa juseyo!'}
+    ]
+  },
+  {
+    id:13,scene:'미용실에서 (在美发店)',icon:'💇',
+    turns:[
+      {speaker:'디자이너',ko:'어서 오세요. 어떻게 해 드릴까요?',cn:'欢迎光临，想怎么做？',roman:'eoseo oseyo. eotteoke hae deurilkkayo?'},
+      {speaker:'손님',ko:'머리를 좀 자르고 싶어요. 파마도 할까 생각 중이에요.',cn:'想剪头发，也在考虑烫发。',roman:'meorireul jom jareugo sipeoyo. pamado halkka saenggak jungieyo.'},
+      {speaker:'디자이너',ko:'어떤 스타일로 원하세요? 사진 있어요?',cn:'想要什么风格？有照片吗？',roman:'eotteon seutaillo wonhaseyo? sajin isseoyo?'},
+      {speaker:'손님',ko:'이 사진처럼 층을 내 주시고, 앞머리는 눈썹 정도 길이로요.',cn:'像这张照片一样打层次，刘海到眉毛长度。',roman:'i sajincheoreom cheungeul nae jusigo, ammeorineun nunsseop jeongdo gilliro yo.'},
+      {speaker:'디자이너',ko:'파마는 무슨 종류로 할까요? 셋팅펌이 요즘 인기예요.',cn:'烫哪种？现在流行造型烫。',roman:'pamaneun museun jongnyuro halkkayo? setingpeomi yojeum ingiyeyo.'},
+      {speaker:'손님',ko:'네, 셋팅펌으로 해 주세요. 가격은 얼마예요?',cn:'好，就造型烫吧。价格多少？',roman:'ne, setingpeomeuro hae juseyo. gagyeogeun eolmayeyo?'},
+      {speaker:'디자이너',ko:'커트 포함해서 8만 원입니다. 샴푸는 이쪽으로 오세요.',cn:'含剪发一共8万韩元。洗发这边请。',roman:'keoteu pohamhaeseo palman wonimnida. syampeuneun ijjogeuro oseyo.'},
+      {speaker:'손님',ko:'손이 많이 가는 스타일 아니죠? 아침에 관리하기 쉬운 걸로 해 주세요.',cn:'不是费劲的发型吧？请弄早上好打理的。',roman:'soni mani ganeun seutail anijyo? achime gwallihagi swiun geollo hae juseyo.'}
+    ]
+  },
+  {
+    id:14,scene:'약국에서 (在药店)',icon:'💊',
+    turns:[
+      {speaker:'약사',ko:'어디가 불편하세요?',cn:'哪里不舒服？',roman:'eodiga bulpyeonhaseyo?'},
+      {speaker:'손님',ko:'감기에 걸린 것 같아요. 콧물이 계속 나고 기침도 심해요.',cn:'好像感冒了。一直流鼻涕，咳嗽也厉害。',roman:'gamgie geollin geot gatayo. konmuri gyesok nago gichimdo simhaeyo.'},
+      {speaker:'약사',ko:'열은 있어요?',cn:'发烧吗？',roman:'yeoreun isseoyo?'},
+      {speaker:'손님',ko:'조금 있는 것 같아요. 어제부터 몸살 기운도 있어요.',cn:'好像有点，昨天开始浑身酸痛。',roman:'jogeum inneun geot gatayo. eojebuteo momsal giundo isseoyo.'},
+      {speaker:'약사',ko:'감기약이랑 해열제를 같이 드릴게요. 식후 30분에 드세요.',cn:'给感冒药和退烧药。饭后30分钟服用。',roman:'gamgiyagirang haeyeoljereul gachi deurilgeyo. sikhu samsipbune deuseyo.'},
+      {speaker:'손님',ko:'혹시 졸린 부작용은 없어요? 운전할 건데요.',cn:'不会有嗜睡副作用吧？我要开车。',roman:'hoksi jollin bujagyongeun eopseoyo? unjeonhal geondeyo.'},
+      {speaker:'약사',ko:'이 약은 졸리지 않아요. 그리고 물을 많이 마시고 푹 쉬세요.',cn:'这个药不嗜睡。然后多喝水好好休息。',roman:'i yageun jolliji anayo. geurigo mureul mani masigo puk swiseyo.'},
+      {speaker:'손님',ko:'네, 감사합니다. 얼마예요?',cn:'好的谢谢。多少钱？',roman:'ne, gamsahamnida. eolmayeyo?'}
+    ]
+  },
+  {
+    id:15,scene:'헬스장 등록 (健身房注册)',icon:'🏋️',
+    turns:[
+      {speaker:'트레이너',ko:'안녕하세요! 운동 상담 도와드릴까요?',cn:'您好！需要健身咨询吗？',roman:'annyeonghaseyo! undong sangdam dowadeurilkkayo?'},
+      {speaker:'손님',ko:'네, 회원권 등록하고 싶은데요. 가격표 좀 볼 수 있을까요?',cn:'是的，想办会员卡。能看下价格表吗？',roman:'ne, hoewongwon deungnokago sipeundeyo. gagyeokpyo jom bol su isseulkkayo?'},
+      {speaker:'트레이너',ko:'1개월 8만원, 3개월 20만원, 1년 60만원이에요.',cn:'一个月8万，三个月20万，一年60万。',roman:'ilgaewol palman won, samgaewol isimman won, illyeon yuksimman wonieyo.'},
+      {speaker:'손님',ko:'1년으로 할게요. PT 수업도 가능한가요?',cn:'我办一年的。私教课也可以吗？',roman:'illyeoneuro halgeyo. PT sueopdo ganeunghangayo?'},
+      {speaker:'트레이너',ko:'네, PT는 10회에 50만원입니다. 처음 오시면 체성분 검사 먼저 해 드릴게요.',cn:'可以，私教10次50万。第一次先帮您做体成分检测。',roman:'ne, PTneun siphoe-e osimman wonimnida. cheoeum osimyeon cheseongbun geomsa meonjeo hae deurilgeyo.'},
+      {speaker:'손님',ko:'운동복이랑 수건은 제공되나요?',cn:'提供运动服和毛巾吗？',roman:'undongbogirang sugeoneun jegongdoenayo?'},
+      {speaker:'트레이너',ko:'수건과 샤워 용품은 무료로 제공됩니다. 운동복은 따로 준비하셔야 해요.',cn:'毛巾和洗浴用品免费提供。运动服要自己准备。',roman:'sugeongwa syawo yongpumeun muryoro jegongdoemnida. undongbogeun ttaro junbihasyeoya haeyo.'},
+      {speaker:'손님',ko:'좋아요, 등록할게요. 오늘부터 바로 운동해도 되죠?',cn:'好，我注册。今天开始就可以运动吧？',roman:'joayo, deungnokalgeyo. oneulbuteo baro undonghaedo doejo?'}
+    ]
+  },
+  {
+    id:16,scene:'우체국에서 (邮局寄快递)',icon:'📮',
+    turns:[
+      {speaker:'직원',ko:'어떤 걸 보내실 거예요?',cn:'要寄什么？',roman:'eotteon geol bonaesil geoyeyo?'},
+      {speaker:'손님',ko:'이 상자를 중국까지 보내고 싶어요. 국제 특송으로요.',cn:'这个箱子想寄到中国，用国际特快。',roman:'i sangjareul junggukkkaji bonaego sipeoyo. gukje teuksongeuroyo.'},
+      {speaker:'직원',ko:'안에 뭐가 들어 있어요?',cn:'里面装了什么？',roman:'ane mwoga deureo isseoyo?'},
+      {speaker:'손님',ko:'책이랑 과자, 화장품이에요. 혹시 금지 품목 있나요?',cn:'书、零食和化妆品。有违禁品吗？',roman:'chaegirang gwaja, hwajangpumieyo. hoksi geumji pummok innayo?'},
+      {speaker:'직원',ko:'화장품은 액체류라서 안 돼요. 책과 과자만 보내실 수 있어요.',cn:'化妆品是液体不行。只能寄书和零食。',roman:'hwajangpumeun aekcheryeoraseo an dwaeyo. chaekgwa gwajaman bonaesil su isseoyo.'},
+      {speaker:'손님',ko:'알겠어요. 그럼 책이랑 과자만 보낼게요. 요금은 얼마예요?',cn:'知道了。那就只寄书和零食吧。费用多少？',roman:'algesseoyo. geureom chaegirang gwajaman bonaelgeyo. yogeumeun eolmayeyo?'},
+      {speaker:'직원',ko:'무게가 2.5kg이니까 28,000원이에요. 여기 주소를 영어로 적어 주세요.',cn:'重量2.5kg，28000韩元。请用英文写地址。',roman:'mugega ijeom-o killogeuraeminikka imanpalcheon wonieyo. yeogi jusoreul yeongeoro jeogeo juseyo.'},
+      {speaker:'손님',ko:'도착하는 데 며칠 정도 걸려요?',cn:'到货需要几天？',roman:'dochakaneun de myeochil jeongdo geollyeoyo?'}
+    ]
+  },
+  {
+    id:17,scene:'호텔 체크인 (酒店入住)',icon:'🏨',
+    turns:[
+      {speaker:'직원',ko:'안녕하세요. 체크인 도와드리겠습니다.',cn:'您好，我来帮您办理入住。',roman:'annyeonghaseyo. chekeuin dowadeurigetseumnida.'},
+      {speaker:'손님',ko:'예약했어요. 이름은 김민수예요.',cn:'我预订了，名字是金民秀。',roman:'yeyakaesseoyo. ireumeun gimminsuyeyo.'},
+      {speaker:'직원',ko:'확인했습니다. 3박 4일, 디럭스 룸으로 예약하셨네요. 여권 잠시만 주세요.',cn:'确认了。3晚4天，豪华房。请给一下护照。',roman:'hwaginhagetseumnida. sambak sail, dilleokseu rumeuro yeyakasyeonneyo. yeogwon jamsiman juseyo.'},
+      {speaker:'손님',ko:'여기요. 체크아웃은 몇 시까지예요?',cn:'这里。退房是几点之前？',roman:'yeogiyo. chekeuauseun myeot sikkajiyeyo?'},
+      {speaker:'직원',ko:'오전 11시까지입니다. 조식은 7시부터 9시 30분까지 2층에서 제공됩니다.',cn:'上午11点前。早餐7点到9点半在2楼提供。',roman:'ojeon yeolhansikkajiimnida. josigeun ilgopsibuteo ahopsi samsipbunkkaji icheungeseo jegongdoemnida.'},
+      {speaker:'손님',ko:'와이파이 비밀번호는 어떻게 돼요?',cn:'WiFi密码是什么？',roman:'waipai bimilbeonhoneun eotteoke dwaeyo?'},
+      {speaker:'직원',ko:'비밀번호 없이 연결 가능합니다. 방은 703호이고, 카드키 여기 있습니다.',cn:'无密码连接。房间703号，这是房卡。',roman:'bimilbeonho eopsi yeongyeol ganeunghamnida. bangeun chilbaesam-hoigo, kadeuki yeogi itseumnida.'},
+      {speaker:'손님',ko:'짐을 방까지 갖다 주실 수 있어요?',cn:'能把行李送到房间吗？',roman:'jimeul bangkkaji gatda jusil su isseoyo?'}
+    ]
+  },
+  {
+    id:18,scene:'휴대폰 수리 (手机维修)',icon:'📱',
+    turns:[
+      {speaker:'직원',ko:'어떤 문제가 있으세요?',cn:'有什么问题？',roman:'eotteon munjega isseuseyo?'},
+      {speaker:'손님',ko:'핸드폰 액정이 깨졌어요. 그리고 배터리가 너무 빨리 닳아요.',cn:'手机屏幕碎了。而且电池耗电太快了。',roman:'haendeupon aekjeongi kkaejyeosseoyo. geurigo baeteoriga neomu ppalli darayo.'},
+      {speaker:'직원',ko:'기종이 어떻게 되세요?',cn:'什么机型？',roman:'gijongi eotteoke doeseyo?'},
+      {speaker:'손님',ko:'갤럭시 S25예요. 액정 교체 비용이 얼마나 들어요?',cn:'Galaxy S25。换屏费用多少？',roman:'gaelleoksi S isip-o-yeyo. aekjeong gyoche biyongi eolmana deureoyo?'},
+      {speaker:'직원',ko:'정품 액정으로 교체하면 18만 원입니다. 배터리 교체는 5만 원 추가예요.',cn:'换原装屏18万韩元，换电池加5万。',roman:'jeongpum aekjeongeuro gyochehamyeon sippalman wonimnida. baeteori gyocheneun oman won chugayeyo.'},
+      {speaker:'손님',ko:'시간은 얼마나 걸려요? 당장 써야 하는데요.',cn:'需要多久？急着用。',roman:'siganeun eolmana geollyeoyo? dangjang sseoya haneundeyo.'},
+      {speaker:'직원',ko:'급행으로 하면 2시간 정도 걸려요. 3시쯤 찾으러 오시면 돼요.',cn:'加急的话约2小时，3点左右来取就行。',roman:'geupaengeuro hamyeon du sigan jeongdo geollyeoyo. sesijjeum chajeureo osimyeon dwaeyo.'},
+      {speaker:'손님',ko:'네, 그럼 맡기고 갈게요. 수리하는 동안 핸드폰 없으면 연락은 어떻게 해요?',cn:'好，那我放着走了。修的时候没手机怎么联系？',roman:'ne, geureom matgigo galgeyo. surihaneun dongan haendeupon eopseumyeon yeollageun eotteoke haeyo?'}
     ]
   }
 ];
@@ -7689,6 +7845,9 @@ function renderReviewNav() {
     + '<div class="review-mode-btn' + (reviewMode === 'readings' ? ' active' : '') + '" onclick="renderReadings()"><div class="rm-icon">📖</div><div class="rm-label">分级阅读</div></div>'
     + '<div class="review-mode-btn' + (reviewMode === 'slang' ? ' active' : '') + '" onclick="renderSlang()"><div class="rm-icon">💻</div><div class="rm-label">网络用语</div></div>'
     + '<div class="review-mode-btn' + (reviewMode === 'culture' ? ' active' : '') + '" onclick="renderCulture()"><div class="rm-icon">🇰🇷</div><div class="rm-label">文化笔记</div></div>'
+    + '</div>'
+    + '<div class="review-header" style="margin-top:0">'
+    + '<div class="review-mode-btn' + (reviewMode === 'topik' ? ' active' : '') + '" onclick="renderTopik()"><div class="rm-icon">🏆</div><div class="rm-label">TOPIK模拟</div></div>'
     + '</div>';
 }
 
@@ -7896,6 +8055,382 @@ function listenFinish() {
     + '<button class="qs-start-btn" onclick="startListenSetup()" style="margin-top:16px">\u91CD\u65B0\u8BBE\u7F6E</button>'
     + '<button class="qs-start-btn" onclick="startListenPlay()" style="margin-top:8px;margin-left:8px;background:var(--bg);color:var(--text);border:1px solid var(--border)">\u518D\u6765\u4E00\u8F6E</button>'
     + '</div>';
+}
+
+// ============================================================
+// TOPIK SIMULATION TEST — TOPIK 模拟测试
+// ============================================================
+var topikState = { questions: [], idx: 0, answers: [], started: false, total: 30 };
+
+function renderTopik() {
+  reviewMode = 'topik';
+  var page = document.getElementById('reviewContent');
+  page.innerHTML = '<div style="font-size:16px;font-weight:600;margin-bottom:8px">🏆 TOPIK 模拟测试</div>'
+    + '<div style="font-size:13px;color:var(--text-secondary);margin-bottom:16px">从词汇、语法、阅读中随机抽题 · 自动评分 · 等级判定</div>'
+    + '<div style="background:var(--card);border-radius:var(--radius);padding:20px;text-align:center">'
+    + '<div style="font-size:64px;margin-bottom:12px">🏆</div>'
+    + '<div style="font-size:15px;font-weight:600;margin-bottom:16px">选择测试题量</div>'
+    + '<div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:20px">'
+    + [10,20,30,40,50].map(function(n) { return '<div class="qs-opt' + (topikState.total === n ? ' active' : '') + '" onclick="topikState.total=' + n + ';renderTopik()">' + n + ' 题</div>'; }).join('')
+    + '</div>'
+    + '<div style="font-size:12px;color:var(--text-light);margin-bottom:16px">'
+    + (topikState.total <= 20 ? '推荐 TOPIK I（初级）难度' : '推荐 TOPIK II（中高级）难度')
+    + '</div>'
+    + '<button class="qs-start-btn" onclick="startTopikTest()">开始测试</button>'
+    + '</div>';
+  renderReviewNav();
+}
+
+function generateTopikQuestions(n) {
+  var questions = [];
+  var pool = [];
+
+  // 1. Vocabulary questions (40%)
+  var vocabCount = Math.floor(n * 0.4);
+  var vocabPool = [];
+  // Pick random words with at least 2 syllables
+  for (var i = 0; i < WORDS.length; i++) {
+    if (WORDS[i].ko.length >= 2) vocabPool.push(i);
+  }
+  shuffle(vocabPool);
+  for (var v = 0; v < Math.min(vocabCount, vocabPool.length); v++) {
+    var w = WORDS[vocabPool[v]];
+    var distractors = [];
+    var used = [vocabPool[v]];
+    // Pick 3 random distractors
+    while (distractors.length < 3) {
+      var ri = Math.floor(Math.random() * WORDS.length);
+      if (used.indexOf(ri) === -1 && WORDS[ri].ko !== w.ko) {
+        distractors.push(WORDS[ri].mean);
+        used.push(ri);
+      }
+    }
+    var options = [w.mean].concat(distractors);
+    shuffle(options);
+    var correctIdx = options.indexOf(w.mean);
+    questions.push({
+      type: 'vocab', category: '词汇',
+      q: w.ko + ' 的意思是？',
+      ko: w.ko, roman: w.roman || '',
+      options: options, ans: correctIdx,
+      correctText: w.mean
+    });
+  }
+
+  // 2. Grammar questions (30%)
+  var gramCount = Math.floor(n * 0.3);
+  var gramPool = [];
+  for (var g = 0; g < GRAMMAR.length; g++) gramPool.push(g);
+  shuffle(gramPool);
+  for (var g2 = 0; g2 < Math.min(gramCount, gramPool.length); g2++) {
+    var gm = GRAMMAR[gramPool[g2]];
+    // Use the existing quiz if available, otherwise create one
+    if (gm.quiz) {
+      if (gm.quiz.type === 'fill') {
+        questions.push({
+          type: 'grammar', category: '语法 · ' + gm.category,
+          q: gm.quiz.question,
+          ko: gm.quiz.answer,
+          options: [],
+          ans: 0,
+          correctText: gm.quiz.answer,
+          hint: gm.quiz.hint || '',
+          pattern: gm.pattern
+        });
+      } else if (gm.quiz.type === 'choice') {
+        questions.push({
+          type: 'grammar', category: '语法 · ' + gm.category,
+          q: gm.quiz.question,
+          ko: '',
+          options: gm.quiz.options,
+          ans: gm.quiz.options.indexOf(gm.quiz.answer),
+          correctText: gm.quiz.answer,
+          pattern: gm.pattern
+        });
+      }
+    }
+  }
+
+  // 3. Reading comprehension (30%) - use READINGS questions
+  var readCount = n - questions.length;
+  if (readCount > 0) {
+    var readPool = [];
+    for (var r = 0; r < READINGS.length; r++) {
+      for (var q = 0; q < READINGS[r].questions.length; q++) {
+        readPool.push({r: r, q: q});
+      }
+    }
+    shuffle(readPool);
+    for (var r2 = 0; r2 < Math.min(readCount, readPool.length); r2++) {
+      var rq = readPool[r2];
+      var rd = READINGS[rq.r];
+      var rqq = rd.questions[rq.q];
+      questions.push({
+        type: 'reading', category: '阅读 · ' + rd.level + ' · ' + rd.title_cn,
+        q: rqq.q,
+        context: rd.text.substring(0, 200) + '...',
+        ko: '',
+        options: rqq.opts,
+        ans: rqq.ans,
+        correctText: rqq.opts[rqq.ans],
+        passageTitle: rd.title
+      });
+    }
+  }
+
+  // Make sure we have exactly n questions
+  questions = questions.slice(0, n);
+  shuffle(questions);
+
+  // Renumber
+  for (var qi = 0; qi < questions.length; qi++) {
+    questions[qi].num = qi + 1;
+  }
+  return questions;
+}
+
+function startTopikTest() {
+  topikState.questions = generateTopikQuestions(topikState.total);
+  topikState.idx = 0;
+  topikState.answers = new Array(topikState.questions.length).fill(-1);
+  topikState.started = true;
+  renderTopikQuestion();
+}
+
+function renderTopikQuestion() {
+  var page = document.getElementById('reviewContent');
+  var q = topikState.questions[topikState.idx];
+  var total = topikState.questions.length;
+  var progress = Math.round((topikState.idx / total) * 100);
+
+  var html = '';
+  // Progress bar
+  html += '<div style="display:flex;align-items:center;gap:8px;margin-bottom:12px">';
+  html += '<span style="font-size:12px;color:var(--text-light)">第 ' + (topikState.idx + 1) + '/' + total + ' 题</span>';
+  html += '<div style="flex:1;height:6px;background:var(--border);border-radius:3px"><div style="height:6px;background:var(--primary);border-radius:3px;width:' + progress + '%"></div></div>';
+  html += '<span style="font-size:11px;background:' + (q.type === 'vocab' ? '#e3f2fd' : q.type === 'grammar' ? '#fff3e0' : '#e8f5e9') + ';padding:2px 8px;border-radius:10px">' + q.category + '</span>';
+  html += '</div>';
+
+  // Question card
+  html += '<div style="background:var(--card);border-radius:var(--radius);padding:20px">';
+
+  // If it's a reading question, show context
+  if (q.type === 'reading') {
+    html += '<div style="font-size:12px;color:var(--text-light);margin-bottom:4px">📖 ' + q.passageTitle + '</div>';
+    html += '<div style="font-size:12px;background:var(--bg);padding:10px;border-radius:8px;margin-bottom:12px;line-height:1.6;max-height:120px;overflow-y:auto">' + q.context + '</div>';
+  }
+
+  // For vocabulary type, show the word with romanization
+  if (q.type === 'vocab') {
+    html += '<div style="text-align:center;margin-bottom:8px">';
+    html += '<div style="font-size:28px;font-weight:700;margin-bottom:4px">' + q.ko + '</div>';
+    if (q.roman) html += '<div style="font-size:13px;color:var(--text-light);font-style:italic">' + q.roman + '</div>';
+    html += '<span onclick="speak(\'' + q.ko.replace(/'/g,"\\'") + '\')" style="cursor:pointer;font-size:20px" title="听发音">🔊</span>';
+    html += '</div>';
+  }
+
+  html += '<div style="font-size:16px;font-weight:600;margin-bottom:16px">' + q.num + '. ' + q.q + '</div>';
+
+  // Grammar fill-in-the-blank
+  if (q.type === 'grammar' && q.options.length === 0) {
+    html += '<div style="margin-bottom:12px">';
+    if (q.pattern) html += '<div style="font-size:12px;color:var(--text-light);margin-bottom:4px">语法点：' + q.pattern + '</div>';
+    if (q.hint) html += '<div style="font-size:12px;color:var(--warning);margin-bottom:8px">💡 ' + q.hint + '</div>';
+    html += '<input type="text" id="topikFillInput" placeholder="输入你的答案..." style="width:100%;padding:12px 16px;font-size:16px;border:2px solid var(--border);border-radius:12px;background:var(--bg);box-sizing:border-box">';
+    html += '</div>';
+    html += '<button class="qs-start-btn" onclick="submitTopikFill()" style="width:100%">提交答案</button>';
+  }
+
+  // Multiple choice
+  if (q.options.length > 0) {
+    html += '<div style="display:flex;flex-direction:column;gap:10px">';
+    var labels = ['A', 'B', 'C', 'D'];
+    for (var oi = 0; oi < q.options.length; oi++) {
+      html += '<div class="filter-chip" style="padding:14px 16px;text-align:left;font-size:15px;cursor:pointer;justify-content:flex-start" onclick="submitTopikChoice(' + oi + ', this)">';
+      html += '<span style="font-weight:700;color:var(--primary);min-width:24px">' + labels[oi] + '.</span> ';
+      html += '<span>' + q.options[oi] + '</span>';
+      html += '</div>';
+    }
+    html += '</div>';
+  }
+
+  html += '</div>';
+
+  // Nav buttons
+  html += '<div style="display:flex;gap:8px;margin-top:12px">';
+  if (topikState.idx > 0) {
+    html += '<button class="qs-start-btn" style="flex:1;background:var(--bg);color:var(--text);border:1px solid var(--border)" onclick="topikState.idx--;renderTopikQuestion()">← 上一题</button>';
+  }
+  html += '<button class="qs-start-btn" style="flex:1;background:var(--bg);color:var(--text);border:1px solid var(--border)" onclick="renderTopik()">结束测试</button>';
+  html += '</div>';
+
+  page.innerHTML = html;
+  renderReviewNav();
+
+  // Focus input if fill type
+  if (q.type === 'grammar' && q.options.length === 0) {
+    setTimeout(function() {
+      var inp = document.getElementById('topikFillInput');
+      if (inp) inp.focus();
+    }, 100);
+  }
+}
+
+function submitTopikChoice(choiceIdx, el) {
+  var q = topikState.questions[topikState.idx];
+  var correct = choiceIdx === q.ans;
+  topikState.answers[topikState.idx] = choiceIdx === q.ans ? 1 : 0;
+
+  // Flash feedback
+  if (el) {
+    el.style.transition = 'all 0.3s';
+    el.style.borderColor = correct ? '#22c55e' : '#ef4444';
+    el.style.background = correct ? '#f0fdf4' : '#fef2f2';
+  }
+  var page = document.getElementById('reviewContent');
+  var feedbackHtml = '<div style="padding:12px;margin-top:8px;border-radius:8px;font-size:14px;' + (correct ? 'background:#f0fdf4;color:#16a34a' : 'background:#fef2f2;color:#dc2626') + '">'
+    + (correct ? '✅ 正确！' : '❌ 错误！正确答案：' + q.correctText)
+    + '</div>';
+  var cardEl = page.querySelector('[style*="border-radius:var(--radius)"]');
+  if (cardEl) {
+    cardEl.insertAdjacentHTML('beforeend', feedbackHtml);
+  }
+
+  // Disable all option buttons
+  var chips = page.querySelectorAll('.filter-chip');
+  chips.forEach(function(c, i) {
+    c.style.pointerEvents = 'none';
+    c.style.opacity = i === q.ans ? '1' : '0.5';
+  });
+
+  setTimeout(function() {
+    advanceTopik();
+  }, 1200);
+}
+
+function submitTopikFill() {
+  var inp = document.getElementById('topikFillInput');
+  if (!inp) return;
+  var userAnswer = inp.value.trim();
+  var q = topikState.questions[topikState.idx];
+  var correct = userAnswer.toLowerCase() === q.correctText.toLowerCase();
+  topikState.answers[topikState.idx] = correct ? 1 : 0;
+
+  var page = document.getElementById('reviewContent');
+  inp.disabled = true;
+  var feedbackHtml = '<div style="padding:12px;margin-top:8px;border-radius:8px;font-size:14px;' + (correct ? 'background:#f0fdf4;color:#16a34a' : 'background:#fef2f2;color:#dc2626') + '">'
+    + '你的答案：<b>' + userAnswer + '</b><br>'
+    + (correct ? '✅ 正确！' : '❌ 答案：' + q.correctText)
+    + '</div>';
+  var cardEl = page.querySelector('[style*="border-radius:var(--radius)"]');
+  if (cardEl) cardEl.insertAdjacentHTML('beforeend', feedbackHtml);
+
+  setTimeout(function() {
+    advanceTopik();
+  }, 1500);
+}
+
+function advanceTopik() {
+  topikState.idx++;
+  if (topikState.idx >= topikState.questions.length) {
+    renderTopikResult();
+  } else {
+    renderTopikQuestion();
+  }
+}
+
+function renderTopikResult() {
+  var page = document.getElementById('reviewContent');
+  var total = topikState.questions.length;
+  var score = 0;
+  for (var i = 0; i < topikState.answers.length; i++) {
+    if (topikState.answers[i] === 1) score++;
+  }
+  var pct = Math.round((score / total) * 100);
+  var pctCorrect = Math.round((score / total) * 100);
+
+  // Level mapping
+  var level, levelDesc, levelColor, levelEmoji;
+  if (pct >= 95) { level = '6급'; levelDesc = '高级·精通'; levelColor = '#7c3aed'; levelEmoji = '👑'; }
+  else if (pct >= 85) { level = '5급'; levelDesc = '高级·流利'; levelColor = '#2563eb'; levelEmoji = '🌟'; }
+  else if (pct >= 70) { level = '4급'; levelDesc = '中高级'; levelColor = '#16a34a'; levelEmoji = '📗'; }
+  else if (pct >= 55) { level = '3급'; levelDesc = '中级'; levelColor = '#ca8a04'; levelEmoji = '📙'; }
+  else if (pct >= 40) { level = '2급'; levelDesc = '初级上'; levelColor = '#ea580c'; levelEmoji = '📒'; }
+  else { level = '1급'; levelDesc = '初级入门'; levelColor = '#dc2626'; levelEmoji = '📕'; }
+
+  var html = '<div style="font-size:16px;font-weight:600;margin-bottom:16px">🏆 测试结果</div>';
+
+  // Score card
+  html += '<div style="background:var(--card);border-radius:var(--radius);padding:24px;text-align:center;margin-bottom:12px">';
+  html += '<div style="font-size:64px;margin-bottom:8px">' + levelEmoji + '</div>';
+  html += '<div style="font-size:36px;font-weight:800;color:' + levelColor + ';margin-bottom:4px">' + level + '</div>';
+  html += '<div style="font-size:16px;color:' + levelColor + ';margin-bottom:16px">' + levelDesc + '</div>';
+  html += '<div style="display:flex;gap:12px;justify-content:center;margin-bottom:8px">';
+  html += '<div style="background:var(--bg);border-radius:12px;padding:12px 20px"><div style="font-size:24px;font-weight:700;color:var(--primary)">' + score + '</div><div style="font-size:11px;color:var(--text-light)">正确</div></div>';
+  html += '<div style="background:var(--bg);border-radius:12px;padding:12px 20px"><div style="font-size:24px;font-weight:700;color:var(--text-secondary)">' + total + '</div><div style="font-size:11px;color:var(--text-light)">总题数</div></div>';
+  html += '<div style="background:var(--bg);border-radius:12px;padding:12px 20px"><div style="font-size:24px;font-weight:700;color:var(--primary)">' + pctCorrect + '%</div><div style="font-size:11px;color:var(--text-light)">正确率</div></div>';
+  html += '</div>';
+
+  // Progress bar
+  html += '<div style="height:12px;background:var(--border);border-radius:6px;margin-top:8px">';
+  html += '<div style="height:12px;background:' + levelColor + ';border-radius:6px;width:' + pct + '%"></div>';
+  html += '</div>';
+  html += '</div>';
+
+  // Category breakdown
+  var cats = {};
+  for (var ci = 0; ci < topikState.questions.length; ci++) {
+    var cq = topikState.questions[ci];
+    var typeLabel = cq.type === 'vocab' ? '词汇' : cq.type === 'grammar' ? '语法' : '阅读';
+    if (!cats[typeLabel]) cats[typeLabel] = { total: 0, correct: 0 };
+    cats[typeLabel].total++;
+    if (topikState.answers[ci] === 1) cats[typeLabel].correct++;
+  }
+
+  html += '<div style="background:var(--card);border-radius:var(--radius);padding:16px;margin-bottom:12px">';
+  html += '<div style="font-size:14px;font-weight:600;margin-bottom:10px">📊 分类统计</div>';
+  var catKeys = Object.keys(cats);
+  for (var ck = 0; ck < catKeys.length; ck++) {
+    var cat = cats[catKeys[ck]];
+    var catPct = Math.round((cat.correct / cat.total) * 100);
+    var catColor = catPct >= 70 ? '#16a34a' : catPct >= 40 ? '#ca8a04' : '#dc2626';
+    html += '<div style="display:flex;align-items:center;margin-bottom:8px;font-size:13px">';
+    html += '<span style="min-width:50px;font-weight:600">' + catKeys[ck] + '</span>';
+    html += '<div style="flex:1;height:8px;background:var(--border);border-radius:4px;margin:0 8px"><div style="height:8px;background:' + catColor + ';border-radius:4px;width:' + catPct + '%"></div></div>';
+    html += '<span style="min-width:50px;text-align:right;color:' + catColor + '">' + cat.correct + '/' + cat.total + '</span>';
+    html += '</div>';
+  }
+  html += '</div>';
+
+  // Recommendations
+  html += '<div style="background:var(--card);border-radius:var(--radius);padding:16px;margin-bottom:16px">';
+  html += '<div style="font-size:14px;font-weight:600;margin-bottom:8px">💡 学习建议</div>';
+  html += '<div style="font-size:13px;color:var(--text-secondary);line-height:1.8">';
+  if (pct >= 85) html += '🎉 非常优秀！你已经达到高级水平，建议多阅读韩语新闻和原著小说巩固。';
+  else if (pct >= 70) html += '👍 表现不错！建议多做中高级语法练习，扩大词汇量至3000+词。';
+  else if (pct >= 55) html += '📚 中级水平。重点突破间接引用、使动被动、连接词尾等中高级语法。';
+  else if (pct >= 40) html += '📖 初级阶段。建议每天背诵20个单词，系统学习基本句型和时态。';
+  else html += '🌱 入门阶段。建议先熟悉韩文字母（한글），掌握基本发音规则后再开始词汇学习。';
+  html += '</div>';
+  html += '</div>';
+
+  // Buttons
+  html += '<div style="display:flex;gap:8px">';
+  html += '<button class="qs-start-btn" style="flex:1;background:var(--bg);color:var(--text);border:1px solid var(--border)" onclick="renderTopik()">返回设置</button>';
+  html += '<button class="qs-start-btn" style="flex:1" onclick="startTopikTest()">再来一次</button>';
+  html += '</div>';
+
+  page.innerHTML = html;
+  renderReviewNav();
+}
+
+// Helper: shuffle array (if not already defined)
+function shuffle(arr) {
+  for (var i = arr.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var tmp = arr[i]; arr[i] = arr[j]; arr[j] = tmp;
+  }
+  return arr;
 }
 
 
