@@ -7472,14 +7472,18 @@ function renderConjTable() {
     + '<tr><td>将来</td><td>' + cell(v.future, v.future_r) + '</td><td>—</td></tr>'
     + '</table>'
     + '<div style="margin-top:8px;font-size:12px;color:var(--text-secondary);text-align:center">词干: ' + v.stem + ' · ' + v.meaning + ' · ' + (v.type==='regular'?'规则动词':v.type==='hada'?'하다动词':'不规则动词') + '</div>';
-  // event delegation — set once, survives innerHTML changes
+  // event delegation — manual walk-up (Text nodes lack .closest on mobile!)
   if (!table._conjDelegated) {
     table._conjDelegated = true;
     table.addEventListener('click', function(e) {
-      var el = e.target.closest('.str-speak');
-      if (!el) return;
-      var text = el.getAttribute('data-ko');
-      if (text) { e.stopPropagation(); speakSimple(text); }
+      var node = e.target;
+      while (node && node !== table) {
+        if (node.classList && node.classList.contains('str-speak')) break;
+        node = node.parentElement;
+      }
+      if (!node || node === table) return;
+      var text = node.getAttribute('data-ko');
+      if (text) { e.stopPropagation(); speak(text); }
     });
   }
 }
@@ -7508,10 +7512,14 @@ function renderConjugation_legacy() {
   if (!table._conjDelegated) {
     table._conjDelegated = true;
     table.addEventListener('click', function(e) {
-      var el = e.target.closest('.str-speak');
-      if (!el) return;
-      var text = el.getAttribute('data-ko');
-      if (text) { e.stopPropagation(); speakSimple(text); }
+      var node = e.target;
+      while (node && node !== table) {
+        if (node.classList && node.classList.contains('str-speak')) break;
+        node = node.parentElement;
+      }
+      if (!node || node === table) return;
+      var text = node.getAttribute('data-ko');
+      if (text) { e.stopPropagation(); speak(text); }
     });
   }
 }
