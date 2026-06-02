@@ -4676,6 +4676,27 @@ function speakKo(text) {
   }
 }
 
+// ── speakSimple: 变位表专用，每次新建 Audio，不依赖共享 _ttsAudio 状态
+// 百度 TTS → 失败则 fallback speechSynthesis
+function speakSimple(text) {
+  if (!text) return;
+  showToast('🔊 ' + (text.length > 15 ? text.slice(0, 15) + '...' : text));
+  var a = new Audio('https://fanyi.baidu.com/gettts?lan=kor&text=' + encodeURIComponent(text) + '&spd=3&source=web');
+  a.volume = 1;
+  a.play().then(function() {}).catch(function(e) {
+    console.log('speakSimple Baidu TTS failed:', e.message || e.name || '');
+    if ('speechSynthesis' in window) {
+      speechSynthesis.cancel();
+      var u = new SpeechSynthesisUtterance(text);
+      u.lang = 'ko-KR';
+      u.rate = 0.85;
+      speechSynthesis.speak(u);
+    } else {
+      showToast('发音失败，请检查网络');
+    }
+  });
+}
+
 function showConfetti() {
   const container = document.createElement('div');
   container.className = 'confetti-container';
@@ -7422,7 +7443,7 @@ function renderConjTable() {
   function cell(k, r) {
     return '<div style="display:flex;align-items:center;justify-content:center;gap:4px;flex-wrap:wrap">'
       + '<span style="font-size:13px">' + k + '</span>'
-      + '<span class="str-speak" style="font-size:11px;padding:1px 4px;margin:0" onclick="event.stopPropagation();speak(\'' + esc(k) + '\')" title="听发音">🔊</span>'
+      + '<span class="str-speak" style="font-size:11px;padding:1px 4px;margin:0" onclick="event.stopPropagation();speakSimple(\'' + esc(k) + '\')" title="听发音">🔊</span>'
       + '<div style="font-size:11px;color:var(--text-light);width:100%">[' + r + ']</div>'
       + '</div>';
   }
@@ -7445,7 +7466,7 @@ function renderConjugation_legacy() {
   function cell2(k, r) {
     return '<div style="display:flex;align-items:center;justify-content:center;gap:4px;flex-wrap:wrap">'
       + '<span style="font-size:13px">' + k + '</span>'
-      + '<span class="str-speak" style="font-size:11px;padding:1px 4px;margin:0" onclick="event.stopPropagation();speak(\'' + esc(k) + '\')" title="听发音">🔊</span>'
+      + '<span class="str-speak" style="font-size:11px;padding:1px 4px;margin:0" onclick="event.stopPropagation();speakSimple(\'' + esc(k) + '\')" title="听发音">🔊</span>'
       + '<div style="font-size:11px;color:var(--text-light);width:100%">[' + r + ']</div>'
       + '</div>';
   }
