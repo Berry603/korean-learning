@@ -7422,7 +7422,7 @@ function renderConjTable() {
   function cell(k, r) {
     return '<div style="display:flex;align-items:center;justify-content:center;gap:4px;flex-wrap:wrap">'
       + '<span style="font-size:13px">' + k + '</span>'
-      + '<span class="str-speak" style="font-size:11px;padding:1px 4px;margin:0" onclick="event.stopPropagation();speakKo(\'' + esc(k) + '\')" title="听发音">🔊</span>'
+      + '<span class="str-speak" style="font-size:11px;padding:1px 4px;margin:0" onclick="event.stopPropagation();speak(\'' + esc(k) + '\')" title="听发音">🔊</span>'
       + '<div style="font-size:11px;color:var(--text-light);width:100%">[' + r + ']</div>'
       + '</div>';
   }
@@ -7445,7 +7445,7 @@ function renderConjugation_legacy() {
   function cell2(k, r) {
     return '<div style="display:flex;align-items:center;justify-content:center;gap:4px;flex-wrap:wrap">'
       + '<span style="font-size:13px">' + k + '</span>'
-      + '<span class="str-speak" style="font-size:11px;padding:1px 4px;margin:0" onclick="event.stopPropagation();speakKo(\'' + esc(k) + '\')" title="听发音">🔊</span>'
+      + '<span class="str-speak" style="font-size:11px;padding:1px 4px;margin:0" onclick="event.stopPropagation();speak(\'' + esc(k) + '\')" title="听发音">🔊</span>'
       + '<div style="font-size:11px;color:var(--text-light);width:100%">[' + r + ']</div>'
       + '</div>';
   }
