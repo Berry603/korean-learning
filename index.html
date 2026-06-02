@@ -4638,83 +4638,6 @@ function speakFallback(text) {
   }, 80);
 }
 
-// ── speakKo: 直接用浏览器 speechSynthesis 朗读韩语，不走 CORS 百度 API
-// 专用于变位表/语法卡片等内嵌按钮，避免跨域拦截
-function speakKo(text) {
-  if (!text || !text.trim()) return;
-  if (!('speechSynthesis' in window)) { showToast('当前浏览器不支持语音合成'); return; }
-
-  showToast('🔊 ' + (text.length > 15 ? text.slice(0, 15) + '...' : text));
-  speechSynthesis.cancel();
-
-  // 等待 voices 加载（部分浏览器首次需要等）
-  function doSpeak() {
-    var u = new SpeechSynthesisUtterance(text);
-    u.lang = 'ko-KR';
-    u.rate = 0.85;
-    u.volume = 1;
-    u.pitch = 1;
-    var voices = speechSynthesis.getVoices();
-    var kv = voices.find(function(v) { return v.lang && v.lang.startsWith('ko'); });
-    if (kv) u.voice = kv;
-    u.onerror = function(e) {
-      if (e.error !== 'canceled' && e.error !== 'interrupted') showToast('发音失败: ' + (e.error || ''));
-    };
-    speechSynthesis.speak(u);
-  }
-
-  var voices = speechSynthesis.getVoices();
-  if (voices.length > 0) {
-    doSpeak();
-  } else {
-    speechSynthesis.onvoiceschanged = function() {
-      speechSynthesis.onvoiceschanged = null;
-      doSpeak();
-    };
-    // 500ms 后若还没加载就直接尝试（无语音包也能用默认合成）
-    setTimeout(function() { if (!speechSynthesis.speaking) doSpeak(); }, 500);
-  }
-}
-
-// ── speakSimple: 变位表专用
-// 关键：Audio 元素必须 append 到 DOM，移动端 play() 才不会被拒
-// 完全复用 speak() 的链路：removeAttribute('src') → .src=url → .load() → .play()
-function speakSimple(text) {
-  if (!text) return;
-  showToast('🔊 ' + (text.length > 15 ? text.slice(0, 15) + '...' : text));
-  var a = document.createElement('audio');
-  a.style.display = 'none';
-  a.volume = 1;
-  document.body.appendChild(a);
-
-  var url = 'https://fanyi.baidu.com/gettts?lan=kor&text=' + encodeURIComponent(text) + '&spd=3&source=web';
-  var played = false;
-  a.onplay = function() { played = true; };
-  a.onerror = function() { if (!played) fallback(); cleanup(); };
-  a.onended = function() { cleanup(); };
-
-  function cleanup() { try { if (a.parentNode) a.parentNode.removeChild(a); } catch(_) {} }
-  function fallback() {
-    if ('speechSynthesis' in window) {
-      speechSynthesis.cancel();
-      var u = new SpeechSynthesisUtterance(text);
-      u.lang = 'ko-KR'; u.rate = 0.85;
-      speechSynthesis.speak(u);
-    } else {
-      showToast('发音失败，请检查网络');
-    }
-  }
-
-  // 与 speak() 完全一致的加载序列
-  a.removeAttribute('src');
-  a.src = url;
-  a.load();
-  var p = a.play();
-  if (p && p.then) {
-    p.then(function() {}).catch(function() { if (!played) fallback(); cleanup(); });
-  }
-}
-
 function showConfetti() {
   const container = document.createElement('div');
   container.className = 'confetti-container';
@@ -7457,11 +7380,10 @@ function renderConjTable() {
   var v = CONJUGATION_VERBS[vid];
   if (!v) return;
   var table = document.getElementById('conjTable');
-  function escHtml(s) { return s.replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
   function cell(k, r) {
     return '<div style="display:flex;align-items:center;justify-content:center;gap:4px;flex-wrap:wrap">'
       + '<span style="font-size:13px">' + k + '</span>'
-      + '<span class="str-speak" style="font-size:11px;padding:1px 4px;margin:0" data-ko="' + escHtml(k) + '" title="听发音">🔊</span>'
+      + '<span class="str-speak" style="font-size:11px;padding:1px 4px;margin:0" onclick="event.stopPropagation();speak(\'' + k.replace(/'/g,"\\'") + '\')" title="听发音">🔊</span>'
       + '<div style="font-size:11px;color:var(--text-light);width:100%">[' + r + ']</div>'
       + '</div>';
   }
@@ -7472,20 +7394,6 @@ function renderConjTable() {
     + '<tr><td>将来</td><td>' + cell(v.future, v.future_r) + '</td><td>—</td></tr>'
     + '</table>'
     + '<div style="margin-top:8px;font-size:12px;color:var(--text-secondary);text-align:center">词干: ' + v.stem + ' · ' + v.meaning + ' · ' + (v.type==='regular'?'规则动词':v.type==='hada'?'하다动词':'不规则动词') + '</div>';
-  // event delegation — manual walk-up (Text nodes lack .closest on mobile!)
-  if (!table._conjDelegated) {
-    table._conjDelegated = true;
-    table.addEventListener('click', function(e) {
-      var node = e.target;
-      while (node && node !== table) {
-        if (node.classList && node.classList.contains('str-speak')) break;
-        node = node.parentElement;
-      }
-      if (!node || node === table) return;
-      var text = node.getAttribute('data-ko');
-      if (text) { e.stopPropagation(); speak(text); }
-    });
-  }
 }
 
 function renderConjugation_legacy() {
@@ -7494,11 +7402,10 @@ function renderConjugation_legacy() {
   var v = CONJUGATION_VERBS[vid];
   if (!v) return;
   var table = document.getElementById('conjTable');
-  function escHtml(s) { return s.replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
   function cell2(k, r) {
     return '<div style="display:flex;align-items:center;justify-content:center;gap:4px;flex-wrap:wrap">'
       + '<span style="font-size:13px">' + k + '</span>'
-      + '<span class="str-speak" style="font-size:11px;padding:1px 4px;margin:0" data-ko="' + escHtml(k) + '" title="听发音">🔊</span>'
+      + '<span class="str-speak" style="font-size:11px;padding:1px 4px;margin:0" onclick="event.stopPropagation();speak(\'' + k.replace(/'/g,"\\'") + '\')" title="听发音">🔊</span>'
       + '<div style="font-size:11px;color:var(--text-light);width:100%">[' + r + ']</div>'
       + '</div>';
   }
@@ -7509,19 +7416,6 @@ function renderConjugation_legacy() {
     + '<tr><td>将来</td><td>' + cell2(v.future, v.future_r) + '</td><td>—</td></tr>'
     + '</table>'
     + '<div style="margin-top:8px;font-size:12px;color:var(--text-secondary);text-align:center">词干: ' + v.stem + ' · 类型: ' + (v.type==='regular'?'规则':v.type==='hada'?'하다动词':'不规则') + '</div>';
-  if (!table._conjDelegated) {
-    table._conjDelegated = true;
-    table.addEventListener('click', function(e) {
-      var node = e.target;
-      while (node && node !== table) {
-        if (node.classList && node.classList.contains('str-speak')) break;
-        node = node.parentElement;
-      }
-      if (!node || node === table) return;
-      var text = node.getAttribute('data-ko');
-      if (text) { e.stopPropagation(); speak(text); }
-    });
-  }
 }
 
 // ============================================================
