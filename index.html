@@ -4638,6 +4638,44 @@ function speakFallback(text) {
   }, 80);
 }
 
+// ── speakKo: 直接用浏览器 speechSynthesis 朗读韩语，不走 CORS 百度 API
+// 专用于变位表/语法卡片等内嵌按钮，避免跨域拦截
+function speakKo(text) {
+  if (!text || !text.trim()) return;
+  if (!('speechSynthesis' in window)) { showToast('当前浏览器不支持语音合成'); return; }
+
+  showToast('🔊 ' + (text.length > 15 ? text.slice(0, 15) + '...' : text));
+  speechSynthesis.cancel();
+
+  // 等待 voices 加载（部分浏览器首次需要等）
+  function doSpeak() {
+    var u = new SpeechSynthesisUtterance(text);
+    u.lang = 'ko-KR';
+    u.rate = 0.85;
+    u.volume = 1;
+    u.pitch = 1;
+    var voices = speechSynthesis.getVoices();
+    var kv = voices.find(function(v) { return v.lang && v.lang.startsWith('ko'); });
+    if (kv) u.voice = kv;
+    u.onerror = function(e) {
+      if (e.error !== 'canceled' && e.error !== 'interrupted') showToast('发音失败: ' + (e.error || ''));
+    };
+    speechSynthesis.speak(u);
+  }
+
+  var voices = speechSynthesis.getVoices();
+  if (voices.length > 0) {
+    doSpeak();
+  } else {
+    speechSynthesis.onvoiceschanged = function() {
+      speechSynthesis.onvoiceschanged = null;
+      doSpeak();
+    };
+    // 500ms 后若还没加载就直接尝试（无语音包也能用默认合成）
+    setTimeout(function() { if (!speechSynthesis.speaking) doSpeak(); }, 500);
+  }
+}
+
 function showConfetti() {
   const container = document.createElement('div');
   container.className = 'confetti-container';
@@ -7384,7 +7422,7 @@ function renderConjTable() {
   function cell(k, r) {
     return '<div style="display:flex;align-items:center;justify-content:center;gap:4px;flex-wrap:wrap">'
       + '<span style="font-size:13px">' + k + '</span>'
-      + '<span class="str-speak" style="font-size:11px;padding:1px 4px;margin:0" onclick="event.stopPropagation();speak(\'' + esc(k) + '\')" title="听发音">🔊</span>'
+      + '<span class="str-speak" style="font-size:11px;padding:1px 4px;margin:0" onclick="event.stopPropagation();speakKo(\'' + esc(k) + '\')" title="听发音">🔊</span>'
       + '<div style="font-size:11px;color:var(--text-light);width:100%">[' + r + ']</div>'
       + '</div>';
   }
@@ -7407,7 +7445,7 @@ function renderConjugation_legacy() {
   function cell2(k, r) {
     return '<div style="display:flex;align-items:center;justify-content:center;gap:4px;flex-wrap:wrap">'
       + '<span style="font-size:13px">' + k + '</span>'
-      + '<span class="str-speak" style="font-size:11px;padding:1px 4px;margin:0" onclick="event.stopPropagation();speak(\'' + esc(k) + '\')" title="听发音">🔊</span>'
+      + '<span class="str-speak" style="font-size:11px;padding:1px 4px;margin:0" onclick="event.stopPropagation();speakKo(\'' + esc(k) + '\')" title="听发音">🔊</span>'
       + '<div style="font-size:11px;color:var(--text-light);width:100%">[' + r + ']</div>'
       + '</div>';
   }
