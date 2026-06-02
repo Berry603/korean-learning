@@ -4494,28 +4494,69 @@ function escapeHtml(s) {
 
 var _ttsAudio = null;
 
+var _audioBlobUrl = null;
+
 function speak(text) {
   var hasChinese = /[\u4e00-\u9fff]/.test(text);
   var hasKorean = /[\uac00-\ud7af]/.test(text);
 
-  // Mixed CN+KR text → split into segments, play each with correct TTS
   if (hasChinese && hasKorean) {
     speakSegmented(text);
     return;
   }
 
-  // Single-language text → direct TTS
   if (!_ttsAudio) _ttsAudio = document.getElementById('ttsAudio');
   if (!_ttsAudio) return;
 
   _ttsAudio.pause();
   _ttsAudio.removeAttribute('src');
+  if (_audioBlobUrl) { URL.revokeObjectURL(_audioBlobUrl); _audioBlobUrl = null; }
   if ('speechSynthesis' in window) { speechSynthesis.cancel(); }
 
-  // Muted toast — show short text only, not full sentence
   showToast('🔊 ' + (text.length > 15 ? text.slice(0, 15) + '...' : text));
 
   var lan = hasChinese ? 'zh' : 'kor';
+  var gLan = hasChinese ? 'zh-CN' : 'ko';
+
+  // ── fetch as blob → blob URL (same-origin) bypasses mobile cross-origin audio restrictions
+  var googleUrl = 'https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=' + gLan + '&q=' + encodeURIComponent(text);
+
+  var cancelled = false;
+  var tid = setTimeout(function() { cancelled = true; playBaiduFallback(text, lan); }, 4000);
+
+  fetch(googleUrl)
+    .then(function(r) {
+      if (cancelled) throw new Error('cancelled');
+      if (!r.ok) throw new Error('status:' + r.status);
+      return r.blob();
+    })
+    .then(function(blob) {
+      if (cancelled) return;
+      clearTimeout(tid);
+      _audioBlobUrl = URL.createObjectURL(blob);
+      _ttsAudio.src = _audioBlobUrl;
+      _ttsAudio.volume = 1;
+      _ttsAudio.muted = false;
+      _ttsAudio.load();
+      var p = _ttsAudio.play();
+      if (p && p.then) {
+        p.then(function() {}).catch(function() {
+          speakFallback(text);
+        });
+      }
+    })
+    .catch(function(e) {
+      if (cancelled) return;
+      clearTimeout(tid);
+      playBaiduFallback(text, lan);
+    });
+}
+
+function playBaiduFallback(text, lan) {
+  _ttsAudio.pause();
+  _ttsAudio.removeAttribute('src');
+  if (_audioBlobUrl) { URL.revokeObjectURL(_audioBlobUrl); _audioBlobUrl = null; }
+
   var url = 'https://fanyi.baidu.com/gettts?lan=' + lan + '&text=' + encodeURIComponent(text) + '&spd=3&source=web';
 
   var played = false;
@@ -4532,8 +4573,7 @@ function speak(text) {
 
   var p = _ttsAudio.play();
   if (p && p.then) {
-    p.then(function() {}).catch(function(e) {
-      showToast('play() 被拦截: ' + (e.message || e.name || 'unknown'));
+    p.then(function() {}).catch(function() {
       if (!played) speakFallback(text);
     });
   }
