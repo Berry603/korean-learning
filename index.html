@@ -4676,25 +4676,43 @@ function speakKo(text) {
   }
 }
 
-// ── speakSimple: 变位表专用，每次新建 Audio，不依赖共享 _ttsAudio 状态
-// 百度 TTS → 失败则 fallback speechSynthesis
+// ── speakSimple: 变位表专用
+// 关键：Audio 元素必须 append 到 DOM，移动端 play() 才不会被拒
+// 完全复用 speak() 的链路：removeAttribute('src') → .src=url → .load() → .play()
 function speakSimple(text) {
   if (!text) return;
   showToast('🔊 ' + (text.length > 15 ? text.slice(0, 15) + '...' : text));
-  var a = new Audio('https://fanyi.baidu.com/gettts?lan=kor&text=' + encodeURIComponent(text) + '&spd=3&source=web');
+  var a = document.createElement('audio');
+  a.style.display = 'none';
   a.volume = 1;
-  a.play().then(function() {}).catch(function(e) {
-    console.log('speakSimple Baidu TTS failed:', e.message || e.name || '');
+  document.body.appendChild(a);
+
+  var url = 'https://fanyi.baidu.com/gettts?lan=kor&text=' + encodeURIComponent(text) + '&spd=3&source=web';
+  var played = false;
+  a.onplay = function() { played = true; };
+  a.onerror = function() { if (!played) fallback(); cleanup(); };
+  a.onended = function() { cleanup(); };
+
+  function cleanup() { try { if (a.parentNode) a.parentNode.removeChild(a); } catch(_) {} }
+  function fallback() {
     if ('speechSynthesis' in window) {
       speechSynthesis.cancel();
       var u = new SpeechSynthesisUtterance(text);
-      u.lang = 'ko-KR';
-      u.rate = 0.85;
+      u.lang = 'ko-KR'; u.rate = 0.85;
       speechSynthesis.speak(u);
     } else {
       showToast('发音失败，请检查网络');
     }
-  });
+  }
+
+  // 与 speak() 完全一致的加载序列
+  a.removeAttribute('src');
+  a.src = url;
+  a.load();
+  var p = a.play();
+  if (p && p.then) {
+    p.then(function() {}).catch(function() { if (!played) fallback(); cleanup(); });
+  }
 }
 
 function showConfetti() {
