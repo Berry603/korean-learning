@@ -7420,10 +7420,11 @@ function renderConjTable() {
   var v = CONJUGATION_VERBS[vid];
   if (!v) return;
   var table = document.getElementById('conjTable');
+  function escHtml(s) { return s.replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
   function cell(k, r) {
     return '<div style="display:flex;align-items:center;justify-content:center;gap:4px;flex-wrap:wrap">'
       + '<span style="font-size:13px">' + k + '</span>'
-      + '<span class="str-speak" style="font-size:11px;padding:1px 4px;margin:0" onclick="event.stopPropagation();speak(\'' + k.replace(/'/g,"\\'") + '\')" title="听发音">🔊</span>'
+      + '<span class="str-speak" style="font-size:14px;padding:3px 6px;margin:0;cursor:pointer" data-ko="' + escHtml(k) + '" title="听发音">🔊</span>'
       + '<div style="font-size:11px;color:var(--text-light);width:100%">[' + r + ']</div>'
       + '</div>';
   }
@@ -7434,6 +7435,17 @@ function renderConjTable() {
     + '<tr><td>将来</td><td>' + cell(v.future, v.future_r) + '</td><td>—</td></tr>'
     + '</table>'
     + '<div style="margin-top:8px;font-size:12px;color:var(--text-secondary);text-align:center">词干: ' + v.stem + ' · ' + v.meaning + ' · ' + (v.type==='regular'?'规则动词':v.type==='hada'?'하다动词':'不规则动词') + '</div>';
+  // iOS WKWebView does NOT execute inline onclick from innerHTML. Must bind after DOM insertion.
+  var btns = table.querySelectorAll('.str-speak');
+  for (var i = 0; i < btns.length; i++) {
+    (function(el) {
+      el.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var text = el.getAttribute('data-ko');
+        if (text) speak(text);
+      });
+    })(btns[i]);
+  }
 }
 
 function renderConjugation_legacy() {
@@ -7442,10 +7454,11 @@ function renderConjugation_legacy() {
   var v = CONJUGATION_VERBS[vid];
   if (!v) return;
   var table = document.getElementById('conjTable');
+  function escHtml(s) { return s.replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
   function cell2(k, r) {
     return '<div style="display:flex;align-items:center;justify-content:center;gap:4px;flex-wrap:wrap">'
       + '<span style="font-size:13px">' + k + '</span>'
-      + '<span class="str-speak" style="font-size:11px;padding:1px 4px;margin:0" onclick="event.stopPropagation();speak(\'' + k.replace(/'/g,"\\'") + '\')" title="听发音">🔊</span>'
+      + '<span class="str-speak" style="font-size:14px;padding:3px 6px;margin:0;cursor:pointer" data-ko="' + escHtml(k) + '" title="听发音">🔊</span>'
       + '<div style="font-size:11px;color:var(--text-light);width:100%">[' + r + ']</div>'
       + '</div>';
   }
@@ -7456,6 +7469,16 @@ function renderConjugation_legacy() {
     + '<tr><td>将来</td><td>' + cell2(v.future, v.future_r) + '</td><td>—</td></tr>'
     + '</table>'
     + '<div style="margin-top:8px;font-size:12px;color:var(--text-secondary);text-align:center">词干: ' + v.stem + ' · 类型: ' + (v.type==='regular'?'规则':v.type==='hada'?'하다动词':'不规则') + '</div>';
+  var btns = table.querySelectorAll('.str-speak');
+  for (var i = 0; i < btns.length; i++) {
+    (function(el) {
+      el.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var text = el.getAttribute('data-ko');
+        if (text) speak(text);
+      });
+    })(btns[i]);
+  }
 }
 
 // ============================================================
